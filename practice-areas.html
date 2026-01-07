@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Peerali Law Practice Areas - Catastrophic injuries, car accidents, brain injuries, wrongful death, and more. Los Angeles personal injury attorneys with $50M+ recovered.">
+    <meta name="keywords" content="practice areas, personal injury lawyer, catastrophic injury, car accident attorney, wrongful death lawyer, Los Angeles">
+    <title>Practice Areas | Peerali Law - Los Angeles Personal Injury Attorneys</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Navigation CSS -->
+    <link rel="stylesheet" href="assets/css/navigation.css">
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Practice Areas Animated Styles -->
+    <style>
+        /* Practice Areas Grid Enhancements */
+        .practice-areas-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .practice-areas-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .practice-areas-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Animated Practice Card */
+        .practice-area-card {
+            background: var(--bg-white);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            text-decoration: none;
+            display: block;
+        }
+
+        .practice-area-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(197, 165, 114, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .practice-area-card:hover::before {
+            left: 100%;
+        }
+
+        .practice-area-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--accent-gold);
+        }
+
+        /* Animated Icon Container */
+        .practice-icon-animated {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-navy-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .practice-icon-animated::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, var(--accent-gold), var(--primary-navy), var(--accent-gold));
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .practice-area-card:hover .practice-icon-animated::before {
+            opacity: 1;
+        }
+
+        .practice-icon-animated i {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            transition: all 0.4s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .practice-area-card:hover .practice-icon-animated i {
+            transform: scale(1.2) rotate(10deg);
+            color: white;
+        }
+
+        .practice-area-card:hover .practice-icon-animated {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #d4b886 100%);
+            transform: scale(1.1);
+        }
+
+        /* Practice Card Content */
+        .practice-card-title {
+            color: var(--primary-navy);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .practice-area-card:hover .practice-card-title {
+            color: var(--accent-gold);
+        }
+
+        .practice-card-description {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .practice-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 0.9375rem;
+            transition: all 0.3s ease;
+        }
+
+        .practice-card-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .practice-area-card:hover .practice-card-link i {
+            transform: translateX(5px);
+        }
+
+        /* Pulse Animation for Featured Cards */
+        .featured-practice {
+            animation: pulse-border 2s infinite;
+        }
+
+        @keyframes pulse-border {
+            0%, 100% {
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            50% {
+                box-shadow: 0 0 0 4px rgba(197, 165, 114, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        /* Scroll Reveal Animations */
+        .reveal-practice {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .reveal-practice.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger delay for cards */
+        .reveal-practice:nth-child(1) { transition-delay: 0.1s; }
+        .reveal-practice:nth-child(2) { transition-delay: 0.2s; }
+        .reveal-practice:nth-child(3) { transition-delay: 0.3s; }
+        .reveal-practice:nth-child(4) { transition-delay: 0.1s; }
+        .reveal-practice:nth-child(5) { transition-delay: 0.2s; }
+        .reveal-practice:nth-child(6) { transition-delay: 0.3s; }
+        .reveal-practice:nth-child(7) { transition-delay: 0.1s; }
+        .reveal-practice:nth-child(8) { transition-delay: 0.2s; }
+        .reveal-practice:nth-child(9) { transition-delay: 0.3s; }
+        .reveal-practice:nth-child(10) { transition-delay: 0.1s; }
+        .reveal-practice:nth-child(11) { transition-delay: 0.2s; }
+        .reveal-practice:nth-child(12) { transition-delay: 0.3s; }
+        .reveal-practice:nth-child(13) { transition-delay: 0.1s; }
+        .reveal-practice:nth-child(14) { transition-delay: 0.2s; }
+        .reveal-practice:nth-child(15) { transition-delay: 0.3s; }
+        .reveal-practice:nth-child(16) { transition-delay: 0.1s; }
+        .reveal-practice:nth-child(17) { transition-delay: 0.2s; }
+
+        /* Icon specific animations */
+        .pulse-icon {
+            animation: pulse-icon 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-icon {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Intro Section */
+        .practice-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .practice-intro h2 {
+            font-size: 2rem;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+        }
+
+        .practice-intro p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Stats Banner */
+        .practice-stats-banner {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-navy-dark) 100%);
+            color: white;
+            padding: 3rem 0;
+            margin: 4rem 0;
+            border-radius: 1rem;
+        }
+
+        .practice-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .practice-stat-item {
+            padding: 1.5rem;
+        }
+
+        .practice-stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .practice-stat-label {
+            font-size: 0.9375rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header id="main-header">
+        <script>
+            fetch('includes/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('main-header').innerHTML = data;
+                });
+        </script>
+    </header>
+
+    <main>
+        <!-- Breadcrumb Section -->
+        <section class="breadcrumb-section">
+            <div class="container">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Practice Areas</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Page Header -->
+        <section class="page-header-section">
+            <div class="container">
+                <div class="page-header-content">
+                    <h1 class="page-title">Practice Areas</h1>
+                    <p class="page-subtitle">Comprehensive legal representation for personal injury cases in Los Angeles</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction -->
+        <section class="practice-areas-intro-section">
+            <div class="container">
+                <div class="practice-intro">
+                    <h2>Specialized Legal Expertise for Every Type of Injury Case</h2>
+                    <p>At Peerali Law, we focus exclusively on catastrophic and complex personal injury cases. Our attorneys bring Big-Law litigation experience to every case, ensuring you receive the aggressive representation needed to maximize your compensation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Banner -->
+        <section class="practice-stats-banner">
+            <div class="container">
+                <div class="practice-stats-grid">
+                    <div class="practice-stat-item">
+                        <div class="practice-stat-number">$50M+</div>
+                        <div class="practice-stat-label">Recovered for Clients</div>
+                    </div>
+                    <div class="practice-stat-item">
+                        <div class="practice-stat-number">100+</div>
+                        <div class="practice-stat-label">Five-Star Reviews</div>
+                    </div>
+                    <div class="practice-stat-item">
+                        <div class="practice-stat-number">17</div>
+                        <div class="practice-stat-label">Practice Areas</div>
+                    </div>
+                    <div class="practice-stat-item">
+                        <div class="practice-stat-number">3</div>
+                        <div class="practice-stat-label">Trial Attorneys</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Areas Grid -->
+        <section class="practice-areas-main-section">
+            <div class="container">
+                <div class="practice-areas-grid">
+                    <!-- Catastrophic Injuries -->
+                    <a href="practice-areas/catastrophic-injury.html" class="practice-area-card featured-practice reveal-practice">
+                        <div class="practice-icon-animated">
+                            <i class="fas fa-user-injured pulse-icon"></i>
+                        </div>
+                        <h3 class="practice-card-title">Catastrophic Injuries</h3>
+                        <p class="practice-card-description">Catastrophic injuries are those which have serious and often life-changing consequences. They usually lead to time off work, rehabilitation and, in some cases, surgery.</p>
+                        <span class="practice-card-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Car Accidents -->
+                    <a href="practice-areas/car-accident.html" class="practice-area-card reveal-practice">
+                        <div class="practice-icon-animated">
+                            <i class="fas fa-car-crash"></i>
+                        </div>
+                        <h3 class="practice-card-title">Car Accidents</h3>
+                        <p class="practice-card-description">Have you suffered injuries following a rear-end collision, head-on crash, vehicle rollover, failure to yield, or other car accident in Los Angeles? No matter how minor your injuries, call Peerali Law for a free case review.</p>
+                        <span class="practice-card-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Trip & Fall -->
+                    <a href="practice-areas/trip-and-fall.html" class="practice-area-card reveal-practice">
+                        <div class="practice-icon-animated">
+                            <i class="fas fa-person-falling"></i>
+                        </div>
+                        <h3 class="practice-card-title">Trip & Fall</h3>
+                        <p class="practice-card-description">If you've tripped over and injured yourself on private or commercial property, you can claim compensation to cover your rehabilitation and medical costs.</p>
+                        <span class="practice-card-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Brain Injuries -->
+                    <a href="practice-areas/brain-injury.html" class="practice-area-card featured-practice reveal-practice">
+                        <div class="practice-icon-animated">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="practice-card-title">Brain Injuries</h3>
+                        <p class="practice-card-description">If you're suffered a serious brain injury following an accident, then you need a lawyer who can secure the compensation you deserve. Find out why Peerali Law is the top-rated lawyer for catastrophic injuries in Los Angeles.</p>
+                        <span class="practice-card-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Pedestrian Accidents -->
+                    <a href="practice-areas/pedestrian-accident.html" class="practice-area-card reveal-practice">
+                        <div class="practice-icon-animated">
+                            <i class="fas fa-person-walking"></i>
+                        </div>
+                        <h3 class="practice-card-title">Pedestrian Accidents</h3>
+                        <p class="practice-card-description">If you or a loved one has suffered injuries as a pedestrian, contact Peerali Law for a free case review. We've secured over $50 million in compensation for clients in Los Angeles.</p>
+                        <span class="practice-card-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Truck Accidents -->
+                    <a href="practice-areas/truck-accident.html" class="practice-area-card reveal-practice">
+                        <div class="practice-icon-animated">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3 class="practice-card-title">Truck Accidents</h3>
+                        <p class="practice-card-description">Trucking accidents are responsible for causing severe injuries and even fatality to others on the road. But drivers are often backed by large corporations and aggressive insurance companies—which is why you need a trail-ready attorney like Peerali Law.</p>
+                        <span class="practice-card-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Wrongful Death -->
+                    <a href="practice-areas/wrongful-death.html" class="practice-area-card featured-practice reveal-practice">
+                        <div class="practice-icon-animated">
+                            <i class="fas fa-heart-broken"></i>
+                        </div>
+                        <h3 class="practice-card-title">Wrongful Death</h3>
+                        <p class="practice-card-description">Wrongful death cases are tragic, difficult and need specialized legal skills to handle complex compensation claim. The personal injury attorneys at Peerali Law help families seek justice for the loss of loved one with care and fierce representation.</p>
+                        <span class="practice-card-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Motorcycle Accidents -->
+                    <a href="practice-areas/motorcycle-accident.html" class="practice-area-card reveal-practice">
+                        <div class="practice-icon-animated">
+                            <i class="fas fa-motorcycle"></i>
+                        </div>
+                        <h3 class="practice-card-title">Motorcycle Accidents</h3>
+                        <p class="practice-card-description">Whether you've been injured while riding a motorcycle in Los Angeles, or you've been hit by a motorbike, we can help. At Peerali Law, our personal injury attorneys are skilled and experienced at proving liability even in complex accident cases.</p>
+                        <span class="practice-card-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Sexual Abuse -->
+                    <a href="practice-areas/sexual-abuse.html" class="practice-area-card reveal-practice">
+                        <div class="practice-icon-animated">
+                            <i class="fas fa-shield-halved"></i>
+                        </div>
+                        <h3 class="practice-card-title">Sexual Abuse</h3>
+                        <p class="practice-card-description">Sexual abuse and assault are undoubtedly atrocious offenses. At Peerali Law, our injury attorneys advocate on behalf of victims to help them seek not only justice, but a sense of peace on their journey to heal and recover.</p>
+                        <span class="practice-card-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Amputation Injuries -->
+                    <a href="practice-areas/amputation-injury.html" class="practice-area-card reveal-practice">
+                        <div class="practice-icon-animated">
+                            <i class="fas fa-hand-holding-medical"></i>
+                        </div>
+                        <h3 class="practice-card-title">Amputation Injuries</h3>
+                        <p class="practice-card-description">Amputation injuries are a form of catastrophic injury, which lead to life-changing consequences and often the inability to return to work in the same capacity. Find out why Peerali Law are the top-rated law firm in Los Angeles for catastrophic injuries of this nature.</p>
+                        <span class="practice-card-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Bus Accidents -->
+                    <a href="practice-areas/bus-accident.html" class="practice-area-card reveal-practice">
+                        <div class="practice-icon-animated">
+                            <i class="fas fa-bus"></i>
+                        </div>
+                        <h3 class="practice-card-title">Bus Accidents</h3>
+                        <p class="practice-card-description">Bus accidents often lead to serious injuries, due to the size and force of the vehicle. Whether you've been injured by a bus, or were traveling in a transport vehicle when you sustained injuries, call Peerali Law for a free case review.</p>
+                        <span class="practice-card-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Funeral Home Negligence -->
+                    <a href="practice-areas/funeral-home-negligence.html" class="practice-area-card reveal-practice">
+                        <div class="practice-icon-animated">
+                            <i class="fas fa-hands-praying"></i>
+                        </div>
+                        <h3 class="practice-card-title">Funeral Home Negligence</h3>
+                        <p class="practice-card-description">Funeral homes have a duty of care to offer support, comfort and respect to families of a loved one who has passed away. But when undue suffering is caused, Peerali Law can help you pursue damages against the company.</p>
+                        <span class="practice-card-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Paralysis Injuries -->
+                    <a href="practice-areas/paralysis-injury.html" class="practice-area-card featured-practice reveal-practice">
+                        <div class="practice-icon-animated">
+                            <i class="fas fa-wheelchair pulse-icon"></i>
+                        </div>
+                        <h3 class="practice-card-title">Paralysis Injuries</h3>
+                        <p class="practice-card-description">Paralysis injuries are a form of catastrophic injury, which have life-altering consequences and usually mean the victim cannot return to work in the same capacity. Find out why Peerali Law are the top-rated law firm in Los Angeles for catastrophic & complex injuries of this nature.</p>
+                        <span class="practice-card-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Rear-end Accident -->
+                    <a href="practice-areas/rear-end-accident.html" class="practice-area-card reveal-practice">
+                        <div class="practice-icon-animated">
+                            <i class="fas fa-car-burst"></i>
+                        </div>
+                        <h3 class="practice-card-title">Rear-end Accident</h3>
+                        <p class="practice-card-description">Rear-end collisions are one of the most common types of car accident in Los Angeles. Even if your injuries and property damage is minor, call Peerali Law for a free case review.</p>
+                        <span class="practice-card-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Spinal Injuries -->
+                    <a href="practice-areas/spinal-injury.html" class="practice-area-card featured-practice reveal-practice">
+                        <div class="practice-icon-animated">
+                            <i class="fas fa-spine pulse-icon"></i>
+                        </div>
+                        <h3 class="practice-card-title">Spinal Injuries</h3>
+                        <p class="practice-card-description">Spinal injuries and spinal cord injuries are a form of catastrophic injury. They often require surgery, rehabilitation, and the inability to return to work in the same capacity. Find out why Peerali Law is the top-rated lawyer in Los Angeles for complex and catastrophic injuries of this nature.</p>
+                        <span class="practice-card-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Rideshare Accidents -->
+                    <a href="practice-areas/rideshare-accident.html" class="practice-area-card reveal-practice">
+                        <div class="practice-icon-animated">
+                            <i class="fas fa-car-side"></i>
+                        </div>
+                        <h3 class="practice-card-title">Rideshare Accidents</h3>
+                        <p class="practice-card-description">With millions of rideshare vehicles on Los Angeles roads, it's common to for accidents to involve them. However, as Uber and Lyft are backed with powerful insurance teams you need a trial-ready lawyer like Peerali Law to secure the justice you deserve.</p>
+                        <span class="practice-card-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <!-- Tesla Accidents -->
+                    <a href="practice-areas/tesla-accident.html" class="practice-area-card reveal-practice">
+                        <div class="practice-icon-animated">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="practice-card-title">Tesla Accidents</h3>
+                        <p class="practice-card-description">Electric vehicles are more and more involved in accidents that cause injuries in Los Angeles. Peerali Law is experienced in securing compensation for victims of these kinds of accidents, and can help you secure a result quickly.</p>
+                        <span class="practice-card-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section-alt">
+            <div class="container">
+                <div class="cta-content-center">
+                    <h2>Not Sure Which Practice Area Applies to Your Case?</h2>
+                    <p>Every injury case is unique. Contact us for a free consultation, and we'll help you understand your legal options and the best path forward for your situation.</p>
+                    <div class="cta-buttons">
+                        <a href="contact.html#contact-form" class="btn btn-primary btn-large">
+                            <i class="fas fa-calendar-alt"></i> Schedule Free Consultation
+                        </a>
+                        <a href="tel:+18189627071" class="btn btn-secondary btn-large">
+                            <i class="fas fa-phone"></i> Call (818) 962-7071
+                        </a>
+                    </div>
+                    <p class="cta-note">No win, no fee • Free consultation • Zero obligation</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="assets/images/logo.png" alt="Peerali Law Logo" class="footer-logo">
+                    <p>Peerali Law is a boutique law firm based in Los Angeles (Hollywood Hills) and specializing in complex and catastrophic injuries.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="case-results.html">Case Results</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Practice Areas</h4>
+                    <ul>
+                        <li><a href="practice-areas/catastrophic-injury.html">Catastrophic Injury</a></li>
+                        <li><a href="practice-areas/brain-injury.html">Brain Injury</a></li>
+                        <li><a href="practice-areas/car-accident.html">Car Accident</a></li>
+                        <li><a href="practice-areas/wrongful-death.html">Wrongful Death</a></li>
+                        <li><a href="practice-areas.html">View All</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Hollywood Office</h4>
+                    <p>3575 Cahuenga Blvd Suite 480<br>Los Angeles, CA 90068</p>
+                    <p><a href="tel:+18188555744">(818) 855-5744</a></p>
+                    <p><a href="mailto:contact@peeralilaw.com">contact@peeralilaw.com</a></p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Peerali Law. All rights reserved.</p>
+                <ul class="footer-legal">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Navigation JavaScript -->
+    <script src="assets/js/navigation.js"></script>
+
+    <!-- Scroll Reveal Animation -->
+    <script>
+        function revealPracticeCards() {
+            const cards = document.querySelectorAll('.reveal-practice');
+            const windowHeight = window.innerHeight;
+            const revealPoint = 100;
+
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+
+                if (cardTop < windowHeight - revealPoint) {
+                    card.classList.add('active');
+                }
+            });
+        }
+
+        // Run on load and scroll
+        window.addEventListener('scroll', revealPracticeCards);
+        window.addEventListener('load', revealPracticeCards);
+
+        // Initial reveal
+        revealPracticeCards();
+    </script>
+</body>
+</html>
