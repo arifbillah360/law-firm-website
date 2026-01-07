@@ -35,8 +35,7 @@
             <!-- Logo -->
             <div class="site-logo">
                 <a href="index.html" aria-label="Peerali Law Home">
-                    <img src="assets/images/logo.png" alt="Peerali Law - Los Angeles Personal Injury Attorneys" class="logo-img">
-                    <span class="logo-text">Peerali Law</span>
+                    <span class="logo-text-main">PEERALI</span>
                 </a>
             </div>
 
@@ -158,8 +157,7 @@
 <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-header">
         <div class="mobile-logo">
-            <img src="assets/images/logo.png" alt="Peerali Law" class="logo-img">
-            <span class="logo-text">Peerali Law</span>
+            <span class="logo-text-main">PEERALI</span>
         </div>
         <button class="mobile-menu-close" aria-label="Close Mobile Menu" id="mobileMenuClose">
             <i class="fas fa-times"></i>
@@ -282,3 +280,63 @@
         </div>
     </div>
 </div>
+
+<!-- Desktop Dropdown Click Handler -->
+<script>
+(function() {
+    'use strict';
+
+    // Wait for DOM to be ready
+    function initDropdownClicks() {
+        const dropdownItems = document.querySelectorAll('.has-dropdown > .nav-link');
+
+        dropdownItems.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const parentItem = this.parentElement;
+                const isActive = parentItem.classList.contains('dropdown-active');
+
+                // Close all other dropdowns
+                document.querySelectorAll('.has-dropdown').forEach(item => {
+                    item.classList.remove('dropdown-active');
+                    const navLink = item.querySelector('.nav-link');
+                    if (navLink) {
+                        navLink.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                // Toggle current dropdown
+                if (!isActive) {
+                    parentItem.classList.add('dropdown-active');
+                    this.setAttribute('aria-expanded', 'true');
+                } else {
+                    parentItem.classList.remove('dropdown-active');
+                    this.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.has-dropdown')) {
+                document.querySelectorAll('.has-dropdown').forEach(item => {
+                    item.classList.remove('dropdown-active');
+                    const navLink = item.querySelector('.nav-link');
+                    if (navLink) {
+                        navLink.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+        });
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initDropdownClicks);
+    } else {
+        initDropdownClicks();
+    }
+})();
+</script>

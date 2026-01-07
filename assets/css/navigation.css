@@ -227,6 +227,19 @@ img {
     display: none; /* Show if no logo image */
 }
 
+.logo-text-main {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--primary-navy);
+    letter-spacing: 0.5px;
+    transition: color var(--transition-base);
+}
+
+.logo-text-main:hover {
+    color: var(--accent-gold);
+}
+
 /* ============================================
    DESKTOP NAVIGATION
    ============================================ */
@@ -317,7 +330,8 @@ img {
     z-index: var(--z-dropdown);
 }
 
-.has-dropdown:hover .dropdown-menu {
+.has-dropdown:hover .dropdown-menu,
+.has-dropdown.dropdown-active .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -363,7 +377,8 @@ img {
     z-index: var(--z-dropdown);
 }
 
-.has-mega-menu:hover .mega-menu {
+.has-mega-menu:hover .mega-menu,
+.has-mega-menu.dropdown-active .mega-menu {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
@@ -623,6 +638,14 @@ img {
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--primary-navy);
+}
+
+.mobile-logo .logo-text-main {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-navy);
+    letter-spacing: 0.5px;
 }
 
 .mobile-menu-close {
