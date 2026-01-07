@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Peerali Law - Los Angeles catastrophic injury attorneys. Over $50M recovered since 2021. 100+ five-star reviews. Trial-ready lawyers specializing in complex injury cases. Free consultation.">
+    <meta name="keywords" content="personal injury attorney Los Angeles, catastrophic injury lawyer, brain injury attorney, car accident lawyer, wrongful death attorney, Peerali Law">
+
+    <title>Peerali Law - Los Angeles Catastrophic Injury Attorneys | $50M+ Recovered</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Navigation CSS -->
+    <link rel="stylesheet" href="assets/css/navigation.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Animated Homepage Styles -->
+    <style>
+        /* ============================================
+           ANIMATED HOMEPAGE STYLES
+           ============================================ */
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hero Section Animations */
+        .hero-section-v2 {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f1c2e 100%);
+            overflow: hidden;
+        }
+
+        /* Animated Background Particles */
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(197, 165, 114, 0.1);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-100px) translateX(50px) scale(1.1);
+                opacity: 0.6;
+            }
+        }
+
+        .particle:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            left: 10%;
+            top: 20%;
+            animation-delay: 0s;
+            animation-duration: 15s;
+        }
+
+        .particle:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            right: 15%;
+            top: 10%;
+            animation-delay: 2s;
+            animation-duration: 18s;
+        }
+
+        .particle:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            left: 30%;
+            bottom: 20%;
+            animation-delay: 4s;
+            animation-duration: 20s;
+        }
+
+        .particle:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            right: 25%;
+            bottom: 15%;
+            animation-delay: 1s;
+            animation-duration: 16s;
+        }
+
+        /* Gradient Overlay Animation */
+        .hero-overlay-v2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(30, 58, 95, 0.9) 0%,
+                rgba(15, 28, 46, 0.8) 100%
+            );
+            z-index: 2;
+        }
+
+        .hero-overlay-v2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(197, 165, 114, 0.1) 50%,
+                transparent 100%
+            );
+            animation: shimmer 8s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+            50%, 100% {
+                left: 100%;
+            }
+        }
+
+        /* Hero Content Animations */
+        .hero-content-v2 {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: white;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero-badge-v2 {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(197, 165, 114, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 165, 114, 0.3);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero-badge-v2 i {
+            color: #c5a572;
+            font-size: 1.2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .hero-title-v2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #c5a572 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-subtitle-v2 {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        /* Animated Stats */
+        .hero-stats-v2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .stat-card-v2 {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2rem;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card-v2:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #c5a572;
+            box-shadow: 0 20px 40px rgba(197, 165, 114, 0.2);
+        }
+
+        .stat-number-v2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #c5a572;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label-v2 {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* CTA Buttons */
+        .hero-cta-v2 {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .btn-v2 {
+            padding: 1.2rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-v2::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-v2:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .btn-v2 span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary-v2 {
+            background: linear-gradient(135deg, #c5a572 0%, #a88a5c 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(197, 165, 114, 0.3);
+        }
+
+        .btn-primary-v2:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(197, 165, 114, 0.4);
+        }
+
+        .btn-outline-v2 {
+            background: transparent;
+            border-color: white;
+            color: white;
+        }
+
+        .btn-outline-v2:hover {
+            background: white;
+            color: #1e3a5f;
+            transform: translateY(-3px);
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator i {
+            font-size: 2rem;
+            color: #c5a572;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Fade In Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Practice Area Cards with Hover Effects */
+        .practice-card-animated {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .practice-card-animated::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(197, 165, 114, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .practice-card-animated:hover::before {
+            left: 100%;
+        }
+
+        .practice-card-animated:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .practice-card-animated .practice-icon {
+            transition: all 0.4s ease;
+        }
+
+        .practice-card-animated:hover .practice-icon {
+            transform: scale(1.2) rotate(10deg);
+            color: #c5a572;
+        }
+
+        /* Testimonial Slider Animation */
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .testimonial-slide.active {
+            opacity: 1;
+        }
+
+        /* Counter Animation */
+        .counter {
+            display: inline-block;
+        }
+
+        /* Floating Labels Animation */
+        @keyframes float-label {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .float-animation {
+            animation: float-label 3s ease-in-out infinite;
+        }
+
+        /* Stagger Animation for Cards */
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: staggerFadeIn 0.6s ease-out forwards;
+        }
+
+        @keyframes staggerFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stagger-item:nth-child(1) { animation-delay: 0.1s; }
+        .stagger-item:nth-child(2) { animation-delay: 0.2s; }
+        .stagger-item:nth-child(3) { animation-delay: 0.3s; }
+        .stagger-item:nth-child(4) { animation-delay: 0.4s; }
+        .stagger-item:nth-child(5) { animation-delay: 0.5s; }
+        .stagger-item:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Progress Bar Animation */
+        .progress-bar {
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #c5a572, #d4b886);
+            transition: width 1.5s ease-out;
+        }
+
+        .progress-bar.animate {
+            width: 100%;
+        }
+
+        /* Section Backgrounds with Parallax */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Glowing Effect */
+        .glow {
+            box-shadow: 0 0 20px rgba(197, 165, 114, 0.3);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .glow:hover {
+            box-shadow: 0 0 30px rgba(197, 165, 114, 0.5);
+        }
+
+        /* Rotating Border */
+        @keyframes rotate-border {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .rotating-border {
+            position: relative;
+        }
+
+        .rotating-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #c5a572, #1e3a5f, #c5a572);
+            border-radius: inherit;
+            z-index: -1;
+            animation: rotate-border 3s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .rotating-border:hover::before {
+            opacity: 1;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-stats-v2 {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta-v2 {
+                flex-direction: column;
+            }
+
+            .btn-v2 {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Navigation -->
+    <header id="main-header">
+        <script>
+            fetch('includes/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('main-header').innerHTML = data;
+                });
+        </script>
+    </header>
+
+    <main>
+        <!-- Animated Hero Section -->
+        <section class="hero-section-v2">
+            <!-- Animated Particles -->
+            <div class="hero-particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+
+            <!-- Gradient Overlay -->
+            <div class="hero-overlay-v2"></div>
+
+            <!-- Hero Content -->
+            <div class="container">
+                <div class="hero-content-v2">
+                    <div class="hero-badge-v2">
+                        <i class="fas fa-balance-scale"></i>
+                        <span>Los Angeles Catastrophic Injury Law Firm</span>
+                    </div>
+
+                    <h1 class="hero-title-v2">Getting Good People the Justice They Deserve</h1>
+
+                    <p class="hero-subtitle-v2">
+                        Boutique law firm in Los Angeles specializing in complex and catastrophic injuries.
+                        Our attorneys work directly with clients, and have recovered over $50 million in compensation.
+                    </p>
+
+                    <!-- Animated Stats -->
+                    <div class="hero-stats-v2">
+                        <div class="stat-card-v2">
+                            <div class="stat-number-v2">
+                                <span class="counter" data-target="3">0</span>
+                            </div>
+                            <div class="stat-label-v2">Trial Attorneys</div>
+                        </div>
+
+                        <div class="stat-card-v2">
+                            <div class="stat-number-v2">
+                                $<span class="counter" data-target="50">0</span>M+
+                            </div>
+                            <div class="stat-label-v2">Recovered</div>
+                        </div>
+
+                        <div class="stat-card-v2">
+                            <div class="stat-number-v2">
+                                <span class="counter" data-target="100">0</span>+
+                            </div>
+                            <div class="stat-label-v2">Five-Star Reviews</div>
+                        </div>
+
+                        <div class="stat-card-v2">
+                            <div class="stat-number-v2">
+                                <span class="counter" data-target="5">0</span>
+                            </div>
+                            <div class="stat-label-v2">Years Experience</div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="hero-cta-v2">
+                        <a href="#contact-form" class="btn-v2 btn-primary-v2">
+                            <span><i class="fas fa-calendar-check"></i> Free Consultation</span>
+                        </a>
+                        <a href="tel:+18189627071" class="btn-v2 btn-outline-v2">
+                            <span><i class="fas fa-phone"></i> (818) 962-7071</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- About Section with Animations -->
+        <section class="about-section reveal">
+            <div class="container">
+                <div class="about-layout">
+                    <div class="about-image reveal-left">
+                        <img src="assets/images/peerali-law-office.png" alt="The Peerali Law office in the Hollywood Hills, Los Angeles" loading="lazy">
+                        <div class="image-caption">The Peerali Law office is based in the Hollywood Hills, in Los Angeles.</div>
+                    </div>
+                    <div class="about-content reveal-right">
+                        <h2 class="section-title">Los Angeles Catastrophic Injury Law Firm</h2>
+                        <p>Peerali Law is a boutique law firm in Los Angeles that specializes in complex and catastrophic injury litigation. Co-Founding Partners, <strong>Kristopher Peerali</strong> and <strong>Serena Peerali</strong>, opened our practice in 2021, and since then we've recovered more than $50 million for clients in case results.</p>
+
+                        <p>As a small team, attorneys work one-on-one with our clients. This means you receive a personalized service, direct access to your lawyer, and the experience required to get the justice you deserve.</p>
+
+                        <div class="cta-box glow">
+                            <h3><i class="fas fa-handshake"></i> No Win, No Fee Promise</h3>
+                            <p>Peerali Law works on a contingency fee basis—otherwise known as "no win, no fee". If we don't win your case, you owe us nothing.</p>
+                            <a href="#contact-form" class="btn btn-primary">Schedule Free Consultation</a>
+                            <p class="cta-note">*Or call us now on <a href="tel:+18189627071">(818) 962-7071</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Awards Section -->
+        <section class="about-awards-section reveal">
+            <div class="container">
+                <div class="about-layout reverse">
+                    <div class="about-content reveal-left">
+                        <h2 class="section-title">Top Rated Catastrophic Injury Lawyers in Los Angeles</h2>
+                        <p>Peerali Law is the highest-rated personal injury firm in Los Angeles that specializes in catastrophic injuries. We've received <strong>100+ five-star client reviews</strong> including:</p>
+
+                        <div class="highlight-box">
+                            <ul class="check-list">
+                                <li><i class="fas fa-check-circle"></i> 80+ five-star reviews on Google Places</li>
+                                <li><i class="fas fa-check-circle"></i> 20+ five-star reviews on Yelp</li>
+                            </ul>
+                        </div>
+
+                        <h3><i class="fas fa-award"></i> Awards & Recognition</h3>
+                        <p>Our attorneys have been recognized with awards and invitations including:</p>
+                        <ul class="awards-list">
+                            <li><i class="fas fa-trophy"></i> <strong>Super Lawyers Rising Stars 2026</strong></li>
+                            <li><i class="fas fa-medal"></i> <strong>USA Top 100 Personal Injury Settlement</strong></li>
+                            <li><i class="fas fa-book"></i> Co-authored journal articles in Advocate magazine</li>
+                            <li><i class="fas fa-microphone"></i> Selected speakers at the Beverly Hills Bar Association</li>
+                        </ul>
+                    </div>
+                    <div class="about-image reveal-right">
+                        <img src="assets/images/Peerali-Law-Attorneys.png" alt="Peerali Law Attorneys - Kristopher and Serena Peerali" loading="lazy">
+                        <div class="image-caption">Our experienced trial attorneys are ready to fight for you.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Areas Section -->
+        <section class="practice-areas-section reveal">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Practice Areas</h2>
+                    <p class="section-subtitle">Specialized legal representation for catastrophic injury cases in Los Angeles</p>
+                </div>
+
+                <div class="practice-grid">
+                    <a href="practice-areas/catastrophic-injury.html" class="practice-card practice-card-animated stagger-item rotating-border">
+                        <div class="practice-icon">
+                            <i class="fas fa-user-injured"></i>
+                        </div>
+                        <h3>Catastrophic Injury</h3>
+                        <p>Representing victims of life-changing injuries requiring long-term care and rehabilitation.</p>
+                        <span class="practice-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="practice-areas/brain-injury.html" class="practice-card practice-card-animated stagger-item rotating-border">
+                        <div class="practice-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Brain Injury (TBI)</h3>
+                        <p>Expert legal support for traumatic brain injury victims and their families.</p>
+                        <span class="practice-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="practice-areas/spinal-injury.html" class="practice-card practice-card-animated stagger-item rotating-border">
+                        <div class="practice-icon">
+                            <i class="fas fa-spine"></i>
+                        </div>
+                        <h3>Spinal Cord Injury</h3>
+                        <p>Comprehensive representation for paralysis and spinal trauma cases.</p>
+                        <span class="practice-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="practice-areas/car-accident.html" class="practice-card practice-card-animated stagger-item rotating-border">
+                        <div class="practice-icon">
+                            <i class="fas fa-car-crash"></i>
+                        </div>
+                        <h3>Car Accidents</h3>
+                        <p>Maximum compensation for serious auto accident injuries and wrongful death.</p>
+                        <span class="practice-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="practice-areas/wrongful-death.html" class="practice-card practice-card-animated stagger-item rotating-border">
+                        <div class="practice-icon">
+                            <i class="fas fa-heart-broken"></i>
+                        </div>
+                        <h3>Wrongful Death</h3>
+                        <p>Compassionate legal advocacy for families who have lost loved ones.</p>
+                        <span class="practice-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="practice-areas/premises-liability.html" class="practice-card practice-card-animated stagger-item rotating-border">
+                        <div class="practice-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Premises Liability</h3>
+                        <p>Holding property owners accountable for dangerous conditions and injuries.</p>
+                        <span class="practice-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+
+                <div class="section-cta" style="text-align: center; margin-top: 3rem;">
+                    <a href="practice-areas.html" class="btn btn-outline">View All Practice Areas <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section with Slider -->
+        <section class="testimonials-section reveal">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">What Our Clients Say</h2>
+                    <p class="section-subtitle">Real results from real people. Over 100 five-star reviews on Google and Yelp.</p>
+                </div>
+
+                <div class="testimonial-slider-container">
+                    <div class="testimonials-grid" id="testimonial-grid">
+                        <div class="testimonial-card reveal-scale">
+                            <div class="testimonial-header">
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="testimonial-source">
+                                    <i class="fab fa-google"></i> Google
+                                </div>
+                            </div>
+                            <p class="testimonial-text">"Kris' & his team was very helpful with the accident I was in. They made sure I got the best treatment and stayed in touch with me through the whole time my case was being processed. I really appreciated the concern they had for my well being."</p>
+                            <div class="testimonial-author">
+                                <strong>Karla Carballo</strong>
+                                <span>Recent Client</span>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card reveal-scale">
+                            <div class="testimonial-header">
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="testimonial-source">
+                                    <i class="fab fa-google"></i> Google
+                                </div>
+                            </div>
+                            <p class="testimonial-text">"Choosing Peerali Law Firm was the best decision I've ever made. Serena was absolutely wonderful. She was so helpful, understanding, as well as compassionate. She really cared. This is truly the best law firm out there."</p>
+                            <div class="testimonial-author">
+                                <strong>vicki2d</strong>
+                                <span>Wrongful Death Case</span>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card reveal-scale">
+                            <div class="testimonial-header">
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="testimonial-source">
+                                    <i class="fab fa-google"></i> Google
+                                </div>
+                            </div>
+                            <p class="testimonial-text">"Very professionals, they fought for our case and treated us like family! We are very extremely grateful and satisfied with their service."</p>
+                            <div class="testimonial-author">
+                                <strong>Danny Perez</strong>
+                                <span>Personal Injury Client</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-cta" style="text-align: center; margin-top: 3rem;">
+                    <a href="testimonials.html" class="btn btn-outline">Read All Reviews <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-form-section-home reveal" id="contact-form">
+            <div class="container">
+                <div class="section-header" style="text-align: center;">
+                    <h2 class="section-title">Get Your Free Consultation</h2>
+                    <p class="section-subtitle">No obligation. No upfront costs. Speak directly with an experienced attorney.</p>
+                </div>
+
+                <div class="form-container-home" style="max-width: 700px; margin: 0 auto;">
+                    <form id="homeContactForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name <span class="required">*</span></label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastName">Last Name <span class="required">*</span></label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Tell us about your case... <span class="required">*</span></label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="smsConsent" name="smsConsent" required>
+                                <span class="checkbox-text">By providing your phone number, you agree to receive text messages from Peerali Law. You can opt-out anytime by replying 'STOP'.</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-paper-plane"></i> Submit Free Consultation Request
+                        </button>
+
+                        <p class="form-note">
+                            <i class="fas fa-lock"></i> Your information is confidential and protected.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section-alt reveal">
+            <div class="container">
+                <div class="cta-content-center">
+                    <h2>Ready to Fight for the Justice You Deserve?</h2>
+                    <p>Don't settle for less. Our track record speaks for itself—over $50 million recovered for clients. We prepare every case for trial, which means insurance companies take us seriously.</p>
+                    <p><strong>No win, no fee.</strong> You don't pay unless we win your case.</p>
+                    <div class="cta-buttons">
+                        <a href="#contact-form" class="btn btn-primary btn-large">
+                            <i class="fas fa-calendar-alt"></i> Schedule Free Consultation
+                        </a>
+                        <a href="tel:+18189627071" class="btn btn-secondary btn-large">
+                            <i class="fas fa-phone"></i> Call (818) 962-7071
+                        </a>
+                    </div>
+                    <p class="cta-note">Free consultation • No obligation • Zero upfront costs</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="assets/images/logo.png" alt="Peerali Law Logo" class="footer-logo">
+                    <p>Peerali Law is a boutique law firm based in Los Angeles (Hollywood Hills) and specializing in complex and catastrophic injuries.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="case-results.html">Case Results</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Practice Areas</h4>
+                    <ul>
+                        <li><a href="practice-areas/catastrophic-injury.html">Catastrophic Injury</a></li>
+                        <li><a href="practice-areas/brain-injury.html">Brain Injury</a></li>
+                        <li><a href="practice-areas/car-accident.html">Car Accident</a></li>
+                        <li><a href="practice-areas/wrongful-death.html">Wrongful Death</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Hollywood Office</h4>
+                    <p>3575 Cahuenga Blvd Suite 480<br>Los Angeles, CA 90068</p>
+                    <p><a href="tel:+18188555744">(818) 855-5744</a></p>
+                    <p><a href="mailto:contact@peeralilaw.com">contact@peeralilaw.com</a></p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Peerali Law. All rights reserved.</p>
+                <ul class="footer-legal">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Navigation JavaScript -->
+    <script src="assets/js/navigation.js"></script>
+
+    <!-- Animation JavaScript -->
+    <script>
+        // Counter Animation
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += step;
+                if (current < target) {
+                    element.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            };
+
+            updateCounter();
+        }
+
+        // Trigger counter animation when in viewport
+        const counters = document.querySelectorAll('.counter');
+        let countersAnimated = false;
+
+        function checkCounters() {
+            if (countersAnimated) return;
+
+            const triggerBottom = window.innerHeight * 0.8;
+            counters.forEach(counter => {
+                const counterTop = counter.getBoundingClientRect().top;
+                if (counterTop < triggerBottom) {
+                    animateCounter(counter);
+                    countersAnimated = true;
+                }
+            });
+        }
+
+        // Scroll Reveal Animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form Submit Handler
+        document.getElementById('homeContactForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value,
+                smsConsent: document.getElementById('smsConsent').checked
+            };
+
+            console.log('Form submitted:', formData);
+            alert('Thank you for contacting us! We will get back to you within 24 hours.');
+            this.reset();
+        });
+
+        // Initialize animations on load and scroll
+        window.addEventListener('scroll', () => {
+            reveal();
+            checkCounters();
+        });
+
+        window.addEventListener('load', () => {
+            reveal();
+            checkCounters();
+        });
+
+        // Parallax effect for hero section (optional)
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero-section-v2');
+            if (parallax) {
+                parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
