@@ -557,6 +557,49 @@ section {
     color: var(--accent-gold-light);
 }
 
+/* About Awards Section - Part 2 */
+.about-awards-section {
+    background: var(--bg-light);
+}
+
+.about-layout.reverse {
+    direction: ltr;
+}
+
+@media (min-width: 1024px) {
+    .about-layout.reverse {
+        grid-template-columns: 1.2fr 1fr;
+    }
+
+    .about-layout.reverse .about-image {
+        order: 2;
+    }
+
+    .about-layout.reverse .about-content {
+        order: 1;
+    }
+}
+
+.awards-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-xl) 0;
+}
+
+.awards-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: var(--spacing-md);
+    font-size: 1rem;
+}
+
+.awards-list i {
+    color: var(--accent-gold);
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
 /* ============================================
    WHY YOU NEED SECTION
    ============================================ */
