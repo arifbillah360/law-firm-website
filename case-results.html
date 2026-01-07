@@ -28,6 +28,11 @@
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('main-header').innerHTML = data;
+
+                    // Load navigation.js after header is inserted
+                    const navScript = document.createElement('script');
+                    navScript.src = 'assets/js/navigation.js';
+                    document.body.appendChild(navScript);
                 });
         </script>
     </header>
@@ -572,7 +577,5 @@
         </div>
     </footer>
 
-    <!-- Navigation JavaScript -->
-    <script src="assets/js/navigation.js"></script>
 </body>
 </html>

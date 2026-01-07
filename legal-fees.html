@@ -237,6 +237,11 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header-container').innerHTML = data;
+
+                // Load navigation.js after header is inserted
+                const navScript = document.createElement('script');
+                navScript.src = 'assets/js/navigation.js';
+                document.body.appendChild(navScript);
             })
             .catch(error => console.error('Error loading header:', error));
     </script>
@@ -250,9 +255,6 @@
             })
             .catch(error => console.error('Error loading footer:', error));
     </script>
-
-    <!-- Navigation JavaScript -->
-    <script src="assets/js/navigation.js"></script>
 
     <!-- Smooth Scroll -->
     <script>

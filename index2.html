@@ -600,6 +600,11 @@
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('main-header').innerHTML = data;
+
+                    // Load navigation.js after header is inserted
+                    const navScript = document.createElement('script');
+                    navScript.src = 'assets/js/navigation.js';
+                    document.body.appendChild(navScript);
                 });
         </script>
     </header>
@@ -977,8 +982,7 @@
             .catch(error => console.error('Error loading footer:', error));
     </script>
 
-    <!-- Navigation JavaScript -->
-    <script src="assets/js/navigation.js"></script>
+    <!-- Navigation JavaScript loaded after header insertion -->
 
     <!-- Animation JavaScript -->
     <script>
