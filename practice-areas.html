@@ -561,53 +561,17 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <img src="assets/images/logo.png" alt="Peerali Law Logo" class="footer-logo">
-                    <p>Peerali Law is a boutique law firm based in Los Angeles (Hollywood Hills) and specializing in complex and catastrophic injuries.</p>
-                </div>
+    <div id="footer-container"></div>
 
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about-us.html">About Us</a></li>
-                        <li><a href="case-results.html">Case Results</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Practice Areas</h4>
-                    <ul>
-                        <li><a href="practice-areas/catastrophic-injury.html">Catastrophic Injury</a></li>
-                        <li><a href="practice-areas/brain-injury.html">Brain Injury</a></li>
-                        <li><a href="practice-areas/car-accident.html">Car Accident</a></li>
-                        <li><a href="practice-areas/wrongful-death.html">Wrongful Death</a></li>
-                        <li><a href="practice-areas.html">View All</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Hollywood Office</h4>
-                    <p>3575 Cahuenga Blvd Suite 480<br>Los Angeles, CA 90068</p>
-                    <p><a href="tel:+18188555744">(818) 855-5744</a></p>
-                    <p><a href="mailto:contact@peeralilaw.com">contact@peeralilaw.com</a></p>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 Peerali Law. All rights reserved.</p>
-                <ul class="footer-legal">
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Disclaimer</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
+    <!-- Load Footer -->
+    <script>
+        fetch('includes/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+    </script>
 
     <!-- Navigation JavaScript -->
     <script src="assets/js/navigation.js"></script>
