@@ -78,6 +78,7 @@ body {
     line-height: 1.7;
     color: var(--text-primary);
     background: var(--bg-white);
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -2414,6 +2415,113 @@ section {
     color: var(--success-green);
     margin-right: 0.25rem;
 }
+
+/* ============================================
+   MOBILE RESPONSIVE FIXES FOR CONTACT FORM
+   Prevents horizontal overflow on mobile devices
+   ============================================ */
+
+/* Mobile: 0px - 767px */
+@media (max-width: 767px) {
+    /* Reduce container padding on mobile to prevent overflow */
+    .contact-form-container {
+        padding: var(--spacing-lg);
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Reduce gap between contact info and form */
+    .contact-layout {
+        gap: var(--spacing-xl);
+    }
+
+    /* Ensure all form elements stay within bounds */
+    .contact-form {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Form rows: single column on mobile */
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    /* Form groups with proper sizing */
+    .form-group {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: var(--spacing-md);
+    }
+
+    /* Input fields: ensure they don't overflow */
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 1rem;
+    }
+
+    /* Buttons: full width on mobile for better UX */
+    .contact-form-container .btn-large,
+    .contact-form-container .btn-primary {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+
+    /* Checkbox group: reduce margins */
+    .checkbox-group {
+        margin: var(--spacing-md) 0;
+    }
+
+    /* Form subtitle: reduce bottom margin */
+    .form-subtitle {
+        margin-bottom: var(--spacing-lg);
+        font-size: 1rem;
+    }
+}
+
+/* Small mobile: 0px - 374px (very small phones) */
+@media (max-width: 374px) {
+    /* Even more compact padding for very small screens */
+    .contact-form-container {
+        padding: var(--spacing-md);
+    }
+
+    /* Reduce spacing further */
+    .contact-layout {
+        gap: var(--spacing-lg);
+    }
+
+    /* Adjust button padding */
+    .contact-form-container .btn-large,
+    .contact-form-container .btn-primary {
+        padding: 0.875rem var(--spacing-md);
+        font-size: 1rem;
+    }
+}
+
+/* Tablet: 768px - 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Moderate padding for tablets */
+    .contact-form-container {
+        padding: var(--spacing-xl);
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* ============================================
+   END MOBILE RESPONSIVE FIXES
+   ============================================ */
 
 /* Testimonials CTA */
 .testimonials-cta {
