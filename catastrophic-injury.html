@@ -14,24 +14,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
     <!-- Navigation CSS -->
-    <link rel="stylesheet" href="../assets/css/navigation.css">
+    <link rel="stylesheet" href="assets/css/navigation.css">
 
     <!-- Main Styles -->
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <!-- Header Navigation -->
     <header id="main-header">
         <!-- Include header.html content via PHP or JavaScript -->
         <script>
-            fetch('../includes/header.html')
+            fetch('includes/header.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('main-header').innerHTML = data;
 
                     // Load navigation.js after header is inserted
                     const navScript = document.createElement('script');
-                    navScript.src = '../assets/js/navigation.js';
+                    navScript.src = 'assets/js/navigation.js';
                     document.body.appendChild(navScript);
                 });
         </script>
@@ -42,8 +42,8 @@
         <section class="breadcrumb-section">
             <div class="container">
                 <ul class="breadcrumb-list">
-                    <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="../practice-areas.html">Practice Areas</a></li>
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="practice-areas.html">Practice Areas</a></li>
                     <li class="breadcrumb-item active">Catastrophic Injury Lawyer</li>
                 </ul>
             </div>
@@ -312,7 +312,7 @@
                 </div>
 
                 <p class="view-more-link">
-                    <a href="../case-results.html" class="btn btn-outline">View More Outcomes on Our Case Results Page <i class="fas fa-arrow-right"></i></a>
+                    <a href="case-results.html" class="btn btn-outline">View More Outcomes on Our Case Results Page <i class="fas fa-arrow-right"></i></a>
                 </p>
             </div>
         </section>
@@ -565,7 +565,7 @@
 
     <!-- Load Footer -->
     <script>
-        fetch('../includes/footer.html')
+        fetch('includes/footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-container').innerHTML = data;
