@@ -450,6 +450,133 @@
             color: #c5a572;
         }
 
+        /* Practice Areas Section Specific Styles */
+        .practice-areas-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .practice-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        .practice-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            text-decoration: none;
+            color: #1e3a5f;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            min-height: 240px;
+        }
+
+        .practice-card:hover {
+            border-color: #c5a572;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(197, 165, 114, 0.2);
+        }
+
+        .practice-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #1e3a5f, #2a4a70);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            font-size: 1.75rem;
+            color: #c5a572;
+            box-shadow: 0 4px 12px rgba(30, 58, 95, 0.2);
+        }
+
+        .practice-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin: 0 0 0.75rem 0;
+            color: #1e3a5f;
+        }
+
+        .practice-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #4a5568;
+            margin: 0 0 1rem 0;
+            flex-grow: 1;
+        }
+
+        .practice-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: #c5a572;
+            border-radius: 50%;
+            color: white;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            margin-top: auto;
+        }
+
+        .practice-card:hover .practice-arrow {
+            background: #1e3a5f;
+            transform: translateX(5px);
+        }
+
+        .rotating-border {
+            position: relative;
+        }
+
+        .rotating-border::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #c5a572, #1e3a5f, #c5a572);
+            border-radius: 1rem;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            background-size: 200% 200%;
+            animation: gradient-rotate 3s ease infinite;
+        }
+
+        .rotating-border:hover::after {
+            opacity: 1;
+        }
+
+        @keyframes gradient-rotate {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* View All Button */
+        .practice-areas-section .text-center {
+            margin-top: 3rem;
+        }
+
         /* Testimonial Slider Animation */
         .testimonial-slider {
             position: relative;
@@ -587,6 +714,65 @@
             .btn-v2 {
                 width: 100%;
                 justify-content: center;
+            }
+        }
+
+        /* ============================================
+           COMPACT SECTION HEIGHTS FOR INDEX2
+           Makes all sections shorter and more compact
+           ============================================ */
+
+        /* Reduce default section padding */
+        section {
+            padding: 3.5rem 0 !important;
+        }
+
+        .about-section,
+        .about-awards-section,
+        .testimonials-section,
+        .contact-form-section-home,
+        .cta-section-alt {
+            padding: 3rem 0 !important;
+        }
+
+        /* Keep practice areas at 4rem as defined above */
+        .practice-areas-section {
+            padding: 4rem 0 !important;
+        }
+
+        /* Compact section headers */
+        .section-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            margin-bottom: 0.75rem;
+        }
+
+        .section-subtitle {
+            margin-bottom: 1rem;
+        }
+
+        /* Mobile: even more compact */
+        @media (max-width: 768px) {
+            section {
+                padding: 2.5rem 0 !important;
+            }
+
+            .about-section,
+            .about-awards-section,
+            .testimonials-section,
+            .contact-form-section-home,
+            .cta-section-alt {
+                padding: 2rem 0 !important;
+            }
+
+            .practice-areas-section {
+                padding: 3rem 0 !important;
+            }
+
+            .section-header {
+                margin-bottom: 2rem;
             }
         }
     </style>
@@ -762,7 +948,7 @@
                         <span class="practice-arrow"><i class="fas fa-arrow-right"></i></span>
                     </a>
 
-                    <a href="practice-areas/brain-injury.html" class="practice-card practice-card-animated stagger-item rotating-border">
+                    <a href="brain-injury.html" class="practice-card practice-card-animated stagger-item rotating-border">
                         <div class="practice-icon">
                             <i class="fas fa-brain"></i>
                         </div>
@@ -771,7 +957,7 @@
                         <span class="practice-arrow"><i class="fas fa-arrow-right"></i></span>
                     </a>
 
-                    <a href="practice-areas/spinal-injury.html" class="practice-card practice-card-animated stagger-item rotating-border">
+                    <a href="spinal-injury.html" class="practice-card practice-card-animated stagger-item rotating-border">
                         <div class="practice-icon">
                             <i class="fas fa-spine"></i>
                         </div>
@@ -780,7 +966,7 @@
                         <span class="practice-arrow"><i class="fas fa-arrow-right"></i></span>
                     </a>
 
-                    <a href="practice-areas/car-accident.html" class="practice-card practice-card-animated stagger-item rotating-border">
+                    <a href="car-accident.html" class="practice-card practice-card-animated stagger-item rotating-border">
                         <div class="practice-icon">
                             <i class="fas fa-car-crash"></i>
                         </div>
@@ -789,7 +975,7 @@
                         <span class="practice-arrow"><i class="fas fa-arrow-right"></i></span>
                     </a>
 
-                    <a href="practice-areas/wrongful-death.html" class="practice-card practice-card-animated stagger-item rotating-border">
+                    <a href="wrongful-death.html" class="practice-card practice-card-animated stagger-item rotating-border">
                         <div class="practice-icon">
                             <i class="fas fa-heart-broken"></i>
                         </div>
@@ -798,7 +984,7 @@
                         <span class="practice-arrow"><i class="fas fa-arrow-right"></i></span>
                     </a>
 
-                    <a href="practice-areas/premises-liability.html" class="practice-card practice-card-animated stagger-item rotating-border">
+                    <a href="premises-liability.html" class="practice-card practice-card-animated stagger-item rotating-border">
                         <div class="practice-icon">
                             <i class="fas fa-building"></i>
                         </div>
