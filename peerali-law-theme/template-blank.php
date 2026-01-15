@@ -1,42 +1,24 @@
 <?php
 /**
- * Template Name: Blank (No Wrappers)
- *
- * Completely blank template with NO WordPress wrappers whatsoever
- * Perfect for full custom HTML pages
+ * Template Name: Blank (No WordPress Styles)
+ * Template Post Type: page
+ * Description: Completely blank template for custom HTML
  *
  * To use this template:
  * 1. Create/Edit a page in WordPress
- * 2. In the right sidebar, find "Page Attributes" → "Template"
- * 3. Select "Blank (No Wrappers)"
- * 4. Add your HTML content in the WordPress editor (Text/HTML mode)
+ * 2. In Page Attributes → Template, select "Blank (No WordPress Styles)"
+ * 3. Switch to Text/HTML mode in editor
+ * 4. Paste your custom HTML
  * 5. Publish
  *
  * @package Peerali_Law
- * @since 1.0.2
+ * @since 1.0.3
  */
 
-// Exit if accessed directly
-if (!defined('ABSPATH')) {
-    exit;
-}
+get_header(); ?>
 
-get_header();
+<?php while (have_posts()) : the_post(); ?>
+    <?php the_content(); ?>
+<?php endwhile; ?>
 
-// Output ONLY the page content - ABSOLUTELY NOTHING ELSE
-while (have_posts()) : the_post();
-
-    // Check if custom HTML content exists in meta box
-    $custom_html = get_post_meta(get_the_ID(), '_peerali_html_content', true);
-
-    if (!empty($custom_html)) {
-        // Display custom HTML content - COMPLETELY RAW, NO WRAPPERS
-        echo wp_kses_post($custom_html);
-    } else {
-        // Display standard WordPress content - COMPLETELY RAW, NO WRAPPERS
-        the_content();
-    }
-
-endwhile;
-
-get_footer();
+<?php get_footer();

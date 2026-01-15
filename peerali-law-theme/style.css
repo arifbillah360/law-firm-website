@@ -4,7 +4,7 @@ Theme URI: https://peeralilaw.com
 Author: Md Arif Billah
 Author URI: https://softorio.com
 Description: Minimal theme for Peerali Law with manual HTML content editing. Professional law firm theme where header, footer, CSS, and JavaScript are loaded from theme files, but page content is added manually via WordPress editor.
-Version: 1.0.2
+Version: 1.0.3
 Requires at least: 6.0
 Tested up to: 6.4
 Requires PHP: 8.0
@@ -477,7 +477,55 @@ table {
 }
 
 /* ================================================
+   Main Content Area - Full Width Support
+   ================================================ */
+
+/* Ensure #main-content doesn't constrain child elements */
+#main-content,
+main#main-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+/* Allow all children of main-content to be full width */
+#main-content > *,
+#main-content section,
+#main-content div,
+#main-content article {
+    max-width: 100% !important;
+}
+
+/* ================================================
+   Blank Template - Zero WordPress Interference
+   ================================================ */
+
+/* Blank template - zero WordPress interference */
+body.blank-template .entry-content,
+body.blank-template #main-content,
+body.blank-template article,
+body.blank-template .page {
+    all: unset !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Allow all children to be completely free */
+body.blank-template .entry-content *,
+body.blank-template #main-content *,
+body.blank-template article *,
+body.blank-template .page * {
+    all: revert !important;
+}
+
+/* ================================================
    END OF WORDPRESS OVERRIDES
-   Your custom styles from main.css, navigation.css,
-   and footer.css are loaded via @import at the top
+   CSS files are loaded via wp_enqueue_style():
+   - main.css (base styles, CSS variables)
+   - navigation.css (header navigation)
+   - footer.css (footer styles)
+   - style.css (this file - WordPress overrides only)
    ================================================ */
