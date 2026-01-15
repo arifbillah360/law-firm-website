@@ -5,6 +5,57 @@
  * ============================================
  */
 
+/* ================================================
+   CRITICAL: High Specificity WordPress Overrides
+   These rules ensure our styles take precedence
+   ================================================ */
+
+/* Force all elements to use our styles with high specificity */
+body * {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+/* Force heading fonts */
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+    font-family: 'Playfair Display', Georgia, serif !important;
+}
+
+/* Ensure entry-content doesn't restrict child elements */
+.entry-content {
+    all: unset;
+    display: block;
+    width: 100%;
+    max-width: none;
+}
+
+/* Force entry-content children to inherit styles */
+.entry-content * {
+    font-family: inherit !important;
+}
+
+/* Override any remaining WordPress max-widths */
+body #page,
+body #content,
+body #primary,
+body .site,
+body .site-content,
+body .entry-content {
+    max-width: none !important;
+    width: 100% !important;
+}
+
+/*!
+ * ============================================
+ * PEERALI LAW - MAIN STYLESHEET
+ * Global styles, components, and utilities
+ * ============================================
+ */
+
 /* ============================================
    BUTTON STYLES
    ============================================ */

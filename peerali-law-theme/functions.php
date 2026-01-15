@@ -75,7 +75,7 @@ function peerali_law_content_width() {
 add_action('after_setup_theme', 'peerali_law_content_width', 0);
 
 /**
- * Enqueue Styles - CORRECT ORDER FOR PROPER CSS LOADING
+ * Enqueue Styles - ONLY style.css (which imports main.css, navigation.css, footer.css via @import)
  */
 function peerali_law_enqueue_styles() {
     // Google Fonts
@@ -94,7 +94,7 @@ function peerali_law_enqueue_styles() {
         '6.4.0'
     );
 
-    // 1. Main theme stylesheet FIRST (style.css with theme header)
+    // Main theme stylesheet (style.css) - this imports main.css, navigation.css, footer.css
     wp_enqueue_style(
         'peerali-law-style',
         get_stylesheet_uri(),
@@ -102,48 +102,54 @@ function peerali_law_enqueue_styles() {
         wp_get_theme()->get('Version'),
         'all'
     );
-
-    // 2. Main CSS (global styles and components)
-    wp_enqueue_style(
-        'peerali-main-css',
-        get_template_directory_uri() . '/assets/css/main.css',
-        array('peerali-law-style'),
-        wp_get_theme()->get('Version'),
-        'all'
-    );
-
-    // 3. Navigation CSS
-    wp_enqueue_style(
-        'peerali-navigation-css',
-        get_template_directory_uri() . '/assets/css/navigation.css',
-        array('peerali-main-css'),
-        wp_get_theme()->get('Version'),
-        'all'
-    );
-
-    // 4. Footer CSS
-    wp_enqueue_style(
-        'peerali-footer-css',
-        get_template_directory_uri() . '/assets/css/footer.css',
-        array('peerali-main-css'),
-        wp_get_theme()->get('Version'),
-        'all'
-    );
 }
 add_action('wp_enqueue_scripts', 'peerali_law_enqueue_styles');
 
 /**
- * Remove WordPress Default Styles That May Conflict
+ * Aggressively Remove ALL WordPress Default Styles
  */
 function peerali_law_remove_wp_styles() {
-    // Remove block library CSS (Gutenberg styles)
+    // Remove AND deregister block library CSS (Gutenberg styles)
     wp_dequeue_style('wp-block-library');
+    wp_deregister_style('wp-block-library');
+
     wp_dequeue_style('wp-block-library-theme');
+    wp_deregister_style('wp-block-library-theme');
+
     wp_dequeue_style('wc-blocks-style');
+    wp_deregister_style('wc-blocks-style');
+
     wp_dequeue_style('global-styles');
+    wp_deregister_style('global-styles');
+
     wp_dequeue_style('classic-theme-styles');
+    wp_deregister_style('classic-theme-styles');
+
+    // Remove core block patterns
+    wp_dequeue_style('wp-block-patterns');
+    wp_deregister_style('wp-block-patterns');
 }
 add_action('wp_enqueue_scripts', 'peerali_law_remove_wp_styles', 100);
+
+/**
+ * Remove WordPress Default Styles from Front-End - MORE AGGRESSIVE
+ */
+function peerali_law_remove_all_wp_styles() {
+    if (!is_admin()) {
+        // Remove Gutenberg styles
+        wp_dequeue_style('wp-block-library');
+        wp_dequeue_style('wp-block-library-theme');
+        wp_dequeue_style('global-styles');
+        wp_dequeue_style('classic-theme-styles');
+
+        // Remove from print as well
+        wp_deregister_style('wp-block-library');
+        wp_deregister_style('wp-block-library-theme');
+        wp_deregister_style('global-styles');
+        wp_deregister_style('classic-theme-styles');
+    }
+}
+add_action('wp_print_styles', 'peerali_law_remove_all_wp_styles', 100);
 
 /**
  * Enqueue Scripts
@@ -678,3 +684,33 @@ function peerali_law_open_graph_tags() {
     }
 }
 add_action('wp_head', 'peerali_law_open_graph_tags');
+
+/**
+ * Disable Gutenberg Block Styles Completely
+ */
+add_filter('should_load_separate_core_block_assets', '__return_false');
+
+/**
+ * Remove Gutenberg Block Editor Styles
+ */
+function peerali_law_disable_gutenberg_styles() {
+    wp_dequeue_style('wp-block-library');
+    wp_dequeue_style('wp-block-library-theme');
+}
+add_action('wp_print_styles', 'peerali_law_disable_gutenberg_styles', 100);
+
+/**
+ * Debug Function - Shows CSS files being loaded (for admins only)
+ */
+function peerali_law_debug_css_loading() {
+    if (current_user_can('administrator')) {
+        echo "\n<!-- PEERALI LAW THEME CSS DEBUG:\n";
+        echo "style.css path: " . get_stylesheet_uri() . "\n";
+        echo "main.css path: " . get_template_directory_uri() . '/assets/css/main.css' . "\n";
+        echo "main.css exists: " . (file_exists(get_template_directory() . '/assets/css/main.css') ? 'YES' : 'NO') . "\n";
+        echo "navigation.css exists: " . (file_exists(get_template_directory() . '/assets/css/navigation.css') ? 'YES' : 'NO') . "\n";
+        echo "footer.css exists: " . (file_exists(get_template_directory() . '/assets/css/footer.css') ? 'YES' : 'NO') . "\n";
+        echo "-->\n";
+    }
+}
+add_action('wp_footer', 'peerali_law_debug_css_loading');
