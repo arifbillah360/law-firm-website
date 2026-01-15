@@ -1,0 +1,23 @@
+SCREENSHOT INSTRUCTIONS
+=======================
+
+WordPress requires a screenshot.png file with dimensions 880x660px for theme preview.
+
+To create your screenshot:
+
+1. Take a screenshot of your homepage
+2. Resize to 880x660 pixels
+3. Save as "screenshot.png"
+4. Place in the root of the theme directory (same folder as style.css)
+
+Recommended tools:
+- Photoshop
+- GIMP (free)
+- Online tools like Canva
+
+For now, you can use a placeholder or skip this file. The theme will work without it,
+but won't show a preview image in the WordPress theme selector.
+
+Temporary placeholder command (creates blank PNG):
+convert -size 880x660 xc:#1E3A5F -fill white -pointsize 48 -gravity center \
+-annotate +0+0 "Peerali Law\nWordPress Theme" screenshot.png
