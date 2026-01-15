@@ -726,3 +726,74 @@ section {
         text-decoration: underline;
     }
 }
+
+/* ============================================
+   FULL-WIDTH CONTENT OVERRIDES
+   ============================================ */
+
+/* Ensure body has no constraints */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Remove all WordPress default wrappers and constraints */
+#page,
+#content,
+#primary,
+.site,
+.site-content,
+.content-area,
+.page-content-wrapper {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* User custom HTML sections should be full width */
+.hero-section,
+.about-section,
+.practice-areas-section,
+.testimonials-section,
+.faq-section,
+.contact-form-section,
+[class*="-section"] {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* But container within sections should have max-width */
+[class*="-section"] .container {
+    max-width: var(--container-xl, 1280px);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--spacing-4, 1rem);
+    padding-right: var(--spacing-4, 1rem);
+}
+
+/* Override WordPress alignfull */
+.alignfull {
+    max-width: none;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}
+
+/* Responsive full-width fixes */
+@media (max-width: 767px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .hero-section,
+    .about-section,
+    [class*="-section"] {
+        width: 100%;
+        overflow-x: hidden;
+    }
+}

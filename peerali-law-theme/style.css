@@ -356,3 +356,145 @@ small {
     white-space: nowrap;
     border-width: 0;
 }
+
+/* ============================================
+   WORDPRESS FULL-WIDTH OVERRIDES
+   Force pages to be 100% width with NO restrictions
+   ============================================ */
+
+/* Force full-width body */
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Remove WordPress admin bar spacing on frontend */
+body.admin-bar {
+    margin-top: 32px !important;
+}
+
+@media screen and (max-width: 782px) {
+    body.admin-bar {
+        margin-top: 46px !important;
+    }
+}
+
+/* Remove ALL WordPress default content width restrictions */
+#page,
+#content,
+#primary,
+.site,
+.site-content,
+.content-area,
+.site-main,
+main,
+.page-content-wrapper,
+.entry-content,
+.hentry,
+.entry,
+.post,
+.page,
+article {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Ensure manual HTML content is full width */
+.type-page .entry-content,
+.type-post .entry-content {
+    max-width: none !important;
+    width: 100% !important;
+}
+
+/* Remove WordPress block editor max-widths */
+.wp-block,
+.wp-block-group,
+.wp-block-cover,
+.entry-content > * {
+    max-width: 100% !important;
+}
+
+/* Gutenberg alignfull support */
+.alignfull {
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    max-width: 100vw !important;
+    width: 100vw !important;
+}
+
+/* Remove default padding/margin from sections */
+section,
+.section {
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure container class can still be used when needed */
+.container {
+    width: 100%;
+    max-width: var(--container-xl, 1280px);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--spacing-4, 1rem);
+    padding-right: var(--spacing-4, 1rem);
+}
+
+/* But override container in entry-content for full width */
+.entry-content .container {
+    max-width: 100%;
+    padding: 0;
+}
+
+/* Remove all margins and paddings from WordPress generated elements */
+.page-content,
+.entry-summary {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Ensure images and media can be full width */
+img,
+video,
+iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fix WordPress embeds */
+.wp-embedded-content {
+    max-width: 100%;
+}
+
+/* Override theme support for wide/full alignment */
+.has-global-padding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Ensure no default styling interferes */
+.wp-site-blocks {
+    padding: 0 !important;
+}
+
+/* Remove entry header/footer margins in full-width context */
+.entry-header,
+.entry-footer {
+    margin: 0;
+    padding: 0;
+}
+
+/* Override Twenty Twenty-X theme defaults if present */
+.entry-content > * {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Clear any floats that might mess up layout */
+.entry-content::after,
+.site-content::after {
+    content: "";
+    display: table;
+    clear: both;
+}

@@ -67,15 +67,15 @@ function peerali_law_theme_setup() {
 add_action('after_setup_theme', 'peerali_law_theme_setup');
 
 /**
- * Set the content width in pixels
+ * Set the content width in pixels - Set to maximum for full-width pages
  */
 function peerali_law_content_width() {
-    $GLOBALS['content_width'] = apply_filters('peerali_law_content_width', 1280);
+    $GLOBALS['content_width'] = apply_filters('peerali_law_content_width', 9999);
 }
 add_action('after_setup_theme', 'peerali_law_content_width', 0);
 
 /**
- * Enqueue Styles
+ * Enqueue Styles - CORRECT ORDER FOR PROPER CSS LOADING
  */
 function peerali_law_enqueue_styles() {
     // Google Fonts
@@ -94,39 +94,56 @@ function peerali_law_enqueue_styles() {
         '6.4.0'
     );
 
-    // Theme main stylesheet
+    // 1. Main theme stylesheet FIRST (style.css with theme header)
     wp_enqueue_style(
         'peerali-law-style',
         get_stylesheet_uri(),
         array(),
-        wp_get_theme()->get('Version')
+        wp_get_theme()->get('Version'),
+        'all'
     );
 
-    // Main CSS
+    // 2. Main CSS (global styles and components)
     wp_enqueue_style(
         'peerali-main-css',
         get_template_directory_uri() . '/assets/css/main.css',
         array('peerali-law-style'),
-        wp_get_theme()->get('Version')
+        wp_get_theme()->get('Version'),
+        'all'
     );
 
-    // Navigation CSS
+    // 3. Navigation CSS
     wp_enqueue_style(
         'peerali-navigation-css',
         get_template_directory_uri() . '/assets/css/navigation.css',
         array('peerali-main-css'),
-        wp_get_theme()->get('Version')
+        wp_get_theme()->get('Version'),
+        'all'
     );
 
-    // Footer CSS
+    // 4. Footer CSS
     wp_enqueue_style(
         'peerali-footer-css',
         get_template_directory_uri() . '/assets/css/footer.css',
         array('peerali-main-css'),
-        wp_get_theme()->get('Version')
+        wp_get_theme()->get('Version'),
+        'all'
     );
 }
 add_action('wp_enqueue_scripts', 'peerali_law_enqueue_styles');
+
+/**
+ * Remove WordPress Default Styles That May Conflict
+ */
+function peerali_law_remove_wp_styles() {
+    // Remove block library CSS (Gutenberg styles)
+    wp_dequeue_style('wp-block-library');
+    wp_dequeue_style('wp-block-library-theme');
+    wp_dequeue_style('wc-blocks-style');
+    wp_dequeue_style('global-styles');
+    wp_dequeue_style('classic-theme-styles');
+}
+add_action('wp_enqueue_scripts', 'peerali_law_remove_wp_styles', 100);
 
 /**
  * Enqueue Scripts
@@ -502,10 +519,10 @@ add_action('customize_register', 'peerali_law_customize_register');
 remove_action('wp_head', 'wp_generator');
 
 /**
- * Disable File Editing
+ * Enable File Editing - Allow theme editor in WordPress admin
  */
 if (!defined('DISALLOW_FILE_EDIT')) {
-    define('DISALLOW_FILE_EDIT', true);
+    define('DISALLOW_FILE_EDIT', false);
 }
 
 /**
