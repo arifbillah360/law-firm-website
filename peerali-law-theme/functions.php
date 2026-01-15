@@ -75,7 +75,36 @@ function peerali_law_content_width() {
 add_action('after_setup_theme', 'peerali_law_content_width', 0);
 
 /**
- * Enqueue Styles - ONLY style.css (which imports main.css, navigation.css, footer.css via @import)
+ * Remove WordPress Default Styles FIRST - Before enqueueing our styles
+ */
+function peerali_law_remove_wp_styles() {
+    if (!is_admin()) {
+        // Remove AND deregister block library CSS (Gutenberg styles)
+        wp_dequeue_style('wp-block-library');
+        wp_deregister_style('wp-block-library');
+
+        wp_dequeue_style('wp-block-library-theme');
+        wp_deregister_style('wp-block-library-theme');
+
+        wp_dequeue_style('wc-blocks-style');
+        wp_deregister_style('wc-blocks-style');
+
+        wp_dequeue_style('global-styles');
+        wp_deregister_style('global-styles');
+
+        wp_dequeue_style('classic-theme-styles');
+        wp_deregister_style('classic-theme-styles');
+
+        wp_dequeue_style('wp-block-patterns');
+        wp_deregister_style('wp-block-patterns');
+    }
+}
+add_action('wp_enqueue_scripts', 'peerali_law_remove_wp_styles', 1);
+add_action('wp_print_styles', 'peerali_law_remove_wp_styles', 1);
+
+/**
+ * Enqueue Styles - LOAD EACH CSS FILE SEPARATELY (NO @import)
+ * This ensures CSS files are properly loaded and can be debugged
  */
 function peerali_law_enqueue_styles() {
     // Google Fonts
@@ -94,62 +123,43 @@ function peerali_law_enqueue_styles() {
         '6.4.0'
     );
 
-    // Main theme stylesheet (style.css) - this imports main.css, navigation.css, footer.css
+    // 1. Main CSS FIRST (base styles, CSS variables, typography)
     wp_enqueue_style(
-        'peerali-law-style',
-        get_stylesheet_uri(),
+        'peerali-main',
+        get_template_directory_uri() . '/assets/css/main.css',
         array(),
-        wp_get_theme()->get('Version'),
+        filemtime(get_template_directory() . '/assets/css/main.css'),
+        'all'
+    );
+
+    // 2. Navigation CSS (depends on main.css)
+    wp_enqueue_style(
+        'peerali-navigation',
+        get_template_directory_uri() . '/assets/css/navigation.css',
+        array('peerali-main'),
+        filemtime(get_template_directory() . '/assets/css/navigation.css'),
+        'all'
+    );
+
+    // 3. Footer CSS (depends on main.css)
+    wp_enqueue_style(
+        'peerali-footer',
+        get_template_directory_uri() . '/assets/css/footer.css',
+        array('peerali-main'),
+        filemtime(get_template_directory() . '/assets/css/footer.css'),
+        'all'
+    );
+
+    // 4. Style.css LAST (WordPress overrides only)
+    wp_enqueue_style(
+        'peerali-style',
+        get_stylesheet_uri(),
+        array('peerali-main', 'peerali-navigation', 'peerali-footer'),
+        filemtime(get_stylesheet_directory() . '/style.css'),
         'all'
     );
 }
-add_action('wp_enqueue_scripts', 'peerali_law_enqueue_styles');
-
-/**
- * Aggressively Remove ALL WordPress Default Styles
- */
-function peerali_law_remove_wp_styles() {
-    // Remove AND deregister block library CSS (Gutenberg styles)
-    wp_dequeue_style('wp-block-library');
-    wp_deregister_style('wp-block-library');
-
-    wp_dequeue_style('wp-block-library-theme');
-    wp_deregister_style('wp-block-library-theme');
-
-    wp_dequeue_style('wc-blocks-style');
-    wp_deregister_style('wc-blocks-style');
-
-    wp_dequeue_style('global-styles');
-    wp_deregister_style('global-styles');
-
-    wp_dequeue_style('classic-theme-styles');
-    wp_deregister_style('classic-theme-styles');
-
-    // Remove core block patterns
-    wp_dequeue_style('wp-block-patterns');
-    wp_deregister_style('wp-block-patterns');
-}
-add_action('wp_enqueue_scripts', 'peerali_law_remove_wp_styles', 100);
-
-/**
- * Remove WordPress Default Styles from Front-End - MORE AGGRESSIVE
- */
-function peerali_law_remove_all_wp_styles() {
-    if (!is_admin()) {
-        // Remove Gutenberg styles
-        wp_dequeue_style('wp-block-library');
-        wp_dequeue_style('wp-block-library-theme');
-        wp_dequeue_style('global-styles');
-        wp_dequeue_style('classic-theme-styles');
-
-        // Remove from print as well
-        wp_deregister_style('wp-block-library');
-        wp_deregister_style('wp-block-library-theme');
-        wp_deregister_style('global-styles');
-        wp_deregister_style('classic-theme-styles');
-    }
-}
-add_action('wp_print_styles', 'peerali_law_remove_all_wp_styles', 100);
+add_action('wp_enqueue_scripts', 'peerali_law_enqueue_styles', 999);
 
 /**
  * Enqueue Scripts

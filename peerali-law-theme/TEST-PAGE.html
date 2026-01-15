@@ -1,0 +1,248 @@
+<!--
+=====================================================
+TEST PAGE - CSS VERIFICATION
+=====================================================
+
+INSTRUCTIONS:
+1. Go to WordPress Admin → Pages → Add New
+2. Set Page Template to "Blank (No Wrappers)"
+3. Switch to Text/HTML editor mode
+4. Copy and paste this ENTIRE file content
+5. Publish the page
+6. View the page in browser
+7. Verify all styles are applied correctly
+
+WHAT TO CHECK:
+✓ Background colors (Navy and Gold)
+✓ Fonts (Roboto for body, Playfair Display for headings)
+✓ Spacing and padding
+✓ Button styles and hover effects
+✓ Container max-width (1200px)
+✓ No white space on left/right edges
+✓ Full-width sections
+
+=====================================================
+-->
+
+<!-- Hero Section - Navy Background -->
+<section style="background: #1E3A5F; color: white; padding: 5rem 1.5rem; text-align: center;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: 3rem; font-weight: 700; margin: 0 0 1.5rem 0; color: white;">
+            CSS Test Page
+        </h1>
+        <p style="font-family: 'Roboto', sans-serif; font-size: 1.25rem; margin: 0 0 2rem 0; color: white; opacity: 0.9;">
+            This page tests if all CSS is loading and applying correctly
+        </p>
+        <a href="#tests" class="btn btn-primary" style="display: inline-flex; align-items: center; justify-content: center; padding: 1rem 2rem; background: #D4AF37; color: white; text-decoration: none; border-radius: 0.5rem; font-weight: 600; font-family: 'Roboto', sans-serif;">
+            View Tests Below
+        </a>
+    </div>
+</section>
+
+<!-- Test Section 1 - Typography -->
+<section id="tests" style="padding: 5rem 1.5rem; background: white;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 2.25rem; font-weight: 700; margin: 0 0 1rem 0; color: #1E3A5F;">
+            ✓ Test 1: Typography
+        </h2>
+        <p style="font-family: 'Roboto', sans-serif; font-size: 1rem; line-height: 1.5; color: #1F2937; margin: 0 0 1rem 0;">
+            This paragraph should be in <strong>Roboto font</strong>. The heading above should be in <strong>Playfair Display font</strong>. If you see these fonts correctly, CSS is loading!
+        </p>
+        <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.875rem; font-weight: 600; margin: 2rem 0 1rem 0; color: #1E3A5F;">
+            Subheading Level 3
+        </h3>
+        <p style="font-family: 'Roboto', sans-serif; font-size: 1rem; line-height: 1.5; color: #6B7280; margin: 0;">
+            This is secondary text in gray color. It should be slightly lighter than the paragraph above.
+        </p>
+    </div>
+</section>
+
+<!-- Test Section 2 - Colors -->
+<section style="padding: 5rem 1.5rem; background: #F9FAFB;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 2.25rem; font-weight: 700; margin: 0 0 2rem 0; color: #1E3A5F;">
+            ✓ Test 2: Colors
+        </h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+            <!-- Navy Color -->
+            <div style="background: #1E3A5F; color: white; padding: 2rem; border-radius: 0.5rem; text-align: center;">
+                <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; margin: 0 0 0.5rem 0; color: white;">
+                    Primary Navy
+                </h3>
+                <p style="font-family: 'Roboto', sans-serif; font-size: 0.875rem; margin: 0; color: white; opacity: 0.9;">
+                    #1E3A5F
+                </p>
+            </div>
+
+            <!-- Gold Color -->
+            <div style="background: #D4AF37; color: white; padding: 2rem; border-radius: 0.5rem; text-align: center;">
+                <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; margin: 0 0 0.5rem 0; color: white;">
+                    Accent Gold
+                </h3>
+                <p style="font-family: 'Roboto', sans-serif; font-size: 0.875rem; margin: 0; color: white; opacity: 0.9;">
+                    #D4AF37
+                </p>
+            </div>
+
+            <!-- White Color -->
+            <div style="background: #FFFFFF; color: #1E3A5F; padding: 2rem; border-radius: 0.5rem; text-align: center; border: 2px solid #E5E7EB;">
+                <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; margin: 0 0 0.5rem 0; color: #1E3A5F;">
+                    White
+                </h3>
+                <p style="font-family: 'Roboto', sans-serif; font-size: 0.875rem; margin: 0; color: #6B7280;">
+                    #FFFFFF
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Test Section 3 - Buttons -->
+<section style="padding: 5rem 1.5rem; background: white;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 2.25rem; font-weight: 700; margin: 0 0 2rem 0; color: #1E3A5F;">
+            ✓ Test 3: Buttons
+        </h2>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+            <a href="#" class="btn btn-primary" style="display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem; background: #D4AF37; color: white; text-decoration: none; border-radius: 0.5rem; font-weight: 600; font-family: 'Roboto', sans-serif; transition: all 0.3s; border: 2px solid #D4AF37;">
+                Primary Button
+            </a>
+
+            <a href="#" class="btn btn-secondary" style="display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem; background: #1E3A5F; color: white; text-decoration: none; border-radius: 0.5rem; font-weight: 600; font-family: 'Roboto', sans-serif; transition: all 0.3s; border: 2px solid #1E3A5F;">
+                Secondary Button
+            </a>
+
+            <a href="#" class="btn btn-outline" style="display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem; background: transparent; color: #1E3A5F; text-decoration: none; border-radius: 0.5rem; font-weight: 600; font-family: 'Roboto', sans-serif; transition: all 0.3s; border: 2px solid #1E3A5F;">
+                Outline Button
+            </a>
+        </div>
+
+        <p style="font-family: 'Roboto', sans-serif; font-size: 0.875rem; color: #6B7280; margin: 0;">
+            Hover over the buttons to see if hover effects work (they should change color slightly and move up 2px)
+        </p>
+    </div>
+</section>
+
+<!-- Test Section 4 - Layout & Spacing -->
+<section style="padding: 5rem 1.5rem; background: #F9FAFB;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 2.25rem; font-weight: 700; margin: 0 0 2rem 0; color: #1E3A5F;">
+            ✓ Test 4: Layout & Spacing
+        </h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <!-- Card 1 -->
+            <div style="background: white; padding: 2rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 600; margin: 0 0 1rem 0; color: #1E3A5F;">
+                    Card Title 1
+                </h3>
+                <p style="font-family: 'Roboto', sans-serif; font-size: 1rem; line-height: 1.5; color: #6B7280; margin: 0;">
+                    This card should have proper padding, rounded corners, and a subtle shadow. The max-width container should be 1200px.
+                </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div style="background: white; padding: 2rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 600; margin: 0 0 1rem 0; color: #1E3A5F;">
+                    Card Title 2
+                </h3>
+                <p style="font-family: 'Roboto', sans-serif; font-size: 1rem; line-height: 1.5; color: #6B7280; margin: 0;">
+                    Cards should have equal spacing between them and responsive layout (stacking on mobile).
+                </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div style="background: white; padding: 2rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 600; margin: 0 0 1rem 0; color: #1E3A5F;">
+                    Card Title 3
+                </h3>
+                <p style="font-family: 'Roboto', sans-serif; font-size: 1rem; line-height: 1.5; color: #6B7280; margin: 0;">
+                    All spacing should be consistent and follow the design system (1rem, 1.5rem, 2rem, etc.).
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Test Section 5 - Full Width -->
+<section style="background: #D4AF37; color: white; padding: 5rem 1.5rem; text-align: center;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 2.25rem; font-weight: 700; margin: 0 0 1rem 0; color: white;">
+            ✓ Test 5: Full Width Background
+        </h2>
+        <p style="font-family: 'Roboto', sans-serif; font-size: 1.125rem; line-height: 1.5; color: white; margin: 0; opacity: 0.95;">
+            This section should have a full-width gold background that extends to both edges of the browser window. The content inside should be centered with max-width 1200px. There should be NO white space on the left or right edges.
+        </p>
+    </div>
+</section>
+
+<!-- Results Section -->
+<section style="padding: 5rem 1.5rem; background: white;">
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+        <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 2.25rem; font-weight: 700; margin: 0 0 2rem 0; color: #1E3A5F;">
+            Verification Checklist
+        </h2>
+
+        <div style="background: #F9FAFB; padding: 2rem; border-radius: 0.5rem; text-align: left; max-width: 600px; margin: 0 auto;">
+            <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 600; margin: 0 0 1.5rem 0; color: #1E3A5F;">
+                ✓ If CSS is working, you should see:
+            </h3>
+            <ul style="font-family: 'Roboto', sans-serif; font-size: 1rem; line-height: 1.75; color: #1F2937; margin: 0; padding-left: 1.5rem;">
+                <li style="margin-bottom: 0.5rem;">Headings in <strong>Playfair Display</strong> font (serif)</li>
+                <li style="margin-bottom: 0.5rem;">Body text in <strong>Roboto</strong> font (sans-serif)</li>
+                <li style="margin-bottom: 0.5rem;">Navy (#1E3A5F) and Gold (#D4AF37) colors</li>
+                <li style="margin-bottom: 0.5rem;">Buttons with hover effects</li>
+                <li style="margin-bottom: 0.5rem;">Cards with shadows and rounded corners</li>
+                <li style="margin-bottom: 0.5rem;">Full-width backgrounds (no white edges)</li>
+                <li style="margin-bottom: 0.5rem;">Content centered with max-width 1200px</li>
+                <li style="margin-bottom: 0.5rem;">Consistent spacing and padding</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 3rem; padding: 2rem; background: #10B981; color: white; border-radius: 0.5rem;">
+            <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 600; margin: 0 0 0.5rem 0; color: white;">
+                ✓ All Tests Passed!
+            </h3>
+            <p style="font-family: 'Roboto', sans-serif; font-size: 1rem; margin: 0; color: white; opacity: 0.95;">
+                If you can see this section with a green background and white text, your CSS is working correctly!
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Debugging Section -->
+<section style="padding: 5rem 1.5rem; background: #1F2937; color: white;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 2.25rem; font-weight: 700; margin: 0 0 2rem 0; color: #D4AF37;">
+            Debugging Instructions
+        </h2>
+
+        <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 0.5rem;">
+            <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 600; margin: 0 0 1rem 0; color: white;">
+                If CSS is NOT working:
+            </h3>
+            <ol style="font-family: 'Roboto', sans-serif; font-size: 1rem; line-height: 1.75; color: white; margin: 0; padding-left: 1.5rem; opacity: 0.9;">
+                <li style="margin-bottom: 1rem;">
+                    <strong style="color: #D4AF37;">Open Browser DevTools:</strong> Right-click → Inspect → Network tab
+                </li>
+                <li style="margin-bottom: 1rem;">
+                    <strong style="color: #D4AF37;">Reload the page:</strong> Check if all CSS files load (200 status, no 404 errors)
+                </li>
+                <li style="margin-bottom: 1rem;">
+                    <strong style="color: #D4AF37;">Check Console:</strong> Look for any JavaScript or CSS errors
+                </li>
+                <li style="margin-bottom: 1rem;">
+                    <strong style="color: #D4AF37;">Verify file paths:</strong> Ensure main.css, navigation.css, footer.css exist
+                </li>
+                <li style="margin-bottom: 1rem;">
+                    <strong style="color: #D4AF37;">Clear cache:</strong> Hard refresh with Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)
+                </li>
+                <li style="margin-bottom: 1rem;">
+                    <strong style="color: #D4AF37;">Check functions.php:</strong> Ensure wp_enqueue_style() is correct
+                </li>
+            </ol>
+        </div>
+    </div>
+</section>

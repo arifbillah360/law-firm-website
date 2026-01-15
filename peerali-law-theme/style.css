@@ -15,13 +15,15 @@ Tags: law-firm, minimal, custom, professional, responsive, mobile-first, full-wi
 */
 
 /* ================================================
-   IMPORT CUSTOM CSS FILES
-   Import your design system CSS files
-   ================================================ */
+   NOTE: CSS FILES ARE LOADED VIA wp_enqueue_style()
+   - main.css (loaded first)
+   - navigation.css (loaded after main.css)
+   - footer.css (loaded after main.css)
+   - style.css (this file, loaded last)
 
-@import url('assets/css/main.css');
-@import url('assets/css/navigation.css');
-@import url('assets/css/footer.css');
+   This file contains ONLY WordPress default overrides
+   to force full-width content and remove constraints
+   ================================================ */
 
 /* ================================================
    CRITICAL: WordPress Default Overrides
