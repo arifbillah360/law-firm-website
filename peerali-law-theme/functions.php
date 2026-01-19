@@ -115,46 +115,37 @@ function peerali_law_enqueue_styles() {
         null
     );
 
-    // Font Awesome
+    // Font Awesome CDN
     wp_enqueue_style(
-        'font-awesome',
-        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
+        'peerali-fontawesome',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
         array(),
-        '6.4.0'
+        '6.5.1'
     );
 
-    // 1. Main CSS FIRST (base styles, CSS variables, typography)
-    wp_enqueue_style(
-        'peerali-main',
-        get_template_directory_uri() . '/assets/css/main.css',
-        array(),
-        filemtime(get_template_directory() . '/assets/css/main.css'),
-        'all'
-    );
-
-    // 2. Navigation CSS (depends on main.css)
+    // 1. Navigation CSS
     wp_enqueue_style(
         'peerali-navigation',
         get_template_directory_uri() . '/assets/css/navigation.css',
-        array('peerali-main'),
+        array(),
         filemtime(get_template_directory() . '/assets/css/navigation.css'),
         'all'
     );
 
-    // 3. Footer CSS (depends on main.css)
+    // 2. Footer CSS
     wp_enqueue_style(
         'peerali-footer',
         get_template_directory_uri() . '/assets/css/footer.css',
-        array('peerali-main'),
+        array(),
         filemtime(get_template_directory() . '/assets/css/footer.css'),
         'all'
     );
 
-    // 4. Style.css LAST (WordPress overrides only)
+    // 3. Style.css LAST (contains main.css + WordPress overrides)
     wp_enqueue_style(
         'peerali-style',
         get_stylesheet_uri(),
-        array('peerali-main', 'peerali-navigation', 'peerali-footer'),
+        array('peerali-fontawesome', 'peerali-navigation', 'peerali-footer'),
         filemtime(get_stylesheet_directory() . '/style.css'),
         'all'
     );
