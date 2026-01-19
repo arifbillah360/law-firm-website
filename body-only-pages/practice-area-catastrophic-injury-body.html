@@ -1,0 +1,4759 @@
+<!-- ========================================
+     SOURCE: catastrophic-injury.html
+     OUTPUT: practice-area-catastrophic-injury-body.html
+     BODY CONTENT ONLY (NO HEADER/FOOTER)
+     ======================================== -->
+
+<style>
+    /* =====================================================
+       CSS FOR BODY CONTENT ONLY
+       ===================================================== */
+
+/*! ============================================
+ * PEERALI LAW - MAIN STYLESHEET
+ * Homepage and global styles
+ * ============================================ */
+
+/* ============================================
+   CSS VARIABLES (extending navigation.css)
+   ============================================ */
+:root {
+    /* Extended Color Palette */
+    --primary-navy: #1e3a5f;
+    --primary-navy-dark: #152b45;
+    --primary-navy-light: #2a4a70;
+    --accent-gold: #c5a572;
+    --accent-gold-dark: #b39560;
+    --accent-gold-light: #d4b68a;
+
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a5568;
+    --text-light: #718096;
+    --text-white: #ffffff;
+
+    --bg-white: #ffffff;
+    --bg-light: #f7fafc;
+    --bg-dark: #2d3748;
+    --bg-overlay: rgba(30, 58, 95, 0.92);
+
+    --border-color: #e2e8f0;
+    --success-green: #48bb78;
+    --warning-yellow: #ed8936;
+    --error-red: #f56565;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
+
+    /* Typography */
+    --font-primary: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-heading: 'Playfair Display', Georgia, serif;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+    --spacing-4xl: 6rem;
+
+    /* Container */
+    --container-max: 1280px;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.4s ease;
+}
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-primary);
+    background: var(--bg-white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--primary-navy);
+    text-decoration: none;
+    transition: color var(--transition-base);
+}
+
+a:hover {
+    color: var(--accent-gold);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-bottom: var(--spacing-md);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    h3 {
+        font-size: 1.75rem;
+    }
+}
+
+p {
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 0 2rem;
+    }
+}
+
+/* Section Spacing */
+section {
+    padding: var(--spacing-4xl) 0;
+}
+
+@media (max-width: 767px) {
+    section {
+        padding: var(--spacing-3xl) 0;
+    }
+}
+
+/* Section Titles */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    padding-bottom: var(--spacing-md);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-gold), var(--primary-navy));
+    border-radius: 2px;
+}
+
+.section-intro {
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto var(--spacing-2xl) auto;
+}
+
+.section-note {
+    text-align: center;
+    margin-top: var(--spacing-2xl);
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 0.5rem;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background: var(--accent-gold);
+    color: var(--text-white);
+    border-color: var(--accent-gold);
+}
+
+.btn-primary:hover {
+    background: var(--accent-gold-dark);
+    border-color: var(--accent-gold-dark);
+    color: var(--text-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background: var(--primary-navy);
+    color: var(--text-white);
+    border-color: var(--primary-navy);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-navy-dark);
+    border-color: var(--primary-navy-dark);
+    color: var(--text-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary-navy);
+    border-color: var(--primary-navy);
+}
+
+.btn-outline:hover {
+    background: var(--primary-navy);
+    color: var(--text-white);
+}
+
+.btn-large {
+    padding: 1.125rem 2.25rem;
+    font-size: 1.125rem;
+}
+
+.btn-block {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+/* Utility */
+.text-center {
+    text-align: center;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero-section {
+    position: relative;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-navy-dark) 100%);
+    background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1920');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: var(--spacing-4xl) 0;
+    color: var(--text-white);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-overlay);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    backdrop-filter: blur(10px);
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-white);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 4rem;
+    }
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 700px;
+    margin: 0 auto var(--spacing-2xl) auto;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    padding: var(--spacing-lg);
+    transition: all var(--transition-base);
+}
+
+.stat-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent-gold);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    justify-content: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.trust-badges {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--spacing-md);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    padding: var(--spacing-md);
+    font-size: 0.875rem;
+}
+
+.trust-badge i {
+    font-size: 1.75rem;
+    color: var(--accent-gold);
+}
+
+.badge-content {
+    flex: 1;
+}
+
+.badge-rating {
+    font-weight: 700;
+    color: var(--text-white);
+    line-height: 1.2;
+}
+
+.badge-reviews {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Hero Section Color Overrides - Ensure white text in hero */
+.hero-content .stat-label {
+    color: #FFFFFF !important;
+}
+
+.hero-content .badge-rating {
+    color: #FFFFFF !important;
+}
+
+/* ============================================
+   AWARDS & RECOGNITION SECTION
+   ============================================ */
+.awards-recognition-section {
+    background: var(--bg-light);
+    padding: var(--spacing-4xl) 0;
+}
+
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-2xl);
+    margin-top: var(--spacing-3xl);
+}
+
+.award-card {
+    background: var(--bg-white);
+    border-radius: 1rem;
+    padding: var(--spacing-2xl);
+    text-align: center;
+    transition: all var(--transition-base);
+    border: 2px solid transparent;
+    box-shadow: var(--shadow-md);
+}
+
+.award-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--accent-gold);
+}
+
+.award-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-navy), var(--primary-navy-light));
+    border-radius: 50%;
+    transition: all var(--transition-base);
+}
+
+.award-card:hover .award-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+}
+
+.award-icon i {
+    font-size: 2.5rem;
+    color: var(--text-white);
+}
+
+.award-title {
+    font-family: var(--font-heading);
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.3;
+}
+
+.award-description {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+/* Responsive Grid for Awards */
+@media (max-width: 1024px) {
+    .awards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+    }
+}
+
+@media (max-width: 768px) {
+    .awards-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .awards-recognition-section {
+        padding: var(--spacing-3xl) 0;
+    }
+
+    .award-card {
+        padding: var(--spacing-xl);
+    }
+
+    .award-icon {
+        width: 70px;
+        height: 70px;
+    }
+
+    .award-icon i {
+        font-size: 2rem;
+    }
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+.about-section {
+    background: var(--bg-white);
+}
+
+.about-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-3xl);
+    align-items: start;
+}
+
+@media (min-width: 1024px) {
+    .about-layout {
+        grid-template-columns: 1fr 1.2fr;
+    }
+}
+
+.about-image {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.image-caption {
+    background: var(--bg-dark);
+    color: var(--text-white);
+    padding: var(--spacing-md);
+    font-size: 0.875rem;
+    font-style: italic;
+    text-align: center;
+}
+
+.about-content .section-title {
+    text-align: left;
+}
+
+.about-content .section-title::after {
+    left: 0;
+    transform: none;
+}
+
+.highlight-box {
+    background: var(--bg-light);
+    border-left: 4px solid var(--accent-gold);
+    border-radius: 0.5rem;
+    padding: var(--spacing-xl);
+    margin: var(--spacing-2xl) 0;
+}
+
+.highlight-box h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-navy);
+    margin-bottom: var(--spacing-md);
+}
+
+.highlight-box h3 i {
+    color: var(--accent-gold);
+}
+
+.check-list {
+    list-style: none;
+    padding: 0;
+}
+
+.check-list li {
+    display: flex;
+    align-items: start;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.check-list i {
+    color: var(--success-green);
+    font-size: 1.125rem;
+    margin-top: 0.25rem;
+}
+
+.cta-box {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-navy-dark) 100%);
+    color: var(--text-white);
+    border-radius: 1rem;
+    padding: var(--spacing-2xl);
+    margin-top: var(--spacing-2xl);
+    text-align: center;
+}
+
+.cta-box h3 {
+    color: var(--accent-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.cta-box p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.cta-note {
+    margin-top: var(--spacing-md);
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.cta-note a {
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+.cta-note a:hover {
+    color: var(--accent-gold-light);
+}
+
+/* About Awards Section - Part 2 */
+.about-awards-section {
+    background: var(--bg-light);
+}
+
+.about-layout.reverse {
+    direction: ltr;
+}
+
+@media (min-width: 1024px) {
+    .about-layout.reverse {
+        grid-template-columns: 1.2fr 1fr;
+    }
+
+    .about-layout.reverse .about-image {
+        order: 2;
+    }
+
+    .about-layout.reverse .about-content {
+        order: 1;
+    }
+}
+
+.awards-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-xl) 0;
+}
+
+.awards-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: var(--spacing-md);
+    font-size: 1rem;
+}
+
+.awards-list i {
+    color: var(--accent-gold);
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+/* ============================================
+   WHY YOU NEED SECTION
+   ============================================ */
+.why-need-section {
+    background: var(--bg-light);
+}
+
+.checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin: var(--spacing-2xl) 0;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    background: var(--bg-white);
+    padding: var(--spacing-lg);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+}
+
+.checklist-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.checklist-item i {
+    font-size: 1.5rem;
+    color: var(--success-green);
+    flex-shrink: 0;
+}
+
+.checklist-item span {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.case-study {
+    background: var(--bg-white);
+    border-radius: 1rem;
+    padding: var(--spacing-2xl);
+    margin-top: var(--spacing-2xl);
+    box-shadow: var(--shadow-md);
+}
+
+.case-study h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-navy);
+    margin-bottom: var(--spacing-lg);
+}
+
+.case-study h3 i {
+    color: var(--accent-gold);
+}
+
+.case-result {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+    margin: var(--spacing-2xl) 0;
+    padding: var(--spacing-xl);
+    background: var(--bg-light);
+    border-radius: 0.75rem;
+}
+
+@media (max-width: 640px) {
+    .case-result {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .result-arrow {
+        transform: rotate(90deg);
+    }
+}
+
+.result-before,
+.result-after {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: var(--bg-white);
+    border-radius: 0.5rem;
+}
+
+.result-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.result-amount {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-navy);
+}
+
+.result-after .result-amount {
+    color: var(--success-green);
+}
+
+.result-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.result-arrow i {
+    font-size: 2rem;
+    color: var(--accent-gold);
+}
+
+/* ============================================
+   PRACTICE AREAS SECTION
+   ============================================ */
+.practice-areas-section {
+    background: var(--bg-white);
+}
+
+.practice-categories {
+    display: grid;
+    gap: var(--spacing-2xl);
+    margin: var(--spacing-2xl) 0;
+}
+
+.practice-category {
+    background: var(--bg-light);
+    border-radius: 1rem;
+    padding: var(--spacing-2xl);
+    transition: all var(--transition-base);
+}
+
+.practice-category:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+}
+
+.category-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--primary-navy);
+    margin-bottom: var(--spacing-md);
+}
+
+.category-title i {
+    color: var(--accent-gold);
+    font-size: 1.5rem;
+}
+
+.category-description {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.practice-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.practice-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--bg-white);
+    color: var(--primary-navy);
+    border-radius: 0.375rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    transition: all var(--transition-base);
+    border: 2px solid transparent;
+}
+
+.practice-link:hover {
+    background: var(--primary-navy);
+    color: var(--text-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ============================================
+   TESTIMONIALS SECTION
+   ============================================ */
+.testimonials-section {
+    background: var(--bg-light);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin: var(--spacing-2xl) 0;
+}
+
+.testimonial-card {
+    background: var(--bg-white);
+    border-radius: 1rem;
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+}
+
+.testimonial-card.featured {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-navy-dark) 100%);
+    color: var(--text-white);
+}
+
+.testimonial-stars {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--accent-gold);
+    font-size: 1.125rem;
+}
+
+.testimonial-text {
+    flex: 1;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-lg);
+    font-style: italic;
+}
+
+.featured .testimonial-text {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.testimonial-author {
+    border-top: 2px solid var(--border-color);
+    padding-top: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.featured .testimonial-author {
+    border-top-color: rgba(255, 255, 255, 0.2);
+}
+
+.testimonial-author strong {
+    font-size: 1rem;
+    color: var(--primary-navy);
+}
+
+.featured .testimonial-author strong {
+    color: var(--accent-gold);
+}
+
+.review-source {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.featured .review-source {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ============================================
+   FAQ SECTION
+   ============================================ */
+.faq-section {
+    background: var(--bg-white);
+}
+
+.faq-grid {
+    display: grid;
+    gap: var(--spacing-lg);
+    max-width: 900px;
+    margin: var(--spacing-2xl) auto 0 auto;
+}
+
+.faq-item {
+    background: var(--bg-light);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+.faq-item:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.faq-question {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg) var(--spacing-xl);
+    margin: 0;
+    cursor: pointer;
+    user-select: none;
+    transition: all var(--transition-base);
+}
+
+.faq-question:hover {
+    background: var(--bg-white);
+}
+
+.faq-question i {
+    color: var(--accent-gold);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-base);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+}
+
+.faq-answer p {
+    padding: 0 var(--spacing-xl) var(--spacing-lg) var(--spacing-xl);
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+/* ============================================
+   CONTACT FORM SECTION
+   ============================================ */
+.contact-form-section {
+    background: var(--bg-light);
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-3xl);
+}
+
+@media (min-width: 1024px) {
+    .contact-layout {
+        grid-template-columns: 1fr 1.5fr;
+    }
+}
+
+.contact-info .section-title {
+    text-align: left;
+}
+
+.contact-info .section-title::after {
+    left: 0;
+    transform: none;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    margin: var(--spacing-2xl) 0;
+}
+
+.contact-detail {
+    display: flex;
+    align-items: start;
+    gap: var(--spacing-md);
+}
+
+.contact-detail i {
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+.contact-detail strong {
+    display: block;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-bottom: 0.25rem;
+}
+
+.contact-detail a {
+    display: block;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.contact-detail a:hover {
+    color: var(--primary-navy);
+}
+
+.contact-detail span {
+    display: block;
+    color: var(--text-secondary);
+}
+
+.trust-indicators {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-2xl);
+}
+
+.trust-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: var(--spacing-md);
+    background: var(--bg-white);
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.trust-indicator i {
+    font-size: 2rem;
+    color: var(--accent-gold);
+}
+
+.trust-indicator span {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--primary-navy);
+}
+
+.contact-form-container {
+    background: var(--bg-white);
+    border-radius: 1rem;
+    padding: var(--spacing-2xl);
+    box-shadow: var(--shadow-lg);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+}
+
+@media (min-width: 640px) {
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--primary-navy);
+    font-size: 0.9375rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    color: var(--text-primary);
+    transition: all var(--transition-base);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 3px rgba(197, 165, 114, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: start;
+    gap: 0.75rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-top: 0.25rem;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.checkbox-label span {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.form-note {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0 !important;
+}
+
+.form-note a {
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer {
+    background: #1E3A5F;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-main {
+    padding: var(--spacing-4xl) 0 var(--spacing-2xl) 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-3xl);
+}
+
+.footer-column h3 {
+    color: var(--accent-gold);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer-column p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+}
+
+.social-links {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--text-white);
+    font-size: 1.125rem;
+    transition: all var(--transition-base);
+}
+
+.social-link:hover {
+    background: var(--accent-gold);
+    color: var(--text-white);
+    transform: translateY(-3px);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: all var(--transition-base);
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--accent-gold);
+    padding-left: 0.5rem;
+}
+
+.footer-contact {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-contact li {
+    display: flex;
+    align-items: start;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-contact i {
+    color: var(--accent-gold);
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+.footer-contact a {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-contact a:hover {
+    color: var(--accent-gold);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: var(--spacing-xl) 0;
+}
+
+.footer-bottom-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+    .footer-bottom-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.footer-bottom-content p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+.footer-bottom-links a {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-bottom-links a:hover {
+    color: var(--accent-gold);
+}
+
+.disclaimer {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: var(--spacing-lg) auto 0 auto;
+}
+
+/* ============================================
+   RESPONSIVE UTILITIES
+   ============================================ */
+@media (max-width: 767px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .hide-desktop {
+        display: none !important;
+    }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Focus visible */
+*:focus-visible {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 2px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ============================================
+   ABOUT US PAGE STYLES
+   ============================================ */
+
+/* Breadcrumb Section */
+.breadcrumb-section {
+    background: var(--bg-light);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.breadcrumb-list {
+    display: flex;
+    gap: var(--spacing-sm);
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.breadcrumb-item:not(:last-child)::after {
+    content: '/';
+    margin-left: var(--spacing-sm);
+    color: var(--text-light);
+}
+
+.breadcrumb-item a {
+    color: var(--primary-navy);
+    font-weight: 600;
+}
+
+.breadcrumb-item a:hover {
+    color: var(--accent-gold);
+}
+
+.breadcrumb-item.active {
+    color: var(--text-secondary);
+}
+
+/* Page Header Section */
+.page-header-section {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-navy-dark) 100%);
+    padding: var(--spacing-3xl) 0;
+    color: var(--text-white);
+    text-align: center;
+}
+
+.page-header-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    color: var(--text-white);
+    margin-bottom: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+    .page-title {
+        font-size: 3.5rem;
+    }
+}
+
+.page-subtitle {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+}
+
+/* About Intro Section */
+.about-intro-section {
+    background: var(--bg-white);
+}
+
+.about-intro-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-3xl);
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .about-intro-layout {
+        grid-template-columns: 1fr 1.2fr;
+    }
+}
+
+.about-intro-image {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.about-intro-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.about-intro-content .section-title {
+    text-align: left;
+}
+
+.about-intro-content .section-title::after {
+    left: 0;
+    transform: none;
+}
+
+.lead-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-2xl);
+}
+
+.stat-box {
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: var(--bg-light);
+    border-radius: 0.75rem;
+    transition: all var(--transition-base);
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.stat-box .stat-number {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent-gold);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-box .stat-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+/* Trial-Ready Section */
+.trial-ready-section {
+    background: var(--bg-light);
+}
+
+.highlight-callout {
+    display: flex;
+    align-items: start;
+    gap: var(--spacing-lg);
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-navy-dark) 100%);
+    color: var(--text-white);
+    padding: var(--spacing-2xl);
+    border-radius: 1rem;
+    margin: var(--spacing-2xl) 0;
+}
+
+.highlight-callout i {
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    flex-shrink: 0;
+}
+
+.highlight-callout h3 {
+    color: var(--text-white);
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.trial-approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-2xl);
+}
+
+.approach-card {
+    background: var(--bg-white);
+    padding: var(--spacing-xl);
+    border-radius: 0.75rem;
+    text-align: center;
+    transition: all var(--transition-base);
+    border: 2px solid var(--border-color);
+}
+
+.approach-card:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.approach-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-md) auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-navy-dark) 100%);
+    border-radius: 50%;
+}
+
+.approach-icon i {
+    font-size: 2rem;
+    color: var(--accent-gold);
+}
+
+.approach-card h4 {
+    color: var(--primary-navy);
+    margin-bottom: var(--spacing-sm);
+}
+
+.approach-card p {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    margin: 0;
+}
+
+/* Our Attorneys Section */
+.our-attorneys-section {
+    background: var(--bg-white);
+}
+
+.section-header-center {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-3xl) auto;
+}
+
+.attorneys-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-3xl);
+}
+
+@media (min-width: 768px) {
+    .attorneys-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .attorneys-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.attorney-card {
+    background: var(--bg-white);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    display: flex;
+    flex-direction: column;
+}
+
+.attorney-card:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-5px);
+}
+
+.attorney-card.featured {
+    border: 2px solid var(--accent-gold);
+}
+
+.attorney-image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+}
+
+.attorney-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.attorney-badge {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: var(--accent-gold);
+    color: var(--text-white);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.attorney-info {
+    padding: var(--spacing-xl);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.attorney-name {
+    font-size: 1.5rem;
+    color: var(--primary-navy);
+    margin-bottom: 0.25rem;
+}
+
+.attorney-title {
+    font-size: 0.9375rem;
+    color: var(--accent-gold);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+.attorney-credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.credential {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.credential i {
+    color: var(--accent-gold);
+    font-size: 1rem;
+}
+
+.attorney-bio {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-lg);
+}
+
+.attorney-specialties {
+    background: var(--bg-light);
+    padding: var(--spacing-md);
+    border-radius: 0.5rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.attorney-specialties h4 {
+    font-size: 0.875rem;
+    color: var(--primary-navy);
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.attorney-specialties ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.attorney-specialties li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.attorney-specialties li:last-child {
+    margin-bottom: 0;
+}
+
+.attorney-specialties i {
+    color: var(--success-green);
+    font-size: 0.875rem;
+}
+
+.attorney-highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    margin-top: auto;
+}
+
+.highlight-stat {
+    text-align: center;
+    padding: var(--spacing-md);
+    background: var(--bg-light);
+    border-radius: 0.5rem;
+}
+
+.highlight-stat strong {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+}
+
+.highlight-stat span {
+    display: block;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+}
+
+/* Why Choose Section */
+.why-choose-section {
+    background: var(--bg-light);
+}
+
+.why-choose-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-2xl);
+}
+
+.why-card {
+    background: var(--bg-white);
+    padding: var(--spacing-2xl);
+    border-radius: 0.75rem;
+    text-align: center;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-sm);
+}
+
+.why-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.why-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-lg) auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-navy-dark) 100%);
+    border-radius: 50%;
+}
+
+.why-icon i {
+    font-size: 2rem;
+    color: var(--accent-gold);
+}
+
+.why-card h3 {
+    color: var(--primary-navy);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.why-card p {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Recognition Section */
+.recognition-section {
+    background: var(--bg-white);
+}
+
+.recognition-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-2xl);
+}
+
+.recognition-item {
+    background: var(--bg-light);
+    padding: var(--spacing-xl);
+    border-radius: 0.75rem;
+    text-align: center;
+    transition: all var(--transition-base);
+}
+
+.recognition-item:hover {
+    background: var(--bg-white);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.recognition-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto var(--spacing-md) auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-gold);
+    border-radius: 50%;
+}
+
+.recognition-icon i {
+    font-size: 1.75rem;
+    color: var(--text-white);
+}
+
+.recognition-item h4 {
+    color: var(--primary-navy);
+    font-size: 1rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.recognition-item p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* CTA Section Alt */
+.cta-section-alt {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-navy-dark) 100%);
+    color: var(--text-white);
+    padding: var(--spacing-4xl) 0;
+}
+
+.cta-content-center {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-content-center h2 {
+    font-size: 2.5rem;
+    color: var(--text-white);
+    margin-bottom: var(--spacing-lg);
+}
+
+.cta-content-center p {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+}
+
+.cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    justify-content: center;
+    margin: var(--spacing-2xl) 0;
+}
+
+.cta-note {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: var(--spacing-md);
+}
+
+.cta-note a {
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+.cta-note a:hover {
+    color: var(--accent-gold-light);
+}
+
+/* ============================================
+   CONTACT PAGE STYLES
+   ============================================ */
+
+/* Process Section */
+.process-section {
+    background: var(--bg-white);
+}
+
+.section-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--spacing-3xl) auto;
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+}
+
+.process-timeline {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.process-step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-3xl);
+    position: relative;
+}
+
+.process-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 31px;
+    top: 65px;
+    width: 2px;
+    height: calc(100% + var(--spacing-2xl));
+    background: linear-gradient(to bottom, var(--accent-gold) 0%, var(--border-color) 100%);
+}
+
+.step-number {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-navy-dark) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    z-index: 2;
+}
+
+.step-number span {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+}
+
+.step-content {
+    background: var(--bg-light);
+    padding: var(--spacing-xl);
+    border-radius: 0.75rem;
+    border-left: 4px solid var(--accent-gold);
+    transition: all var(--transition-base);
+}
+
+.step-content:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-md);
+}
+
+.step-content h3 {
+    color: var(--primary-navy);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.step-content h3 i {
+    color: var(--accent-gold);
+}
+
+.step-content p {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    margin: 0;
+    line-height: 1.7;
+}
+
+@media (max-width: 767px) {
+    .process-step {
+        grid-template-columns: auto 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .step-number {
+        width: 48px;
+        height: 48px;
+    }
+
+    .step-number span {
+        font-size: 1.375rem;
+    }
+
+    .process-step:not(:last-child)::after {
+        left: 23px;
+        top: 50px;
+    }
+}
+
+/* Contact Form Section */
+.contact-form-section {
+    background: var(--bg-light);
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-4xl);
+    align-items: start;
+}
+
+@media (min-width: 1024px) {
+    .contact-layout {
+        grid-template-columns: 1fr 1.2fr;
+    }
+}
+
+/* Contact Info */
+.contact-info h2 {
+    text-align: left;
+}
+
+.contact-info h2::after {
+    left: 0;
+    transform: none;
+}
+
+.contact-details {
+    margin-top: var(--spacing-2xl);
+}
+
+.contact-item {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-navy-dark) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-icon i {
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+}
+
+.contact-text h4 {
+    color: var(--primary-navy);
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-text p {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.contact-text p:last-child {
+    margin-bottom: 0;
+}
+
+.contact-text a {
+    color: var(--primary-navy);
+    font-weight: 600;
+}
+
+.contact-text a:hover {
+    color: var(--accent-gold);
+}
+
+.small-text {
+    font-size: 0.8125rem !important;
+    color: var(--text-light) !important;
+    font-style: italic;
+}
+
+.link-with-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-gold);
+    font-weight: 600;
+    font-size: 0.9375rem;
+}
+
+.link-with-icon:hover {
+    color: var(--primary-navy);
+}
+
+.link-with-icon i {
+    font-size: 1rem;
+}
+
+/* Social Links */
+.social-links {
+    margin-top: var(--spacing-3xl);
+}
+
+.social-links h4 {
+    color: var(--primary-navy);
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.social-icons {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.social-icons a {
+    width: 44px;
+    height: 44px;
+    background: var(--primary-navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-white);
+    font-size: 1.125rem;
+    transition: all var(--transition-base);
+}
+
+.social-icons a:hover {
+    background: var(--accent-gold);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Contact Form Container */
+.contact-form-container {
+    background: var(--bg-white);
+    padding: var(--spacing-3xl);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.contact-form-container h2 {
+    text-align: left;
+}
+
+.contact-form-container h2::after {
+    left: 0;
+    transform: none;
+}
+
+.form-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.0625rem;
+    margin-bottom: var(--spacing-2xl);
+}
+
+/* Contact Form */
+.contact-form {
+    margin-top: var(--spacing-xl);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-group label {
+    display: block;
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9375rem;
+}
+
+.required {
+    color: var(--error-red);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    color: var(--text-primary);
+    transition: all var(--transition-base);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 3px rgba(197, 165, 114, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Checkbox Group */
+.checkbox-group {
+    margin: var(--spacing-xl) 0;
+}
+
+.checkbox-label {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: start;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-top: 0.25rem;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.checkbox-text {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.btn-large {
+    padding: 1rem 2.5rem;
+    font-size: 1.125rem;
+}
+
+.form-note {
+    margin-top: var(--spacing-lg);
+    font-size: 0.875rem;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.form-note i {
+    color: var(--success-green);
+    margin-right: 0.25rem;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE FIXES FOR CONTACT FORM
+   Prevents horizontal overflow on mobile devices
+   ============================================ */
+
+/* Mobile: 0px - 767px */
+@media (max-width: 767px) {
+    /* Reduce container padding on mobile to prevent overflow */
+    .contact-form-container {
+        padding: var(--spacing-lg);
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Reduce gap between contact info and form */
+    .contact-layout {
+        gap: var(--spacing-xl);
+    }
+
+    /* Ensure all form elements stay within bounds */
+    .contact-form {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Form rows: single column on mobile */
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    /* Form groups with proper sizing */
+    .form-group {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: var(--spacing-md);
+    }
+
+    /* Input fields: ensure they don't overflow */
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 1rem;
+    }
+
+    /* Buttons: full width on mobile for better UX */
+    .contact-form-container .btn-large,
+    .contact-form-container .btn-primary {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+
+    /* Checkbox group: reduce margins */
+    .checkbox-group {
+        margin: var(--spacing-md) 0;
+    }
+
+    /* Form subtitle: reduce bottom margin */
+    .form-subtitle {
+        margin-bottom: var(--spacing-lg);
+        font-size: 1rem;
+    }
+}
+
+/* Small mobile: 0px - 374px (very small phones) */
+@media (max-width: 374px) {
+    /* Even more compact padding for very small screens */
+    .contact-form-container {
+        padding: var(--spacing-md);
+    }
+
+    /* Reduce spacing further */
+    .contact-layout {
+        gap: var(--spacing-lg);
+    }
+
+    /* Adjust button padding */
+    .contact-form-container .btn-large,
+    .contact-form-container .btn-primary {
+        padding: 0.875rem var(--spacing-md);
+        font-size: 1rem;
+    }
+}
+
+/* Tablet: 768px - 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Moderate padding for tablets */
+    .contact-form-container {
+        padding: var(--spacing-xl);
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* ============================================
+   END MOBILE RESPONSIVE FIXES
+   ============================================ */
+
+/* Testimonials CTA */
+.testimonials-cta {
+    text-align: center;
+    margin-top: var(--spacing-3xl);
+}
+
+.reviews-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--bg-light);
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: 2rem;
+    margin-bottom: var(--spacing-lg);
+    font-size: 1rem;
+}
+
+.reviews-badge i {
+    color: var(--accent-gold);
+    font-size: 1.25rem;
+}
+
+.reviews-badge strong {
+    color: var(--primary-navy);
+}
+
+/* ============================================
+   CASE RESULTS PAGE STYLES
+   ============================================ */
+
+/* Case Results Intro Section */
+.case-results-intro-section {
+    background: var(--bg-white);
+}
+
+.intro-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.disclaimer-note {
+    background: var(--bg-light);
+    border-left: 4px solid var(--primary-navy);
+    padding: var(--spacing-xl);
+    border-radius: 0.5rem;
+    margin-top: var(--spacing-2xl);
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.disclaimer-note i {
+    color: var(--primary-navy);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.disclaimer-note p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.disclaimer-note strong {
+    color: var(--primary-navy);
+}
+
+/* Featured Cases Section */
+.featured-cases-section {
+    background: var(--bg-light);
+}
+
+.cases-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-2xl);
+}
+
+@media (min-width: 768px) {
+    .cases-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .cases-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.case-card {
+    background: var(--bg-white);
+    padding: var(--spacing-2xl);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid transparent;
+}
+
+.case-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--accent-gold);
+}
+
+.case-card.featured {
+    border: 2px solid var(--accent-gold);
+    background: linear-gradient(135deg, var(--bg-white) 0%, rgba(197, 165, 114, 0.05) 100%);
+}
+
+.case-card.highlight {
+    background: linear-gradient(135deg, var(--bg-white) 0%, rgba(30, 58, 95, 0.03) 100%);
+}
+
+.case-amount {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent-gold);
+    margin-bottom: var(--spacing-md);
+    line-height: 1;
+}
+
+.case-type {
+    color: var(--primary-navy);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.case-description {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: var(--spacing-md);
+}
+
+.case-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-navy-dark) 100%);
+    color: var(--text-white);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    align-self: flex-start;
+}
+
+.case-badge i {
+    color: var(--accent-gold);
+}
+
+.case-badge.success {
+    background: linear-gradient(135deg, var(--success-green) 0%, #059669 100%);
+}
+
+/* More Cases Section */
+.more-cases-section {
+    background: var(--bg-white);
+}
+
+.cases-table {
+    margin-top: var(--spacing-2xl);
+    background: var(--bg-white);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.case-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-xl);
+    padding: var(--spacing-xl);
+    border-bottom: 1px solid var(--border-color);
+    transition: all var(--transition-base);
+}
+
+.case-row:last-child {
+    border-bottom: none;
+}
+
+.case-row:hover {
+    background: var(--bg-light);
+}
+
+.case-info {
+    flex: 1;
+}
+
+.case-info h4 {
+    color: var(--primary-navy);
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+
+.case-info p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.case-amount-column {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--accent-gold);
+    flex-shrink: 0;
+    text-align: right;
+    min-width: 120px;
+}
+
+@media (max-width: 767px) {
+    .case-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+    }
+
+    .case-amount-column {
+        font-size: 1.5rem;
+        text-align: left;
+        width: 100%;
+    }
+}
+
+/* Secondary Button */
+.btn-secondary {
+    background: var(--bg-white);
+    color: var(--primary-navy);
+    border: 2px solid var(--accent-gold);
+}
+
+.btn-secondary:hover {
+    background: var(--accent-gold);
+    color: var(--text-white);
+    border-color: var(--accent-gold);
+}
+
+/* ============================================
+   PRACTICE AREA PAGE STYLES
+   ============================================ */
+
+/* Practice Area Header */
+.practice-area-header {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-navy-dark) 100%);
+}
+
+/* Badges Section */
+.badges-section {
+    background: var(--bg-light);
+    padding: var(--spacing-2xl) 0;
+}
+
+.badges-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+}
+
+@media (min-width: 640px) {
+    .badges-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .badges-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.badge-item {
+    background: var(--bg-white);
+    padding: var(--spacing-lg);
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+}
+
+.badge-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.badge-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.5rem;
+}
+
+.badge-icon.google {
+    background: #4285F4;
+    color: white;
+}
+
+.badge-icon.yelp {
+    background: #D32323;
+    color: white;
+}
+
+.badge-icon.award {
+    background: var(--accent-gold);
+    color: white;
+}
+
+.badge-icon.trophy {
+    background: var(--primary-navy);
+    color: var(--accent-gold);
+}
+
+.badge-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.badge-rating {
+    font-size: 0.9375rem;
+    color: var(--primary-navy);
+    font-weight: 700;
+}
+
+/* Practice Area Content */
+.practice-area-content-section {
+    background: var(--bg-white);
+}
+
+.problem-list {
+    background: var(--bg-light);
+    border-radius: 1rem;
+    padding: var(--spacing-2xl);
+    margin: var(--spacing-2xl) 0;
+}
+
+.problem-step {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.problem-step:last-child {
+    border-bottom: none;
+}
+
+.step-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-gold);
+    flex-shrink: 0;
+    font-size: 1.125rem;
+}
+
+.problem-step span:last-child {
+    color: var(--text-primary);
+    font-size: 0.9375rem;
+    font-weight: 500;
+}
+
+/* Case Study Section */
+.case-study-section {
+    background: var(--bg-light);
+}
+
+.case-study-box {
+    background: var(--bg-white);
+    border: 3px solid var(--accent-gold);
+    border-radius: 1rem;
+    padding: var(--spacing-3xl);
+    position: relative;
+}
+
+.case-study-label {
+    background: var(--accent-gold);
+    color: var(--primary-navy);
+    font-weight: 800;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2rem;
+    display: inline-block;
+    margin-bottom: var(--spacing-lg);
+}
+
+.case-study-box h3 {
+    color: var(--primary-navy);
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.case-study-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin: var(--spacing-2xl) 0;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-navy);
+}
+
+.stat-item.highlight .stat-value {
+    color: var(--accent-gold);
+    font-size: 2.5rem;
+}
+
+.stat-arrow {
+    font-size: 2rem;
+    color: var(--accent-gold);
+}
+
+.stat-badge {
+    background: var(--success-green);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+.case-study-cta {
+    margin-top: var(--spacing-2xl);
+    padding: var(--spacing-xl);
+    background: rgba(197, 165, 114, 0.1);
+    border-left: 4px solid var(--accent-gold);
+    border-radius: 0.5rem;
+}
+
+/* Practice About Section */
+.practice-area-about-section {
+    background: var(--bg-white);
+}
+
+.highlight-text {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--primary-navy);
+    margin-top: var(--spacing-lg);
+}
+
+/* Stats Highlight Section */
+.stats-highlight-section {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-navy-dark) 100%);
+    color: var(--text-white);
+}
+
+.stats-content h2 {
+    color: var(--accent-gold);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.stats-content p {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+    margin: 0 auto var(--spacing-2xl) auto;
+}
+
+.injury-types-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    margin: var(--spacing-2xl) 0;
+}
+
+@media (min-width: 640px) {
+    .injury-types-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .injury-types-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.injury-type-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--spacing-lg);
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    transition: all var(--transition-base);
+}
+
+.injury-type-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
+}
+
+.injury-type-item i {
+    color: var(--accent-gold);
+    font-size: 1.5rem;
+}
+
+.injury-type-item span {
+    font-size: 0.9375rem;
+    font-weight: 500;
+}
+
+.boutique-note {
+    text-align: center;
+    font-style: italic;
+    margin-top: var(--spacing-2xl);
+    padding: var(--spacing-xl);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+}
+
+/* Top Rated Section */
+.top-rated-section {
+    background: var(--bg-light);
+}
+
+.review-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    margin: var(--spacing-2xl) 0;
+}
+
+@media (min-width: 768px) {
+    .review-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.review-stat-item {
+    background: var(--bg-white);
+    padding: var(--spacing-xl);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.review-stat-item i {
+    font-size: 3rem;
+}
+
+.review-stat-item .fa-google {
+    color: #4285F4;
+}
+
+.review-stat-item .fa-yelp {
+    color: #D32323;
+}
+
+.review-number {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent-gold);
+    line-height: 1;
+}
+
+.review-label {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+}
+
+/* Claim Amount Section */
+.claim-amount-section {
+    background: var(--bg-white);
+}
+
+.compensation-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-2xl) 0;
+}
+
+.compensation-list li {
+    display: flex;
+    align-items: start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+    font-size: 1rem;
+}
+
+.compensation-list i {
+    color: var(--success-green);
+    font-size: 1.25rem;
+    margin-top: 0.125rem;
+}
+
+/* Practice Case Results */
+.practice-case-results-section {
+    background: var(--bg-light);
+}
+
+.featured-case-study {
+    background: var(--bg-white);
+    border-left: 4px solid var(--primary-navy);
+    border-radius: 0.75rem;
+    padding: var(--spacing-2xl);
+    margin: var(--spacing-2xl) 0;
+}
+
+.featured-case-label {
+    background: var(--primary-navy);
+    color: var(--accent-gold);
+    font-weight: 800;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2rem;
+    display: inline-block;
+    margin-bottom: var(--spacing-md);
+}
+
+.case-study-note {
+    margin-top: var(--spacing-lg);
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+}
+
+.results-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    margin: var(--spacing-2xl) 0;
+}
+
+@media (min-width: 768px) {
+    .results-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.result-item {
+    background: var(--bg-white);
+    padding: var(--spacing-xl);
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+}
+
+.result-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.result-amount {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--accent-gold);
+    flex-shrink: 0;
+}
+
+.result-description {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+}
+
+.view-more-link {
+    text-align: center;
+    margin-top: var(--spacing-2xl);
+}
+
+/* What Counts Section */
+.what-counts-section {
+    background: var(--bg-white);
+}
+
+.catastrophic-criteria {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    margin: var(--spacing-2xl) 0;
+}
+
+@media (min-width: 768px) {
+    .catastrophic-criteria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .catastrophic-criteria {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.criteria-item {
+    background: var(--bg-light);
+    padding: var(--spacing-xl);
+    border-radius: 0.75rem;
+    display: flex;
+    gap: var(--spacing-md);
+    transition: all var(--transition-base);
+}
+
+.criteria-item:hover {
+    background: var(--bg-white);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.criteria-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-gold);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.criteria-content h4 {
+    color: var(--primary-navy);
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+
+.criteria-content p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.emphasis-box {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-navy-dark) 100%);
+    color: var(--text-white);
+    padding: var(--spacing-3xl);
+    border-radius: 1rem;
+    margin-top: var(--spacing-3xl);
+    text-align: center;
+}
+
+.emphasis-box p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+}
+
+.emphasis-statement {
+    font-size: 1.5rem !important;
+    font-weight: 700;
+    color: var(--accent-gold) !important;
+    margin: var(--spacing-xl) 0;
+}
+
+/* Legal Fees Section */
+.legal-fees-section {
+    background: var(--bg-light);
+}
+
+.fees-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.client-quote {
+    background: var(--bg-white);
+    border-left: 4px solid var(--accent-gold);
+    padding: var(--spacing-2xl);
+    border-radius: 0.75rem;
+    margin: var(--spacing-2xl) 0;
+    position: relative;
+}
+
+.client-quote .fa-quote-left {
+    font-size: 2rem;
+    color: var(--accent-gold);
+    opacity: 0.3;
+    position: absolute;
+    top: var(--spacing-lg);
+    left: var(--spacing-lg);
+}
+
+.client-quote p {
+    font-size: 1.0625rem;
+    font-style: italic;
+    color: var(--text-primary);
+    margin: 0 0 var(--spacing-md) 0;
+    padding-left: var(--spacing-2xl);
+}
+
+.client-quote cite {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 600;
+    display: block;
+    text-align: right;
+}
+
+/* Practice Contact Section */
+.practice-contact-section {
+    background: var(--bg-white);
+}
+
+.contact-intro {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-3xl) auto;
+    text-align: center;
+}
+
+.contact-intro h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.contact-intro a {
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+.contact-intro a:hover {
+    color: var(--primary-navy);
+}
+
+.contact-note {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-top: var(--spacing-md);
+}
+
+.practice-contact-form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--bg-light);
+    padding: var(--spacing-3xl);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.practice-contact-form-container h3 {
+    color: var(--primary-navy);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    font-size: 1.75rem;
+}
+
+.practice-contact-form-container .form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+@media (min-width: 768px) {
+    .practice-contact-form-container .contact-form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+}
+
+/* ============================================
+   LEGAL FEES PAGE STYLES
+   ============================================ */
+
+/* Page Hero */
+.page-hero {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-navy-dark) 100%);
+    padding: var(--spacing-4xl) 0 var(--spacing-3xl) 0;
+    color: var(--text-white);
+    text-align: center;
+}
+
+.page-hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-white);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.2;
+}
+
+.page-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Content Section */
+.content-section {
+    background: var(--bg-white);
+    padding: var(--spacing-4xl) 0;
+}
+
+.content-layout {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: var(--spacing-3xl);
+    align-items: start;
+}
+
+.content-main {
+    max-width: 100%;
+}
+
+.intro-text {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.lead-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+    margin: var(--spacing-2xl) 0;
+}
+
+.feature-box {
+    background: var(--bg-light);
+    border-radius: 0.75rem;
+    padding: var(--spacing-xl);
+    border-left: 4px solid var(--accent-gold);
+    transition: all var(--transition-base);
+}
+
+.feature-box:hover {
+    transform: translateX(8px);
+    box-shadow: var(--shadow-md);
+    border-left-color: var(--primary-navy);
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.feature-icon i {
+    font-size: 1.75rem;
+    color: var(--accent-gold);
+}
+
+.feature-box h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-bottom: var(--spacing-sm);
+}
+
+.feature-box p {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Legal Notice */
+.legal-notice {
+    background: #fffbf0;
+    border: 2px solid var(--accent-gold);
+    border-radius: 0.75rem;
+    padding: var(--spacing-xl);
+    margin: var(--spacing-2xl) 0;
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: start;
+}
+
+.legal-notice i {
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+.legal-notice p {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+}
+
+/* Investment Grid */
+.investment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    margin: var(--spacing-2xl) 0;
+}
+
+.investment-item {
+    background: var(--bg-white);
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    text-align: center;
+    transition: all var(--transition-base);
+}
+
+.investment-item:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.investment-item i {
+    font-size: 2rem;
+    color: var(--primary-navy);
+}
+
+.investment-item span {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Sidebar */
+.content-sidebar {
+    position: sticky;
+    top: 100px;
+}
+
+.sidebar-card {
+    background: var(--bg-white);
+    border: 2px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.sidebar-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sidebar-card h3 i {
+    color: var(--accent-gold);
+}
+
+.sidebar-card p {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.sidebar-highlight {
+    background: linear-gradient(135deg, var(--primary-navy), var(--primary-navy-dark));
+    border-color: var(--primary-navy);
+    color: var(--text-white);
+}
+
+.sidebar-highlight h3 {
+    color: var(--accent-gold);
+}
+
+.sidebar-highlight .check-list li {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.sidebar-highlight .check-list i {
+    color: var(--accent-gold);
+}
+
+.sidebar-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-links li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.sidebar-links a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: var(--spacing-sm);
+    color: var(--text-primary);
+    font-size: 0.9375rem;
+    border-radius: 0.375rem;
+    transition: all var(--transition-base);
+}
+
+.sidebar-links a:hover {
+    background: var(--bg-light);
+    color: var(--primary-navy);
+    padding-left: var(--spacing-md);
+}
+
+.sidebar-links i {
+    color: var(--accent-gold);
+    font-size: 0.875rem;
+}
+
+/* Responsive Design for Legal Fees Page */
+@media (max-width: 1024px) {
+    .content-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .content-sidebar {
+        position: static;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .investment-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .page-hero {
+        padding: var(--spacing-3xl) 0 var(--spacing-2xl) 0;
+    }
+
+    .page-title {
+        font-size: 2.25rem;
+    }
+
+    .page-subtitle {
+        font-size: 1.125rem;
+    }
+
+    .content-section {
+        padding: var(--spacing-3xl) 0;
+    }
+
+    .investment-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-box {
+        padding: var(--spacing-lg);
+    }
+
+    .sidebar-card {
+        padding: var(--spacing-lg);
+    }
+}
+
+/* ============================================
+   OUR ATTORNEYS PAGE STYLES
+   ============================================ */
+
+/* Attorneys Section */
+.attorneys-section {
+    background: var(--bg-white);
+    padding: var(--spacing-4xl) 0;
+}
+
+.attorney-profile {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: var(--spacing-3xl);
+    margin-bottom: var(--spacing-4xl);
+    padding-bottom: var(--spacing-4xl);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.attorney-profile:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Attorney Image Container */
+.attorney-image-container {
+    position: sticky;
+    top: 100px;
+}
+
+.attorney-image {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.attorney-contact-card {
+    background: var(--bg-light);
+    border-radius: 0.75rem;
+    padding: var(--spacing-xl);
+    border: 2px solid var(--border-color);
+}
+
+.attorney-contact-card h4 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.attorney-contact-card h4 i {
+    color: var(--accent-gold);
+}
+
+.attorney-contact-card .btn {
+    margin-bottom: var(--spacing-sm);
+}
+
+.attorney-contact-card .btn:last-child {
+    margin-bottom: 0;
+}
+
+/* Attorney Details */
+.attorney-details {
+    max-width: 100%;
+}
+
+.attorney-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+}
+
+.attorney-name {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-navy);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+}
+
+.attorney-title {
+    font-size: 1.25rem;
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+.attorney-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    align-items: flex-start;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.badge-gold {
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+    color: var(--text-white);
+}
+
+.badge-navy {
+    background: linear-gradient(135deg, var(--primary-navy), var(--primary-navy-dark));
+    color: var(--text-white);
+}
+
+/* Attorney Credentials */
+.attorney-credentials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+    background: var(--bg-light);
+    padding: var(--spacing-xl);
+    border-radius: 0.75rem;
+    border-left: 4px solid var(--accent-gold);
+}
+
+.credential-item {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.credential-item i {
+    font-size: 1.5rem;
+    color: var(--primary-navy);
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+.credential-item strong {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--accent-gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+}
+
+.credential-item p {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Attorney Bio */
+.attorney-bio h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-bottom: var(--spacing-md);
+    margin-top: var(--spacing-2xl);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.attorney-bio h3:first-child {
+    margin-top: 0;
+}
+
+.attorney-bio h3 i {
+    color: var(--accent-gold);
+}
+
+.attorney-bio h4 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.attorney-bio h4 i {
+    color: var(--accent-gold);
+}
+
+.attorney-bio p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.attorney-bio p strong {
+    color: var(--primary-navy);
+    font-weight: 600;
+}
+
+/* Achievement List */
+.achievement-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-lg) 0;
+}
+
+.achievement-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) 0;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.achievement-list i {
+    color: var(--accent-gold);
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+/* Testimonial Highlight */
+.testimonial-highlight {
+    background: var(--bg-light);
+    border-left: 4px solid var(--accent-gold);
+    border-radius: 0.75rem;
+    padding: var(--spacing-2xl);
+    margin: var(--spacing-xl) 0;
+    position: relative;
+}
+
+.testimonial-highlight .fa-quote-left {
+    position: absolute;
+    top: var(--spacing-lg);
+    left: var(--spacing-lg);
+    font-size: 2rem;
+    color: var(--accent-gold);
+    opacity: 0.3;
+}
+
+.testimonial-highlight p {
+    margin: 0 0 var(--spacing-md) 0;
+    padding-left: var(--spacing-2xl);
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    font-style: italic;
+}
+
+.testimonial-highlight .testimonial-author {
+    padding-left: var(--spacing-2xl);
+    font-weight: 600;
+    color: var(--primary-navy);
+    font-style: normal;
+    font-size: 0.9375rem;
+}
+
+/* Why Choose Team Section */
+.why-choose-team-section {
+    background: var(--bg-light);
+    padding: var(--spacing-4xl) 0;
+}
+
+.team-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-2xl);
+    margin-top: var(--spacing-3xl);
+}
+
+.team-benefit-card {
+    background: var(--bg-white);
+    border-radius: 1rem;
+    padding: var(--spacing-2xl);
+    border: 2px solid var(--border-color);
+    transition: all var(--transition-base);
+    text-align: center;
+}
+
+.team-benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--accent-gold);
+}
+
+.benefit-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-navy), var(--primary-navy-light));
+    border-radius: 50%;
+    transition: all var(--transition-base);
+}
+
+.team-benefit-card:hover .benefit-icon {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+}
+
+.benefit-icon i {
+    font-size: 2.5rem;
+    color: var(--text-white);
+}
+
+.team-benefit-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.3;
+}
+
+.team-benefit-card p {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Responsive Design for Attorneys Page */
+@media (max-width: 1024px) {
+    .attorney-profile {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-2xl);
+    }
+
+    .attorney-image-container {
+        position: static;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .attorney-credentials {
+        grid-template-columns: 1fr;
+    }
+
+    .team-benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+    }
+}
+
+@media (max-width: 768px) {
+    .attorneys-section {
+        padding: var(--spacing-3xl) 0;
+    }
+
+    .attorney-profile {
+        margin-bottom: var(--spacing-3xl);
+        padding-bottom: var(--spacing-3xl);
+    }
+
+    .attorney-name {
+        font-size: 2rem;
+    }
+
+    .attorney-title {
+        font-size: 1.125rem;
+    }
+
+    .attorney-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .attorney-badges {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .badge {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .attorney-credentials {
+        padding: var(--spacing-lg);
+    }
+
+    .attorney-bio h3 {
+        font-size: 1.25rem;
+    }
+
+    .attorney-bio h4 {
+        font-size: 1.125rem;
+    }
+
+    .testimonial-highlight {
+        padding: var(--spacing-lg);
+    }
+
+    .testimonial-highlight p {
+        font-size: 1rem;
+    }
+
+    .team-benefits-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .team-benefit-card {
+        padding: var(--spacing-xl);
+    }
+
+    .benefit-icon {
+        width: 70px;
+        height: 70px;
+    }
+
+    .benefit-icon i {
+        font-size: 2rem;
+    }
+}
+
+
+
+</style>
+
+<main id="main-content">
+
+        <!-- Breadcrumb Section -->
+        <section class="breadcrumb-section">
+            <div class="container">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="home-body.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="practice-areas-main-body.html">Practice Areas</a></li>
+                    <li class="breadcrumb-item active">Catastrophic Injury Lawyer</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Page Header -->
+        <section class="page-header-section practice-area-header">
+            <div class="container">
+                <div class="page-header-content">
+                    <h1 class="page-title">Catastrophic Injury Lawyer</h1>
+                    <p class="page-subtitle">Expert representation for life-changing injuries in Los Angeles</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Badges Section -->
+        <section class="badges-section">
+            <div class="container">
+                <div class="badges-grid">
+                    <div class="badge-item">
+                        <div class="badge-icon google">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <div class="badge-content">
+                            <div class="badge-label">Google Reviews</div>
+                            <div class="badge-rating">5.0/5.0 · 82 reviews</div>
+                        </div>
+                    </div>
+
+                    <div class="badge-item">
+                        <div class="badge-icon yelp">
+                            <i class="fab fa-yelp"></i>
+                        </div>
+                        <div class="badge-content">
+                            <div class="badge-label">Yelp Reviews</div>
+                            <div class="badge-rating">5.0/5.0 · 21 reviews</div>
+                        </div>
+                    </div>
+
+                    <div class="badge-item">
+                        <div class="badge-icon award">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="badge-content">
+                            <div class="badge-label">Super Lawyers</div>
+                            <div class="badge-rating">Rising Star</div>
+                        </div>
+                    </div>
+
+                    <div class="badge-item">
+                        <div class="badge-icon trophy">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="badge-content">
+                            <div class="badge-label">USA Top 100</div>
+                            <div class="badge-rating">Personal Injury Settlement</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Section -->
+        <section class="practice-area-content-section">
+            <div class="container">
+                <h2 class="section-title">Why Catastrophic Injury Victims Can't Afford to Hire the Wrong Lawyer</h2>
+
+                <p class="lead-text">If you've suffered a catastrophic injury in Los Angeles, your choice of lawyer will impact the next 10-50 years of your life. Catastrophic injuries require long-term medical treatment and rehabilitation—and not every injury lawyer can build a case at this level.</p>
+
+                <p>This is where boutique representation matters. Just recently, Peerali Law received a call from a client and explained a common situation:</p>
+
+                <div class="problem-list">
+                    <div class="problem-step">
+                        <span class="step-icon"><i class="fas fa-user-injured"></i></span>
+                        <span>Client suffers a serious injury in an accident</span>
+                    </div>
+                    <div class="problem-step">
+                        <span class="step-icon"><i class="fas fa-hospital"></i></span>
+                        <span>Client needs medical treatment and rehabilitation</span>
+                    </div>
+                    <div class="problem-step">
+                        <span class="step-icon"><i class="fas fa-balance-scale"></i></span>
+                        <span>Hires a generalist law firm</span>
+                    </div>
+                    <div class="problem-step">
+                        <span class="step-icon"><i class="fas fa-hand-holding-usd"></i></span>
+                        <span>Receives an offer that's less than their medical bills</span>
+                    </div>
+                    <div class="problem-step">
+                        <span class="step-icon"><i class="fas fa-exclamation-triangle"></i></span>
+                        <span>Feels pressured to accept or they'll lose the case</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Study Section -->
+        <section class="case-study-section">
+            <div class="container">
+                <div class="case-study-box">
+                    <div class="case-study-label">CASE STUDY</div>
+                    <h3>How Peerali Law Secured 4x A Client's Original Offer</h3>
+                    <p>In the case mentioned above, the client's original attorney got a <strong>$74,000 offer</strong> from the liable party's insurer. But Kristopher Peerali took on the case and won a <strong>$300,000 settlement within three weeks</strong>. This was possible through qualifying the injuries as "catastrophic" and detail the full extent of damages—including future medical bills, loss of earning capacity and emotional suffering.</p>
+
+                    <div class="case-study-stats">
+                        <div class="stat-item">
+                            <div class="stat-label">Original Offer</div>
+                            <div class="stat-value">$74,000</div>
+                        </div>
+                        <div class="stat-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="stat-item highlight">
+                            <div class="stat-label">Final Settlement</div>
+                            <div class="stat-value">$300,000</div>
+                        </div>
+                        <div class="stat-item success">
+                            <div class="stat-badge">305% Increase</div>
+                        </div>
+                    </div>
+
+                    <p class="case-study-cta"><strong>Before you hire a generalist personal injury lawyer, contact Peerali Law for a free case review.</strong> Catastrophic injury cases are different—and you only get one chance to get the compensation you need for life.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="practice-area-about-section">
+            <div class="container">
+                <h2 class="section-title">About Peerali Law</h2>
+
+                <p>Peerali Law is a boutique personal injury law firm based in Hollywood Hills, Los Angeles, with a dedicated focus on complex and catastrophic injury litigation.</p>
+
+                <p>Our practice was founded by Cofounding Partner <strong>Kristopher Peerali</strong>, who represented Fortune 500 companies before realizing his calling was in representing accident victims with the same calibre of legal power normally reserved for corporations. Our Cofounding Partner <strong>Serena Peerali</strong> comes with a wealth of trial experience in personal injury law, having been awarded a USA Top 100 Personal Injury Settlement prior to setting up Peerali Law. Injury lawyer <strong>Ali Hosseini</strong> joined us in 2024, and has already been awarded with a Super Lawyers Rising Star 2026 recognition.</p>
+
+                <p class="highlight-text">Our attorneys continue to bring Big-Law litigation standards to personal injury work across Los Angeles.</p>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-highlight-section">
+            <div class="container">
+                <div class="stats-content">
+                    <h2>$50 Million Recovered for Clients in Five Years</h2>
+                    <p>Since launching in 2021, our small team of attorneys has achieved exceptional case outcomes: <strong>over $50 million recovered for our clients</strong>, including large settlements in:</p>
+
+                    <div class="injury-types-grid">
+                        <div class="injury-type-item">
+                            <i class="fas fa-bone"></i>
+                            <span>Fracture injuries</span>
+                        </div>
+                        <div class="injury-type-item">
+                            <i class="fas fa-wheelchair"></i>
+                            <span>Paralysis injuries</span>
+                        </div>
+                        <div class="injury-type-item">
+                            <i class="fas fa-brain"></i>
+                            <span>Brain injuries</span>
+                        </div>
+                        <div class="injury-type-item">
+                            <i class="fas fa-heart-broken"></i>
+                            <span>Wrongful death</span>
+                        </div>
+                        <div class="injury-type-item">
+                            <i class="fas fa-user-injured"></i>
+                            <span>Disfigurement</span>
+                        </div>
+                        <div class="injury-type-item">
+                            <i class="fas fa-spine"></i>
+                            <span>Spinal trauma injuries</span>
+                        </div>
+                        <div class="injury-type-item">
+                            <i class="fas fa-hand-holding-medical"></i>
+                            <span>Amputation injuries</span>
+                        </div>
+                        <div class="injury-type-item">
+                            <i class="fas fa-hospital-user"></i>
+                            <span>Long-term rehabilitation</span>
+                        </div>
+                    </div>
+
+                    <p class="boutique-note">As a boutique firm, our attorneys work one-on-one with clients—rather than handing them off to case managers or junior associates.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Rated Section -->
+        <section class="top-rated-section">
+            <div class="container">
+                <h2 class="section-title">Top-Rated Catastrophic Injury Law Firm in Los Angeles</h2>
+
+                <p>Peerali Law is one of the highest-rated catastrophic injury firms in Los Angeles, trusted by survivors of paralysis, severe brain trauma, spinal cord injuries, amputation injuries, organ damage, and wrongful death cases. We have received <strong>100+ five-star client reviews</strong> across Google and Yelp, reflecting our commitment to personal attention, aggressive litigation, and life-changing results.</p>
+
+                <div class="review-stats">
+                    <div class="review-stat-item">
+                        <i class="fab fa-google"></i>
+                        <div>
+                            <div class="review-number">80+</div>
+                            <div class="review-label">five-star reviews on Google</div>
+                        </div>
+                    </div>
+                    <div class="review-stat-item">
+                        <i class="fab fa-yelp"></i>
+                        <div>
+                            <div class="review-number">20+</div>
+                            <div class="review-label">five-star reviews on Yelp</div>
+                        </div>
+                    </div>
+                </div>
+
+                <p>In addition to client testimonials, our attorneys have been recognised within the legal community through <strong>Super Lawyers Rising Stars 2026</strong> and a <strong>Top 100 Personal Injury Settlement</strong> recognition in the U.S.</p>
+            </div>
+        </section>
+
+        <!-- How Much Can I Claim Section -->
+        <section class="claim-amount-section">
+            <div class="container">
+                <h2 class="section-title">How Much Can I Claim for a Catastrophic Injury?</h2>
+
+                <p>In California, compensation for catastrophic injuries ranges from <strong>$25,000 to tens of millions of dollars</strong>. The amount you can claim depends on the severity of the injury, the strength of the evidence presented and the skill of the attorney handling the case.</p>
+
+                <p>At Peerali Law, we build strong cases that not only prove negligence, but detail what it will cost to live the rest of your life with a serious injury. Our legal team works with private investigators, crash experts and medical witnesses to prove liability and calculate compensation for:</p>
+
+                <ul class="compensation-list">
+                    <li><i class="fas fa-check-circle"></i> Medical expenses and projected future treatments</li>
+                    <li><i class="fas fa-check-circle"></i> Lost income and future earning potential</li>
+                    <li><i class="fas fa-check-circle"></i> Long-term rehabilitation and therapy</li>
+                    <li><i class="fas fa-check-circle"></i> Pain, suffering, and emotional trauma</li>
+                    <li><i class="fas fa-check-circle"></i> Home modifications and mobility equipment</li>
+                    <li><i class="fas fa-check-circle"></i> Loss of enjoyment of life and permanent disability</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Case Results Section -->
+        <section class="practice-case-results-section">
+            <div class="container">
+                <h2 class="section-title">Peerali Law: Our Catastrophic Injury Case Results</h2>
+
+                <div class="featured-case-study">
+                    <div class="featured-case-label">CASE STUDY</div>
+                    <h3>From Legal Loophole to Multi-Six-Figure Settlement</h3>
+                    <p>Peerali Law secured a <strong>$968,000 confidential settlement</strong> for a Lodi resident injured in a medical transport collision, resulting in severe arm fractures and lasting loss of sensation. The defense argued that compensation should be capped at just $250,000 because the injury occurred during medical transport, but through extensive case development and evidence work, we proved that the cap didn't apply. After detailing the client's emotional suffering, we recovered the maximum policy limits from both the employer's insurance and the driver's personal policy.</p>
+                    <p class="case-study-note"><em>This is one example of how proper classification and strategic litigation can multiply case value.</em></p>
+                </div>
+
+                <p><strong>Additional proven catastrophic injury results include:</strong></p>
+
+                <div class="results-list">
+                    <div class="result-item">
+                        <div class="result-amount">$16.3M</div>
+                        <div class="result-description">settlement for premises liability catastrophic injury</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-amount">$5.2M</div>
+                        <div class="result-description">settlement for car accident injury with hospitalization</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-amount">$4M</div>
+                        <div class="result-description">settlement for wrongful death caused by product liability</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-amount">$750K</div>
+                        <div class="result-description">settlement for severe leg injury at a short-term rental property</div>
+                    </div>
+                </div>
+
+                <p class="view-more-link">
+                    <a href="case-results-body.html" class="btn btn-outline">View More Outcomes on Our Case Results Page <i class="fas fa-arrow-right"></i></a>
+                </p>
+            </div>
+        </section>
+
+        <!-- What Counts Section -->
+        <section class="what-counts-section">
+            <div class="container">
+                <h2 class="section-title">What Counts as a Catastrophic Injury?</h2>
+
+                <p>Not every serious injury is "catastrophic." Under California law, the term refers to injuries severe enough change the course of a person's life – medically, financially, and emotionally. These are the cases involving long-term treatment and often permanent impairment.</p>
+
+                <p><strong>At Peerali Law, we classify an injury as catastrophic when it results in one or more of the following:</strong></p>
+
+                <div class="catastrophic-criteria">
+                    <div class="criteria-item">
+                        <div class="criteria-icon">
+                            <i class="fas fa-wheelchair"></i>
+                        </div>
+                        <div class="criteria-content">
+                            <h4>Permanent loss of function</h4>
+                            <p>Mobility, sensation, cognition, or use of a limb</p>
+                        </div>
+                    </div>
+
+                    <div class="criteria-item">
+                        <div class="criteria-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="criteria-content">
+                            <h4>Serious neurological damage</h4>
+                            <p>Including traumatic brain injury (TBI)</p>
+                        </div>
+                    </div>
+
+                    <div class="criteria-item">
+                        <div class="criteria-icon">
+                            <i class="fas fa-spine"></i>
+                        </div>
+                        <div class="criteria-content">
+                            <h4>Spinal cord trauma</h4>
+                            <p>Leading to paralysis or long-term impairment</p>
+                        </div>
+                    </div>
+
+                    <div class="criteria-item">
+                        <div class="criteria-icon">
+                            <i class="fas fa-bone"></i>
+                        </div>
+                        <div class="criteria-content">
+                            <h4>Severe fractures</h4>
+                            <p>Orthopedic damage requiring rehabilitation</p>
+                        </div>
+                    </div>
+
+                    <div class="criteria-item">
+                        <div class="criteria-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="criteria-content">
+                            <h4>Disfigurement or burns</h4>
+                            <p>Injuries requiring repeated surgeries</p>
+                        </div>
+                    </div>
+
+                    <div class="criteria-item">
+                        <div class="criteria-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="criteria-content">
+                            <h4>Inability to work</h4>
+                            <p>Prevents return to previous work or lifestyle</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emphasis-box">
+                    <p>These cases require a deeper level of legal strategy than standard personal injury claims. The attorney must not only prove liability, but also quantify the entire future impact of the injury.</p>
+                    <p class="emphasis-statement"><strong>This is the work our firm is built for.</strong></p>
+                    <p>If you believe your injury may fall into this category, we can review your case for free and tell you exactly where you stand.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legal Fees Section -->
+        <section class="legal-fees-section">
+            <div class="container">
+                <h2 class="section-title">How Much Are the Legal Fees?</h2>
+
+                <div class="fees-content">
+                    <p class="lead-text">At Peerali Law, we operate on a <strong>no-win, no-fee model</strong>. This means you pay nothing upfront, and you owe us nothing unless we win your case.</p>
+
+                    <p>Across the United States, contingency fees for personal injury cases generally range from 33%-40%, and may increase if a case goes to trial. Some firms also add extra fees or charge back expenses to the client—often without making this clear at the start of representation.</p>
+
+                    <p><strong>We don't believe in hidden costs.</strong> Peerali Law provides transparent, written fee agreements so you know exactly what to expect. Many of our clients appreciate that we honor the terms of our contracts—with no surprise charges later. As one client shared in a five-star review:</p>
+
+                    <blockquote class="client-quote">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"I am very happy with the settlement results… Peerali Law firm also did not charge me extra money as agreed upon in the retainer contract. They honored to stay at their minimum fee which meant a lot to me."</p>
+                        <cite>— L.F. (Yelp Review)</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="practice-contact-section" id="contact-form">
+            <div class="container">
+                <div class="contact-intro">
+                    <h2 class="section-title">Get a Free Case Review</h2>
+                    <p>Have you or a loved one suffered a catastrophic injury in Los Angeles?</p>
+                    <p>If you'd like to understand the potential value of your claim, contact us for a free case review. You'll get to speak directly to a Peerali Law attorney. You can also call us now on <a href="tel:+18189627071">(818) 962-7071</a>.</p>
+                    <p class="contact-note">The consultation is zero-pressure and without obligation to proceed. It won't affect your ability to claim compensation, and is designed to advise you on the best next steps to take.</p>
+                </div>
+
+                <div class="practice-contact-form-container">
+                    <h3>Free Case Review</h3>
+
+                    <form id="practiceContactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="firstName">First Name <span class="required">*</span></label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName">Last Name <span class="required">*</span></label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="message">Tell us about your case... <span class="required">*</span></label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+
+                        <div class="form-group checkbox-group full-width">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="smsConsent" name="smsConsent" required>
+                                <span class="checkbox-text">By providing your phone number, you agree to receive text messages from Peerali Law for updates, promotions, and important information. Message and data rates may apply. You can opt-out at any time by replying 'STOP' to our messages.</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-paper-plane"></i> Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="container">
+                <h2 class="section-title">What Our Clients Say</h2>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="testimonial-source">
+                                <i class="fab fa-google"></i> Google
+                            </div>
+                        </div>
+                        <p class="testimonial-text">"Kris' & his team was very helpful with the accident I was in. They made sure I got the best treatment and stayed in touch with me through the whole time my case was being processed. I really appreciated the concern they had for my well being. Thank you again."</p>
+                        <div class="testimonial-author">
+                            <strong>Karla Carballo</strong>
+                            <span>1 week ago</span>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="testimonial-source">
+                                <i class="fab fa-google"></i> Google
+                            </div>
+                        </div>
+                        <p class="testimonial-text">"Choosing Peerali Law Firm was the best decision I've ever made. Serena was absolutely wonderful. I just lost my husband and she was so helpful, understanding, as well as compassionate. She really cared. They were all so great. This is truly the best law firm out there."</p>
+                        <div class="testimonial-author">
+                            <strong>vicki2d</strong>
+                            <span>1 week ago</span>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="testimonial-source">
+                                <i class="fab fa-google"></i> Google
+                            </div>
+                        </div>
+                        <p class="testimonial-text">"Very professionals, they fought for our case and treated us like family! We are very extremely grateful and satisfied with their service."</p>
+                        <div class="testimonial-author">
+                            <strong>Danny Perez</strong>
+                            <span>3 weeks ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="cta-section-alt">
+            <div class="container">
+                <div class="cta-content-center">
+                    <h2>Ready to Discuss Your Catastrophic Injury Case?</h2>
+                    <p>Don't settle for a generalist attorney when your future is at stake. Get a free case review from Los Angeles' top-rated catastrophic injury law firm.</p>
+                    <div class="cta-buttons">
+                        <a href="#contact-form" class="btn btn-primary btn-large">
+                            <i class="fas fa-calendar-alt"></i> Schedule Free Consultation
+                        </a>
+                        <a href="tel:+18189627071" class="btn btn-secondary btn-large">
+                            <i class="fas fa-phone"></i> Call (818) 962-7071
+                        </a>
+                    </div>
+                    <p class="cta-note">No win, no fee • Free consultation • Zero obligation</p>
+                </div>
+            </div>
+        </section>
+    
+</main>
+
+<script>
+    /* =====================================================
+       JAVASCRIPT FOR BODY CONTENT ONLY
+       ===================================================== */
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId !== '#' && targetId) {
+                e.preventDefault();
+                const target = document.querySelector(targetId);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    });
+
+    // Page-specific functionality
+document.getElementById('practiceContactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value,
+                smsConsent: document.getElementById('smsConsent').checked
+            };
+
+            // Here you would typically send the data to your server
+            console.log('Form submitted:', formData);
+
+            // Show success message
+            alert('Thank you for contacting us! We will get back to you within 24 hours.');
+
+            // Reset form
+            this.reset();
+        });
+</script>
