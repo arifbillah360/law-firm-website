@@ -115,12 +115,12 @@ function peerali_law_enqueue_styles() {
         null
     );
 
-    // Font Awesome CDN
+    // Font Awesome 5.15.4 CDN
     wp_enqueue_style(
-        'peerali-fontawesome',
-        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
+        'font-awesome-5',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css',
         array(),
-        '6.5.1'
+        '5.15.4'
     );
 
     // 1. Navigation CSS
@@ -145,7 +145,7 @@ function peerali_law_enqueue_styles() {
     wp_enqueue_style(
         'peerali-style',
         get_stylesheet_uri(),
-        array('peerali-fontawesome', 'peerali-navigation', 'peerali-footer'),
+        array('font-awesome-5', 'peerali-navigation', 'peerali-footer'),
         filemtime(get_stylesheet_directory() . '/style.css'),
         'all'
     );
@@ -331,6 +331,30 @@ add_action('save_post', 'peerali_law_save_html_meta_box');
  * Theme Customizer
  */
 function peerali_law_customize_register($wp_customize) {
+    // Logo Settings Section
+    $wp_customize->add_section('peerali_logo_settings', array(
+        'title'    => esc_html__('Logo Settings', 'peerali-law'),
+        'priority' => 25,
+    ));
+
+    // Logo Width Setting
+    $wp_customize->add_setting('peerali_logo_width', array(
+        'default'           => 200,
+        'sanitize_callback' => 'absint',
+        'transport'         => 'refresh',
+    ));
+    $wp_customize->add_control('peerali_logo_width', array(
+        'label'       => esc_html__('Logo Width (px)', 'peerali-law'),
+        'description' => esc_html__('Set the width of your logo (50-500px)', 'peerali-law'),
+        'section'     => 'peerali_logo_settings',
+        'type'        => 'number',
+        'input_attrs' => array(
+            'min'  => 50,
+            'max'  => 500,
+            'step' => 1,
+        ),
+    ));
+
     // Header Settings Section
     $wp_customize->add_section('peerali_header_settings', array(
         'title'    => esc_html__('Header Settings', 'peerali-law'),
@@ -419,6 +443,23 @@ function peerali_law_customize_register($wp_customize) {
     }
 }
 add_action('customize_register', 'peerali_law_customize_register');
+
+/**
+ * Dynamic Logo Width CSS
+ */
+function peerali_law_logo_width_css() {
+    $logo_width = get_theme_mod('peerali_logo_width', 200);
+    ?>
+    <style type="text/css">
+        .custom-logo {
+            width: <?php echo absint($logo_width); ?>px;
+            height: auto;
+            max-width: 100%;
+        }
+    </style>
+    <?php
+}
+add_action('wp_head', 'peerali_law_logo_width_css');
 
 /**
  * Remove WordPress Version
@@ -601,6 +642,27 @@ function peerali_law_disable_gutenberg_styles() {
 add_action('wp_print_styles', 'peerali_law_disable_gutenberg_styles', 100);
 
 /**
+ * Screenshot Tracking - Shows screenshot info (for admins only)
+ */
+function peerali_law_screenshot_tracking() {
+    if (current_user_can('administrator')) {
+        $screenshot_path = get_template_directory() . '/screenshot.png';
+        $screenshot_url = get_template_directory_uri() . '/screenshot.png';
+        $screenshot_exists = file_exists($screenshot_path);
+        $screenshot_size = $screenshot_exists ? filesize($screenshot_path) : 0;
+
+        echo "\n<!-- PEERALI LAW THEME SCREENSHOT INFO:\n";
+        echo "Screenshot exists: " . ($screenshot_exists ? 'YES' : 'NO') . "\n";
+        if ($screenshot_exists) {
+            echo "Screenshot URL: " . esc_url($screenshot_url) . "\n";
+            echo "Screenshot size: " . size_format($screenshot_size) . " (" . number_format($screenshot_size) . " bytes)\n";
+        }
+        echo "-->\n";
+    }
+}
+add_action('wp_footer', 'peerali_law_screenshot_tracking', 5);
+
+/**
  * Debug Function - Shows CSS files being loaded (for admins only)
  */
 function peerali_law_debug_css_loading() {
@@ -614,4 +676,39 @@ function peerali_law_debug_css_loading() {
         echo "-->\n";
     }
 }
-add_action('wp_footer', 'peerali_law_debug_css_loading');
+add_action('wp_footer', 'peerali_law_debug_css_loading', 10);
+
+/**
+ * License Expiration Checker (COMMENTED OUT - Uncomment to activate)
+ *
+ * This function checks if the theme license has expired.
+ * Expiration Date: December 12, 2027 (2027-12-12)
+ *
+ * To activate: Remove the comment blocks around the function and action hook below.
+ */
+
+/*
+function peerali_law_check_license() {
+    // Hard-coded expiration date: December 12, 2027
+    $expiration_date = strtotime('2027-12-12');
+    $current_date = current_time('timestamp');
+
+    // Check if license has expired
+    if ($current_date > $expiration_date) {
+        // Show error message to all users
+        add_action('wp_footer', function() {
+            echo '<div style="position:fixed;top:0;left:0;width:100%;background:#dc3545;color:#fff;padding:20px;text-align:center;z-index:999999;font-size:16px;font-weight:bold;">';
+            echo 'Theme license has expired. Please renew to continue using this theme.';
+            echo '</div>';
+        });
+
+        // Also show in admin
+        add_action('admin_notices', function() {
+            echo '<div class="notice notice-error is-dismissible">';
+            echo '<p><strong>Theme License Expired:</strong> The Peerali Law theme license expired on December 12, 2027. Please renew to continue using this theme.</p>';
+            echo '</div>';
+        });
+    }
+}
+add_action('after_setup_theme', 'peerali_law_check_license', 0);
+*/
