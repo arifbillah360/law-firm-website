@@ -3155,6 +3155,144 @@ section {
     margin-top: 0.125rem;
 }
 
+/* ============================================
+   COMPENSATION CARDS GRID (Modern Card Design)
+   ============================================ */
+.compensation-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+}
+
+@media (min-width: 768px) {
+    .compensation-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .compensation-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.compensation-card {
+    background: var(--bg-white);
+    border-radius: 0.75rem;
+    padding: 2rem 1.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.compensation-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-navy), var(--accent-gold));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.compensation-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.compensation-card:hover::before {
+    opacity: 1;
+}
+
+.compensation-card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.compensation-card:hover .compensation-card-icon {
+    transform: scale(1.08);
+}
+
+.compensation-card-icon i {
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+/* Icon Background Colors */
+.compensation-card-icon.icon-medical {
+    background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+}
+
+.compensation-card-icon.icon-therapy {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+}
+
+.compensation-card-icon.icon-surgery {
+    background: linear-gradient(135deg, #ed64a6 0%, #d53f8c 100%);
+}
+
+.compensation-card-icon.icon-wages {
+    background: linear-gradient(135deg, #f6ad55 0%, #ed8936 100%);
+}
+
+.compensation-card-icon.icon-mobility {
+    background: linear-gradient(135deg, #9f7aea 0%, #805ad5 100%);
+}
+
+.compensation-card-icon.icon-home {
+    background: linear-gradient(135deg, #667eea 0%, #5a67d8 100%);
+}
+
+.compensation-card-icon.icon-emotional {
+    background: linear-gradient(135deg, #fc8181 0%, #f56565 100%);
+}
+
+.compensation-card-icon.icon-legal {
+    background: linear-gradient(135deg, #1e3a5f 0%, #152b45 100%);
+}
+
+.compensation-card-icon.icon-funeral {
+    background: linear-gradient(135deg, #718096 0%, #4a5568 100%);
+}
+
+.compensation-card-icon.icon-property {
+    background: linear-gradient(135deg, #38b2ac 0%, #319795 100%);
+}
+
+.compensation-card-icon.icon-evidence {
+    background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+}
+
+.compensation-card-icon.icon-insurance {
+    background: linear-gradient(135deg, #d69e2e 0%, #b7791f 100%);
+}
+
+.compensation-card-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-bottom: 0.625rem;
+    line-height: 1.4;
+}
+
+.compensation-card-description {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
 /* Practice Case Results */
 .practice-case-results-section {
     background: var(--bg-light);
