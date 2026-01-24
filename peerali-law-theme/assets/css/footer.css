@@ -50,19 +50,6 @@
     font-weight: var(--font-weight-bold);
     color: var(--text-white);
     margin-bottom: var(--spacing-5);
-    position: relative;
-    padding-bottom: var(--spacing-3);
-}
-
-.footer-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 3px;
-    background: var(--accent-gold);
-    border-radius: var(--radius-base);
 }
 
 .footer-column p {

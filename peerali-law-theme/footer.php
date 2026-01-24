@@ -185,9 +185,6 @@ if (!defined('ABSPATH')) {
                     ?>
                 </div>
             </div>
-            <p class="disclaimer">
-                <?php esc_html_e('The information on this website is for general information purposes only. Nothing on this site should be taken as legal advice for any individual case or situation. This information is not intended to create, and receipt or viewing does not constitute, an attorney-client relationship.', 'peerali-law'); ?>
-            </p>
         </div>
     </div>
 
