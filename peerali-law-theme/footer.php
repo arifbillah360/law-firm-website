@@ -129,8 +129,8 @@ if (!defined('ABSPATH')) {
                     <ul class="footer-contact">
                         <li>
                             <i class="fas fa-phone"></i>
-                            <a href="tel:<?php echo esc_attr(str_replace(array('(', ')', ' ', '-'), '', get_theme_mod('peerali_phone', '(818) 962-7071'))); ?>">
-                                <?php echo esc_html(get_theme_mod('peerali_phone', '(818) 962-7071')); ?>
+                            <a href="tel:<?php echo esc_attr(str_replace(array('(', ')', ' ', '-'), '', get_theme_mod('peerali_phone', '(818) 688-4050'))); ?>">
+                                <?php echo esc_html(get_theme_mod('peerali_phone', '(818) 688-4050')); ?>
                             </a>
                         </li>
                         <li>

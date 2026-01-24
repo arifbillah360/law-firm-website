@@ -28,9 +28,9 @@ if (!defined('ABSPATH')) {
     <div class="container">
         <div class="top-bar-content">
             <div class="top-bar-left">
-                <a href="tel:<?php echo esc_attr(str_replace(array('(', ')', ' ', '-'), '', get_theme_mod('peerali_phone', '(818) 962-7071'))); ?>" class="top-bar-link">
+                <a href="tel:<?php echo esc_attr(str_replace(array('(', ')', ' ', '-'), '', get_theme_mod('peerali_phone', '(818) 688-4050'))); ?>" class="top-bar-link">
                     <i class="fas fa-phone"></i>
-                    <span><?php echo esc_html(get_theme_mod('peerali_phone', '(818) 962-7071')); ?></span>
+                    <span><?php echo esc_html(get_theme_mod('peerali_phone', '(818) 688-4050')); ?></span>
                 </a>
                 <a href="mailto:<?php echo esc_attr(get_theme_mod('peerali_email', 'info@peeralilaw.com')); ?>" class="top-bar-link">
                     <i class="fas fa-envelope"></i>
@@ -136,11 +136,11 @@ if (!defined('ABSPATH')) {
 
     <!-- Mobile Menu Footer -->
     <div class="mobile-menu-footer">
-        <a href="tel:<?php echo esc_attr(str_replace(array('(', ')', ' ', '-'), '', get_theme_mod('peerali_phone', '(818) 962-7071'))); ?>" class="mobile-cta-btn">
+        <a href="tel:<?php echo esc_attr(str_replace(array('(', ')', ' ', '-'), '', get_theme_mod('peerali_phone', '(818) 688-4050'))); ?>" class="mobile-cta-btn">
             <i class="fas fa-phone"></i>
             <?php
             /* translators: %s: phone number */
-            printf(esc_html__('Call Now: %s', 'peerali-law'), esc_html(get_theme_mod('peerali_phone', '(818) 962-7071')));
+            printf(esc_html__('Call Now: %s', 'peerali-law'), esc_html(get_theme_mod('peerali_phone', '(818) 688-4050')));
             ?>
         </a>
         <?php if (function_exists('pll_the_languages')) : ?>

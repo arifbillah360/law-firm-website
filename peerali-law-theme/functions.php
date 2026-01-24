@@ -363,7 +363,7 @@ function peerali_law_customize_register($wp_customize) {
 
     // Phone Number
     $wp_customize->add_setting('peerali_phone', array(
-        'default'           => '(818) 962-7071',
+        'default'           => '(818) 688-4050',
         'sanitize_callback' => 'sanitize_text_field',
     ));
     $wp_customize->add_control('peerali_phone', array(
@@ -535,7 +535,7 @@ add_filter('post_thumbnail_html', 'peerali_law_add_lazy_loading');
  * Schema.org Markup for Law Firm
  */
 function peerali_law_schema_markup() {
-    $phone = get_theme_mod('peerali_phone', '(818) 962-7071');
+    $phone = get_theme_mod('peerali_phone', '(818) 688-4050');
     $email = get_theme_mod('peerali_email', 'info@peeralilaw.com');
     $address = get_theme_mod('peerali_address', 'Hollywood Hills, Los Angeles, CA');
 
