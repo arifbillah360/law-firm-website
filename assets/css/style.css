@@ -4319,3 +4319,155 @@ section {
     }
 }
 
+/* ========================================
+   CONTEXTUAL ICON COLORS - Practice Areas
+   ======================================== */
+
+/* Medical & Healthcare Icons */
+.compensation-list .fa-ambulance,
+.compensation-list .fa-hospital-user,
+.compensation-list .fa-hospital-alt,
+.compensation-list .fa-heartbeat,
+.compensation-list .fa-stethoscope,
+.compensation-list .fa-user-md,
+.compensation-list .fa-pills,
+.compensation-list .fa-x-ray,
+.compensation-list .fa-file-medical-alt,
+.compensation-list .fa-notes-medical,
+.check-list .fa-ambulance,
+.check-list .fa-hospital-user,
+.check-list .fa-heartbeat,
+.check-list .fa-stethoscope,
+.check-list .fa-user-md,
+.check-list .fa-x-ray,
+.check-list .fa-notes-medical {
+    color: #e53e3e;
+}
+
+/* Rehabilitation & Therapy Icons */
+.compensation-list .fa-dumbbell,
+.compensation-list .fa-user-nurse,
+.check-list .fa-dumbbell,
+.check-list .fa-user-nurse {
+    color: #38a169;
+}
+
+/* Financial & Wage Icons */
+.compensation-list .fa-money-bill-wave,
+.compensation-list .fa-chart-line-down,
+.compensation-list .fa-briefcase,
+.compensation-list .fa-briefcase-medical,
+.check-list .fa-chart-line-down,
+.check-list .fa-briefcase {
+    color: #2f855a;
+}
+
+/* Pain, Suffering & Emotional Icons */
+.compensation-list .fa-user-injured,
+.compensation-list .fa-brain,
+.compensation-list .fa-head-side-virus,
+.compensation-list .fa-frown,
+.compensation-list .fa-heart-crack,
+.compensation-list .fa-dizzy,
+.compensation-list .fa-head-side-cough-slash,
+.check-list .fa-user-injured,
+.check-list .fa-brain,
+.check-list .fa-dizzy,
+.check-list .fa-head-side-cough-slash {
+    color: #9f7aea;
+}
+
+/* Mobility & Disability Icons */
+.compensation-list .fa-wheelchair,
+.compensation-list .fa-home,
+.check-list .fa-wheelchair,
+.check-list .fa-spine,
+.check-list .fa-procedures,
+.check-list .fa-hand-holding-medical {
+    color: #3182ce;
+}
+
+/* Legal & Documentation Icons */
+.compensation-list .fa-file-alt,
+.compensation-list .fa-file-contract,
+.compensation-list .fa-gavel,
+.compensation-list .fa-balance-scale,
+.compensation-list .fa-clipboard,
+.check-list .fa-gavel,
+.check-list .fa-balance-scale,
+.check-list .fa-clipboard {
+    color: #1a365d;
+}
+
+/* Evidence & Investigation Icons */
+.compensation-list .fa-video,
+.compensation-list .fa-camera,
+.compensation-list .fa-calendar-check,
+.check-list .fa-video,
+.check-list .fa-camera,
+.check-list .fa-calendar-check {
+    color: #d69e2e;
+}
+
+/* Vehicle & Accident Icons */
+.compensation-list .fa-car-crash,
+.compensation-list .fa-car-burst,
+.compensation-list .fa-truck,
+.compensation-list .fa-walking,
+.check-list .fa-car-crash {
+    color: #c05621;
+}
+
+/* Miscellaneous Contextual Icons */
+.compensation-list .fa-phone-alt,
+.compensation-list .fa-user-times,
+.compensation-list .fa-ban,
+.compensation-list .fa-band-aid {
+    color: #718096;
+}
+
+/* Wrongful Death & Funeral Home Icons */
+.compensation-list .fa-church,
+.compensation-list .fa-hand-holding-heart,
+.compensation-list .fa-praying-hands,
+.compensation-list .fa-ring,
+.compensation-list .fa-user-friends,
+.compensation-list .fa-users,
+.compensation-list .fa-baby,
+.compensation-list .fa-child,
+.compensation-list .fa-box-open,
+.compensation-list .fa-fire,
+.compensation-list .fa-redo,
+.compensation-list .fa-exclamation-circle {
+    color: #553c9a;
+}
+
+/* Practice Area Specific Main Icons */
+.problem-list .fa-car-crash {
+    color: var(--accent-gold);
+}
+
+.problem-list .fa-truck {
+    color: var(--accent-gold);
+}
+
+.problem-list .fa-brain {
+    color: var(--accent-gold);
+}
+
+.problem-list .fa-wheelchair {
+    color: var(--accent-gold);
+}
+
+.problem-list .fa-user-injured {
+    color: var(--accent-gold);
+}
+
+/* Ensure icons maintain readability */
+.compensation-list i,
+.check-list i {
+    margin-right: 0.75rem;
+    font-size: 1.125rem;
+    flex-shrink: 0;
+}
+
