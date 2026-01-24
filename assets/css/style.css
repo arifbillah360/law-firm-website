@@ -2199,6 +2199,247 @@ section {
 }
 
 /* ============================================
+   FEE STRUCTURE SECTION
+   ============================================ */
+
+.fee-section {
+    background-color: var(--bg-white);
+    padding: 5rem var(--spacing-lg);
+}
+
+.fee-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.fee-header {
+    text-align: center;
+    margin-bottom: 3.75rem;
+}
+
+.fee-badge {
+    display: inline-block;
+    background-color: var(--accent-gold);
+    color: var(--text-white);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.5rem 1.25rem;
+    border-radius: 20px;
+    margin-bottom: 1.25rem;
+}
+
+.fee-heading {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 3rem;
+    line-height: 1.21;
+    color: var(--bg-dark);
+    margin-bottom: 1.25rem;
+}
+
+.fee-subheading {
+    font-family: var(--font-primary);
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.fee-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+    margin-bottom: 3.75rem;
+}
+
+.fee-box {
+    background-color: var(--bg-light);
+    padding: var(--spacing-2xl);
+    border-radius: 0.75rem;
+    border-left: 4px solid var(--accent-gold);
+}
+
+.fee-box-title {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.75rem;
+    color: var(--bg-dark);
+    margin-bottom: var(--spacing-md);
+}
+
+.fee-box-text {
+    font-family: var(--font-primary);
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.78;
+    color: var(--text-secondary);
+}
+
+.fee-box-highlight {
+    color: var(--accent-gold);
+    font-weight: 700;
+}
+
+.fee-transparency {
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--primary-navy-dark) 100%);
+    padding: 3.125rem var(--spacing-2xl);
+    border-radius: 0.75rem;
+    margin-bottom: 3.125rem;
+}
+
+.transparency-title {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 2rem;
+    color: var(--text-white);
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+.transparency-text {
+    font-family: var(--font-primary);
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.78;
+    color: #e2e8f0;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.testimonial-section {
+    background-color: #fffbf5;
+    padding: 3.125rem;
+    border-radius: 0.75rem;
+    border: 2px solid var(--accent-gold);
+    position: relative;
+}
+
+.quote-icon {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.875rem;
+    font-size: 3.75rem;
+    color: var(--accent-gold);
+    opacity: 0.3;
+    font-family: Georgia, serif;
+}
+
+.testimonial-text {
+    font-family: var(--font-primary);
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--bg-dark);
+    font-style: italic;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-author {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    text-align: right;
+}
+
+.testimonial-source {
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+.star-rating {
+    color: var(--accent-gold);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .fee-section {
+        padding: 3.75rem var(--spacing-lg);
+    }
+
+    .fee-heading {
+        font-size: 2.25rem;
+        line-height: 1.22;
+    }
+
+    .fee-content {
+        grid-template-columns: 1fr;
+        gap: 1.875rem;
+    }
+
+    .fee-box {
+        padding: 1.875rem;
+    }
+
+    .fee-transparency {
+        padding: 2.5rem 1.875rem;
+    }
+
+    .transparency-title {
+        font-size: 1.75rem;
+    }
+
+    .testimonial-section {
+        padding: 2.5rem 1.875rem;
+    }
+
+    .testimonial-text {
+        font-size: 1.125rem;
+        line-height: 1.78;
+    }
+}
+
+@media (max-width: 640px) {
+    .fee-heading {
+        font-size: 2rem;
+        line-height: 1.25;
+    }
+
+    .fee-subheading {
+        font-size: 1.125rem;
+        line-height: 1.56;
+    }
+
+    .fee-box-title {
+        font-size: 1.5rem;
+    }
+
+    .fee-box-text {
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+
+    .transparency-title {
+        font-size: 1.5rem;
+    }
+
+    .transparency-text {
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+
+    .testimonial-text {
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+
+    .quote-icon {
+        font-size: 2.5rem;
+        top: 0.9375rem;
+        left: 1.25rem;
+    }
+}
+
+/* ============================================
    CONTACT PAGE STYLES
    ============================================ */
 
