@@ -77,6 +77,18 @@ add_action('after_setup_theme', 'peerali_law_content_width', 0);
 /**
  * Remove WordPress Default Styles FIRST - Before enqueueing our styles
  */
+
+// Remove Elementor's Font Awesome
+add_action('elementor/frontend/after_enqueue_styles', function() {
+    wp_deregister_style('font-awesome');
+    wp_deregister_style('elementor-icons-fa-solid');
+    wp_deregister_style('elementor-icons-fa-regular');
+    wp_deregister_style('elementor-icons-fa-brands');
+});
+
+
+
+
 function peerali_law_remove_wp_styles() {
     if (!is_admin()) {
         // Remove AND deregister block library CSS (Gutenberg styles)
@@ -115,13 +127,21 @@ function peerali_law_enqueue_styles() {
         null
     );
 
-    // Font Awesome 5.15.4 CDN
-    wp_enqueue_style(
-        'font-awesome-5',
-        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css',
-        array(),
-        '5.15.4'
-    );
+// Font Awesome 6
+wp_enqueue_style(
+    'font-awesome',
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
+    array(),
+    '6.4.0'
+);
+
+// Font Awesome v5 compatibility shim (REQUIRED for .fas)
+wp_enqueue_style(
+    'font-awesome-v5-shim',
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/v5-shims.min.css',
+    array('font-awesome'),
+    '6.4.0'
+);
 
     // 1. Navigation CSS
     wp_enqueue_style(
