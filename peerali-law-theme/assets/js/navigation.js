@@ -100,33 +100,41 @@
         });
     }
 
-    /* ============================================
-       MOBILE DROPDOWN ACCORDION
-       ============================================ */
-    function initMobileDropdowns() {
-        elements.mobileDropdownToggles.forEach(toggle => {
-            toggle.addEventListener('click', function(e) {
-                e.preventDefault();
+/* ============================================
+   MOBILE DROPDOWN ACCORDION
+   ============================================ */
+function initMobileDropdowns() {
+    elements.mobileDropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
 
-                const dropdownId = this.getAttribute('data-dropdown');
-                const dropdownMenu = document.getElementById(`dropdown-${dropdownId}`);
+            const parentLi = this.closest('.mobile-nav-item');
+            const dropdownMenu = parentLi.querySelector('.mobile-dropdown-menu');
+            const icon = this.querySelector('.mobile-dropdown-icon');
 
-                // Toggle current dropdown
-                this.classList.toggle('active');
-                dropdownMenu?.classList.toggle('active');
+            // Toggle current dropdown
+            this.classList.toggle('active');
+            dropdownMenu?.classList.toggle('active');
+            
+            // Rotate icon
+            if (icon) {
+                icon.classList.toggle('rotated');
+            }
 
-                // Close other dropdowns (optional - comment out for multiple open dropdowns)
-                elements.mobileDropdownToggles.forEach(otherToggle => {
-                    if (otherToggle !== this) {
-                        otherToggle.classList.remove('active');
-                        const otherDropdownId = otherToggle.getAttribute('data-dropdown');
-                        const otherDropdownMenu = document.getElementById(`dropdown-${otherDropdownId}`);
-                        otherDropdownMenu?.classList.remove('active');
-                    }
-                });
+            // Close other dropdowns (optional - comment out for multiple open dropdowns)
+            elements.mobileDropdownToggles.forEach(otherToggle => {
+                if (otherToggle !== this) {
+                    otherToggle.classList.remove('active');
+                    const otherParentLi = otherToggle.closest('.mobile-nav-item');
+                    const otherDropdownMenu = otherParentLi?.querySelector('.mobile-dropdown-menu');
+                    const otherIcon = otherToggle.querySelector('.mobile-dropdown-icon');
+                    otherDropdownMenu?.classList.remove('active');
+                    otherIcon?.classList.remove('rotated');
+                }
             });
         });
-    }
+    });
+}
 
     /* ============================================
        SEARCH OVERLAY
