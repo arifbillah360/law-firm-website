@@ -413,7 +413,7 @@ function peerali_law_customize_register($wp_customize) {
 
     // Footer Address
     $wp_customize->add_setting('peerali_address', array(
-        'default'           => 'Hollywood Hills, Los Angeles, CA',
+        'default'           => '3575 Cahuenga Blvd Suite 480, Los Angeles, CA 90068',
         'sanitize_callback' => 'sanitize_textarea_field',
     ));
     $wp_customize->add_control('peerali_address', array(
@@ -537,7 +537,7 @@ add_filter('post_thumbnail_html', 'peerali_law_add_lazy_loading');
 function peerali_law_schema_markup() {
     $phone = get_theme_mod('peerali_phone', '(818) 688-4050');
     $email = get_theme_mod('peerali_email', 'info@peeralilaw.com');
-    $address = get_theme_mod('peerali_address', 'Hollywood Hills, Los Angeles, CA');
+    $address = get_theme_mod('peerali_address', '3575 Cahuenga Blvd Suite 480, Los Angeles, CA 90068');
 
     $schema = array(
         '@context' => 'https://schema.org',
@@ -550,8 +550,10 @@ function peerali_law_schema_markup() {
         'email' => $email,
         'address' => array(
             '@type' => 'PostalAddress',
+            'streetAddress' => '3575 Cahuenga Blvd Suite 480',
             'addressLocality' => 'Los Angeles',
             'addressRegion' => 'CA',
+            'postalCode' => '90068',
             'addressCountry' => 'US'
         ),
         'priceRange' => 'No Win, No Fee',

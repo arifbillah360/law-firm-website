@@ -141,7 +141,7 @@ if (!defined('ABSPATH')) {
                         </li>
                         <li>
                             <i class="fas fa-map-marker-alt"></i>
-                            <span><?php echo wp_kses_post(nl2br(get_theme_mod('peerali_address', 'Hollywood Hills<br>Los Angeles, CA'))); ?></span>
+                            <span><?php echo wp_kses_post(nl2br(get_theme_mod('peerali_address', '3575 Cahuenga Blvd Suite 480<br>Los Angeles, CA 90068'))); ?></span>
                         </li>
                         <li>
                             <i class="fas fa-clock"></i>
