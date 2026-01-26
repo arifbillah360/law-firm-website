@@ -604,8 +604,8 @@ section {
     background: var(--bg-light);
     border-left: 4px solid var(--accent-gold);
     border-radius: 0.5rem;
-    padding: var(--spacing-xl);
-    margin: var(--spacing-2xl) 0;
+    padding: 1rem;
+    margin: 1rem;
 }
 
 .highlight-box h3 {
@@ -970,11 +970,15 @@ section {
 }
 
 .testimonial-text {
-    flex: 1;
-    font-size: 1rem;
-    line-height: 1.7;
-    margin-bottom: var(--spacing-lg);
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--bg-dark);
     font-style: italic;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    z-index: 1;
 }
 
 .featured .testimonial-text {
@@ -1201,9 +1205,7 @@ section {
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    margin-bottom: 0;
 }
 
 .form-group label {
@@ -3923,7 +3925,7 @@ section {
 
 /* Practice Contact Section */
 .practice-contact-section {
-    background: var(--bg-white);
+    background: var(--bg-light);
 }
 
 .contact-intro {
@@ -3956,7 +3958,7 @@ section {
 .practice-contact-form-container {
     max-width: 700px;
     margin: 0 auto;
-    background: var(--bg-light);
+    background: var(--bg-white);
     padding: var(--spacing-3xl);
     border-radius: 1rem;
     box-shadow: var(--shadow-lg);
