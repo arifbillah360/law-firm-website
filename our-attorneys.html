@@ -52,270 +52,446 @@
             </div>
         </section>
 
-        <!-- Attorneys Section -->
-        <section class="attorneys-section">
-            <div class="container">
+   <!DOCTYPE html>
+<html lang="en">
+<head>
 
-                <!-- Attorney 1: Kristopher Peerali -->
-                <div class="attorney-profile">
-                    <div class="attorney-image-container">
-                        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=800" alt="Kristopher Peerali - Co-Founding Partner" class="attorney-image" loading="lazy">
-                        <div class="attorney-contact-card">
-                            <h4><i class="fas fa-phone"></i> Contact Kristopher</h4>
-                            <a href="tel:+18186884050" class="btn btn-primary btn-block">
-                                <i class="fas fa-phone"></i> (818) 688-4050
-                            </a>
-                            <a href="mailto:kris@peeralilaw.com" class="btn btn-outline btn-block">
-                                <i class="fas fa-envelope"></i> Email
-                            </a>
-                        </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* CSS Variables - Peerali Law Design System */
+        :root {
+            --primary-navy: #1e3a5f;
+            --primary-navy-dark: #152b45;
+            --primary-navy-light: #2a4a70;
+            --accent-gold: #c5a572;
+            --accent-gold-dark: #b39560;
+            --accent-gold-light: #d4b68a;
+            
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a5568;
+            --text-light: #718096;
+            --text-white: #ffffff;
+            
+            --bg-white: #ffffff;
+            --bg-light: #f7fafc;
+            --bg-dark: #2d3748;
+            
+            --border-color: #e2e8f0;
+            --success-green: #48bb78;
+            
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+            --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
+            
+            --font-primary: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-heading: 'Playfair Display', Georgia, serif;
+            
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            --spacing-3xl: 4rem;
+            --spacing-4xl: 6rem;
+            
+            --container-max: 1280px;
+            
+            --transition-fast: 0.2s ease;
+            --transition-base: 0.3s ease;
+            --transition-slow: 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-white);
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        /* Meet The Team Section */
+        .meet-team-section {
+            background: var(--bg-light);
+            padding: var(--spacing-4xl) 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-navy);
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+            padding-bottom: var(--spacing-md);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--primary-navy));
+            border-radius: 2px;
+        }
+
+        .section-intro {
+            text-align: center;
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto var(--spacing-3xl) auto;
+            line-height: 1.7;
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-2xl);
+            margin-top: var(--spacing-3xl);
+        }
+
+        @media (min-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Team Member Card */
+        .team-member-card {
+            background: var(--bg-white);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+            display: flex;
+            flex-direction: column;
+            border: 2px solid transparent;
+        }
+
+        .team-member-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent-gold);
+        }
+
+        /* Image Container */
+        .team-image-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background: var(--bg-light);
+        }
+
+        .team-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .team-member-card:hover .team-image {
+            transform: scale(1.05);
+        }
+
+        /* Gold Accent Bar */
+        .team-accent-bar {
+            height: 6px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-gold-dark));
+        }
+
+        /* Team Info */
+        .team-info {
+            padding: var(--spacing-xl);
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .team-name {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.3;
+        }
+
+        .team-title {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .team-description {
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+            flex: 1;
+        }
+
+        /* Team Credentials */
+        .team-credentials {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+            padding: var(--spacing-md) 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .credential-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .credential-item i {
+            color: var(--accent-gold);
+            font-size: 0.875rem;
+        }
+
+        /* Button */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 0.5rem;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--text-white);
+            border-color: var(--accent-gold);
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-gold-dark);
+            border-color: var(--accent-gold-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-navy);
+            border-color: var(--primary-navy);
+            width: 100%;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-navy);
+            color: var(--text-white);
+        }
+
+        /* Responsive */
+        @media (max-width: 767px) {
+            .meet-team-section {
+                padding: var(--spacing-3xl) 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-intro {
+                font-size: 1rem;
+            }
+
+            .team-grid {
+                gap: var(--spacing-xl);
+            }
+
+            .team-info {
+                padding: var(--spacing-lg);
+            }
+
+            .team-name {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Meet The Team Section -->
+    <section class="meet-team-section">
+        <div class="container">
+            <h2 class="section-title">Our Attorneys</h2>
+            <p class="section-intro">
+                Trial-ready lawyers with a proven track record of excellence. Our attorneys have recovered over $50 million for clients 
+                and are recognized as leaders in catastrophic injury law.
+            </p>
+
+            <div class="team-grid">
+                <!-- Team Member 1 - Kristopher Peerali -->
+                <div class="team-member-card">
+                    <div class="team-image-container">
+                        <img src="https://landings.peeralilaw.com/wp-content/uploads/2026/01/kristopher-peerali.jpg" alt="Kristopher Peerali" class="team-image">
                     </div>
-
-                    <div class="attorney-details">
-                        <div class="attorney-header">
-                            <div>
-                                <h2 class="attorney-name">Kristopher Peerali</h2>
-                                <p class="attorney-title">Co-Founding Partner</p>
-                            </div>
-                            <div class="attorney-badges">
-                                <span class="badge badge-gold"><i class="fas fa-award"></i> Super Lawyers Rising Star 2026</span>
-                                <span class="badge badge-navy"><i class="fas fa-trophy"></i> USA Top 100 Settlement</span>
-                            </div>
-                        </div>
-
-                        <div class="attorney-credentials">
+                    <div class="team-accent-bar"></div>
+                    <div class="team-info">
+                        <h3 class="team-name">Kristopher Peerali</h3>
+                        <p class="team-title">Co-Founding Partner</p>
+                        
+                        <div class="team-credentials">
                             <div class="credential-item">
                                 <i class="fas fa-graduation-cap"></i>
-                                <div>
-                                    <strong>Education</strong>
-                                    <p>Juris Doctor, Southwestern Law School</p>
-                                </div>
+                                <span>Southwestern Law School, J.D.</span>
                             </div>
                             <div class="credential-item">
-                                <i class="fas fa-balance-scale"></i>
-                                <div>
-                                    <strong>Bar Admissions</strong>
-                                    <p>California State Bar</p>
-                                </div>
+                                <i class="fas fa-award"></i>
+                                <span>Super Lawyers Rising Star 2026</span>
                             </div>
                             <div class="credential-item">
-                                <i class="fas fa-certificate"></i>
-                                <div>
-                                    <strong>Practice Areas</strong>
-                                    <p>Catastrophic Injury, Brain Injury, Wrongful Death</p>
-                                </div>
+                                <i class="fas fa-trophy"></i>
+                                <span>USA Top 100 Settlement</span>
                             </div>
                         </div>
-
-                        <div class="attorney-bio">
-                            <h3><i class="fas fa-user"></i> About Kristopher</h3>
-
-                            <p>Kristopher Peerali is the Co-Founding Partner of Peerali Law, a boutique personal injury firm in Los Angeles specializing in catastrophic injury litigation. With a background representing Fortune 500 companies in high-stakes litigation, Kris brings elite-level legal expertise to individual clients who need it most.</p>
-
-                            <p>Before co-founding Peerali Law in 2021, Kristopher built a distinguished career in corporate defense, where he honed his skills in complex litigation and trial strategy. However, he felt called to work where he could make a deeper personal impact—representing individuals whose lives have been forever changed by catastrophic injuries.</p>
-
-                            <p>Kristopher designed Peerali Law around one core principle: <strong>everyone deserves access to elite legal representation, regardless of their ability to pay upfront</strong>. This philosophy led to the firm's strict no-win, no-fee policy, ensuring that financial constraints never stand between a client and justice.</p>
-
-                            <h4><i class="fas fa-award"></i> Recognition & Achievements</h4>
-                            <ul class="achievement-list">
-                                <li><i class="fas fa-check-circle"></i> Selected for Super Lawyers Rising Stars 2026 (top 2.5% of attorneys in California)</li>
-                                <li><i class="fas fa-check-circle"></i> Recognized for USA Top 100 Personal Injury Settlement</li>
-                                <li><i class="fas fa-check-circle"></i> Co-authored peer-reviewed articles in Advocate magazine</li>
-                                <li><i class="fas fa-check-circle"></i> Featured speaker at Beverly Hills Bar Association</li>
-                                <li><i class="fas fa-check-circle"></i> Secured over $50 million in compensation for clients since 2021</li>
-                            </ul>
-
-                            <h4><i class="fas fa-gavel"></i> Trial-Ready Approach</h4>
-                            <p>Kristopher's corporate litigation background gives him a unique advantage when facing well-funded insurance companies and their defense teams. He knows their strategies, understands their tactics, and prepares every case as if it will go to trial—even when pursuing settlement negotiations.</p>
-
-                            <p>This trial-ready mindset has resulted in significantly higher settlements for clients. In one notable case, Kris took over a claim just three weeks before trial where the client had been offered $74,000. Through expert discovery and aggressive negotiation, he secured a $300,000 settlement—more than four times the original offer.</p>
-
-                            <h4><i class="fas fa-heart"></i> Personal Philosophy</h4>
-                            <p>"Personal injury cases aren't just about minimizing corporate losses; these are people who need justice to rebuild their lives. Every client deserves attorneys who will fight as hard for them as we would for a Fortune 500 company."</p>
-                        </div>
+                        
+                        <p class="team-description">
+                            Specializes in catastrophic injury litigation with elite-level legal expertise from Fortune 500 defense background. 
+                            Secured over $50 million in compensation for clients with a trial-ready approach that delivers exceptional results.
+                        </p>
+                        
+                        <a href="https://landings.peeralilaw.com/kristopher-peerali/" class="btn btn-primary">
+                            <i class="fas fa-user"></i>
+                            View Full Profile
+                        </a>
                     </div>
                 </div>
 
-                <!-- Attorney 2: Serena Peerali -->
-                <div class="attorney-profile">
-                    <div class="attorney-image-container">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800" alt="Serena Peerali - Co-Founding Partner" class="attorney-image" loading="lazy">
-                        <div class="attorney-contact-card">
-                            <h4><i class="fas fa-phone"></i> Contact Serena</h4>
-                            <a href="tel:+18186884050" class="btn btn-primary btn-block">
-                                <i class="fas fa-phone"></i> (818) 688-4050
-                            </a>
-                            <a href="mailto:serena@peeralilaw.com" class="btn btn-outline btn-block">
-                                <i class="fas fa-envelope"></i> Email
-                            </a>
-                        </div>
+                <!-- Team Member 2 - Serena Peerali -->
+                <div class="team-member-card">
+                    <div class="team-image-container">
+                        <img src="https://landings.peeralilaw.com/wp-content/uploads/2026/01/serena-full.jpg.webp" alt="Serena Peerali" class="team-image">
                     </div>
-
-                    <div class="attorney-details">
-                        <div class="attorney-header">
-                            <div>
-                                <h2 class="attorney-name">Serena Peerali</h2>
-                                <p class="attorney-title">Co-Founding Partner</p>
-                            </div>
-                            <div class="attorney-badges">
-                                <span class="badge badge-gold"><i class="fas fa-star"></i> 5.0/5.0 Client Rating</span>
-                                <span class="badge badge-navy"><i class="fas fa-handshake"></i> Compassionate Advocacy</span>
-                            </div>
-                        </div>
-
-                        <div class="attorney-credentials">
+                    <div class="team-accent-bar"></div>
+                    <div class="team-info">
+                        <h3 class="team-name">Serena Peerali</h3>
+                        <p class="team-title">Co-Founding Partner</p>
+                        
+                        <div class="team-credentials">
                             <div class="credential-item">
                                 <i class="fas fa-graduation-cap"></i>
-                                <div>
-                                    <strong>Education</strong>
-                                    <p>Juris Doctor, Southwestern Law School</p>
-                                </div>
+                                <span>Southwestern Law School, J.D.</span>
                             </div>
                             <div class="credential-item">
-                                <i class="fas fa-balance-scale"></i>
-                                <div>
-                                    <strong>Bar Admissions</strong>
-                                    <p>California State Bar</p>
-                                </div>
+                                <i class="fas fa-star"></i>
+                                <span>5.0/5.0 Client Rating</span>
                             </div>
                             <div class="credential-item">
-                                <i class="fas fa-certificate"></i>
-                                <div>
-                                    <strong>Practice Areas</strong>
-                                    <p>Catastrophic Injury, Wrongful Death, Complex Litigation</p>
-                                </div>
+                                <i class="fas fa-heart"></i>
+                                <span>Compassionate Advocacy</span>
                             </div>
                         </div>
-
-                        <div class="attorney-bio">
-                            <h3><i class="fas fa-user"></i> About Serena</h3>
-
-                            <p>Serena Peerali is the Co-Founding Partner of Peerali Law and a dedicated advocate for individuals and families facing the devastating impact of catastrophic injuries. Known for her compassionate approach and unwavering dedication, Serena has earned a reputation as an attorney who truly cares about her clients' well-being and recovery.</p>
-
-                            <p>Since co-founding Peerali Law in 2021, Serena has been instrumental in building the firm's client-centered culture. She works directly with clients throughout their cases, ensuring they receive personalized attention and clear communication at every stage of the legal process.</p>
-
-                            <p>Serena's practice focuses on catastrophic injury cases, wrongful death claims, and complex personal injury litigation. She has particular expertise in cases involving long-term care needs, permanent disability, and claims requiring extensive medical documentation and expert testimony.</p>
-
-                            <h4><i class="fas fa-heart"></i> Client Testimonials</h4>
-                            <div class="testimonial-highlight">
-                                <i class="fas fa-quote-left"></i>
-                                <p>"Choosing Peerali Law Firm was the best decision I've ever made. Serena was absolutely wonderful. I just lost my husband and she was so helpful, understanding, as well as compassionate. She really cared. They were all so great. This is truly the best law firm out there."</p>
-                                <p class="testimonial-author">— Vicki D., Google Review</p>
-                            </div>
-
-                            <h4><i class="fas fa-briefcase"></i> Areas of Expertise</h4>
-                            <ul class="achievement-list">
-                                <li><i class="fas fa-check-circle"></i> Wrongful death and survivor claims</li>
-                                <li><i class="fas fa-check-circle"></i> Catastrophic injury requiring long-term care</li>
-                                <li><i class="fas fa-check-circle"></i> Brain and spinal cord injuries</li>
-                                <li><i class="fas fa-check-circle"></i> Medical malpractice and negligence</li>
-                                <li><i class="fas fa-check-circle"></i> Complex multi-party litigation</li>
-                            </ul>
-
-                            <h4><i class="fas fa-users"></i> Compassionate Representation</h4>
-                            <p>Serena understands that behind every case is a person or family going through one of the most difficult times of their lives. She takes the time to listen to her clients' stories, understand their unique needs, and develop legal strategies that address both their immediate and long-term concerns.</p>
-
-                            <p>Her compassionate approach has earned Peerali Law over 100 five-star reviews, with clients consistently praising Serena's empathy, responsiveness, and dedication to achieving the best possible outcomes.</p>
-
-                            <h4><i class="fas fa-balance-scale"></i> Legal Philosophy</h4>
-                            <p>"Every client deserves to be heard, respected, and represented with excellence. Our job is not just to win cases—it's to help people rebuild their lives after tragedy."</p>
-                        </div>
+                        
+                        <p class="team-description">
+                            Dedicated advocate for catastrophic injury and wrongful death cases with a compassionate, client-centered approach. 
+                            Known for empathy and dedication, earning over 100 five-star reviews for exceptional client service.
+                        </p>
+                        
+                        <a href="https://landings.peeralilaw.com/serena-peerali/" class="btn btn-primary">
+                            <i class="fas fa-user"></i>
+                            View Full Profile
+                        </a>
                     </div>
                 </div>
 
-                <!-- Attorney 3: Ali Hosseini -->
-                <div class="attorney-profile">
-                    <div class="attorney-image-container">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800" alt="Ali Hosseini - Attorney" class="attorney-image" loading="lazy">
-                        <div class="attorney-contact-card">
-                            <h4><i class="fas fa-phone"></i> Contact Ali</h4>
-                            <a href="tel:+18186884050" class="btn btn-primary btn-block">
-                                <i class="fas fa-phone"></i> (818) 688-4050
-                            </a>
-                            <a href="mailto:ali@peeralilaw.com" class="btn btn-outline btn-block">
-                                <i class="fas fa-envelope"></i> Email
-                            </a>
-                        </div>
+                <!-- Team Member 3 - Ali Hosseini -->
+                <div class="team-member-card">
+                    <div class="team-image-container">
+                        <img src="https://landings.peeralilaw.com/wp-content/uploads/2026/01/A4A9543-color-min.jpg.webp" alt="Ali Hosseini" class="team-image">
                     </div>
-
-                    <div class="attorney-details">
-                        <div class="attorney-header">
-                            <div>
-                                <h2 class="attorney-name">Ali Hosseini</h2>
-                                <p class="attorney-title">Attorney</p>
-                            </div>
-                            <div class="attorney-badges">
-                                <span class="badge badge-gold"><i class="fas fa-chart-line"></i> Strategic Litigation</span>
-                                <span class="badge badge-navy"><i class="fas fa-search"></i> Case Investigation</span>
-                            </div>
-                        </div>
-
-                        <div class="attorney-credentials">
+                    <div class="team-accent-bar"></div>
+                    <div class="team-info">
+                        <h3 class="team-name">Ali Hosseini</h3>
+                        <p class="team-title">Attorney</p>
+                        
+                        <div class="team-credentials">
                             <div class="credential-item">
                                 <i class="fas fa-graduation-cap"></i>
-                                <div>
-                                    <strong>Education</strong>
-                                    <p>Juris Doctor</p>
-                                </div>
+                                <span>Juris Doctor</span>
                             </div>
                             <div class="credential-item">
-                                <i class="fas fa-balance-scale"></i>
-                                <div>
-                                    <strong>Bar Admissions</strong>
-                                    <p>California State Bar</p>
-                                </div>
+                                <i class="fas fa-search"></i>
+                                <span>Strategic Litigation</span>
                             </div>
                             <div class="credential-item">
-                                <i class="fas fa-certificate"></i>
-                                <div>
-                                    <strong>Practice Areas</strong>
-                                    <p>Personal Injury, Vehicle Accidents, Premises Liability</p>
-                                </div>
+                                <i class="fas fa-clipboard-check"></i>
+                                <span>Case Investigation</span>
                             </div>
                         </div>
-
-                        <div class="attorney-bio">
-                            <h3><i class="fas fa-user"></i> About Ali</h3>
-
-                            <p>Ali Hosseini is a dedicated personal injury attorney at Peerali Law, bringing meticulous attention to detail and strategic thinking to every case. Ali's thorough approach to case investigation and preparation has been instrumental in securing favorable outcomes for clients across a wide range of personal injury matters.</p>
-
-                            <p>Ali works closely with the founding partners to develop comprehensive case strategies, conduct detailed legal research, and ensure that every aspect of a client's claim is thoroughly documented and presented. His commitment to excellence and client advocacy makes him an invaluable member of the Peerali Law team.</p>
-
-                            <h4><i class="fas fa-search"></i> Investigative Excellence</h4>
-                            <p>Ali's strength lies in his ability to uncover critical evidence and build compelling narratives from complex fact patterns. He works with accident reconstructionists, medical experts, and investigators to develop the strongest possible foundation for each case.</p>
-
-                            <ul class="achievement-list">
-                                <li><i class="fas fa-check-circle"></i> Comprehensive case investigation and evidence gathering</li>
-                                <li><i class="fas fa-check-circle"></i> Expert witness coordination and case development</li>
-                                <li><i class="fas fa-check-circle"></i> Detailed medical record analysis and documentation</li>
-                                <li><i class="fas fa-check-circle"></i> Strategic settlement negotiation</li>
-                                <li><i class="fas fa-check-circle"></i> Client communication and case management</li>
-                            </ul>
-
-                            <h4><i class="fas fa-briefcase"></i> Practice Focus</h4>
-                            <p>Ali handles a diverse caseload of personal injury matters, with particular experience in:</p>
-
-                            <ul class="achievement-list">
-                                <li><i class="fas fa-check-circle"></i> Motor vehicle accidents (car, truck, motorcycle)</li>
-                                <li><i class="fas fa-check-circle"></i> Premises liability and slip-and-fall cases</li>
-                                <li><i class="fas fa-check-circle"></i> Pedestrian and bicycle accidents</li>
-                                <li><i class="fas fa-check-circle"></i> Product liability claims</li>
-                                <li><i class="fas fa-check-circle"></i> Insurance bad faith disputes</li>
-                            </ul>
-
-                            <h4><i class="fas fa-handshake"></i> Client-Centered Approach</h4>
-                            <p>Ali believes that effective legal representation begins with truly understanding each client's unique circumstances and goals. He takes the time to explain legal processes in clear terms, answer questions promptly, and keep clients informed throughout their case.</p>
-
-                            <p>His dedication to client service, combined with his analytical skills and attention to detail, ensures that every client receives thorough, professional representation from initial consultation through case resolution.</p>
-
-                            <h4><i class="fas fa-gavel"></i> Professional Philosophy</h4>
-                            <p>"Success in personal injury law requires more than legal knowledge—it requires dedication to understanding each client's story and fighting for the compensation they deserve to move forward with their lives."</p>
-                        </div>
+                        
+                        <p class="team-description">
+                            Dedicated attorney specializing in personal injury, vehicle accidents, and premises liability. 
+                            Known for meticulous case investigation, strategic thinking, and comprehensive evidence gathering that builds compelling cases.
+                        </p>
+                        
+                        <a href="https://landings.peeralilaw.com/ali-hosseini/" class="btn btn-primary">
+                            <i class="fas fa-user"></i>
+                            View Full Profile
+                        </a>
                     </div>
                 </div>
-
             </div>
-        </section>
+        </div>
+    </section>
+</body>
+</html>
 
         <!-- Why Choose Our Team Section -->
         <section class="why-choose-team-section">
