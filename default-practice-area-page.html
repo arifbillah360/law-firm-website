@@ -657,8 +657,55 @@ body {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top-Rated Catastrophic Injury Law Firm</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <style>
-
+        :root {
+            --primary-navy: #1e3a5f;
+            --primary-navy-dark: #152b45;
+            --primary-navy-light: #2a4a70;
+            --accent-gold: #c5a572;
+            --accent-gold-dark: #b39560;
+            
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a5568;
+            --text-white: #ffffff;
+            
+            --bg-white: #ffffff;
+            --bg-light: #f7fafc;
+            
+            --border-color: #e2e8f0;
+            
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+            
+            --font-primary: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-heading: 'Playfair Display', Georgia, serif;
+            
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            --spacing-3xl: 4rem;
+            --spacing-4xl: 6rem;
+            
+            --container-max: 1280px;
+            
+            --transition-base: 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
         body {
             font-family: var(--font-primary);
@@ -669,8 +716,10 @@ body {
         }
         
         .top-rated-section {
-            background: var(--bg-light);
+            background: var(--bg-white);
             padding: var(--spacing-4xl) 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
         }
         
         .container {
@@ -728,13 +777,13 @@ body {
         }
         
         .pill {
-            background: var(--bg-white);
+            background: var(--bg-light);
             color: var(--primary-navy);
             padding: 0.75rem 1.5rem;
             border-radius: 2rem;
             font-size: 0.9375rem;
             font-weight: 600;
-            border: 2px solid var(--primary-navy);
+            border: 2px solid var(--border-color);
             transition: all var(--transition-base);
             cursor: pointer;
         }
@@ -742,6 +791,7 @@ body {
         .pill:hover {
             background: var(--primary-navy);
             color: var(--text-white);
+            border-color: var(--primary-navy);
             transform: translateY(-2px);
             box-shadow: var(--shadow-md);
         }
@@ -754,19 +804,21 @@ body {
         }
         
         .review-card {
-            background: var(--bg-white);
-            border-radius: 1rem;
-            padding: var(--spacing-2xl);
-            box-shadow: var(--shadow-md);
+            background: var(--bg-light);
+            border-radius: 0.75rem;
+            padding: var(--spacing-lg) var(--spacing-xl);
+            box-shadow: var(--shadow-sm);
             transition: all var(--transition-base);
             display: flex;
             align-items: center;
-            gap: var(--spacing-lg);
+            gap: var(--spacing-md);
+            border: 2px solid transparent;
         }
         
         .review-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
+            border-color: var(--accent-gold);
         }
         
         .review-icon {
@@ -774,7 +826,7 @@ body {
         }
         
         .review-icon i {
-            font-size: 3rem;
+            font-size: 2.5rem;
         }
         
         .google-icon {
@@ -791,7 +843,7 @@ body {
         
         .review-number {
             font-family: var(--font-heading);
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 800;
             color: var(--accent-gold);
             line-height: 1;
@@ -799,7 +851,7 @@ body {
         }
         
         .review-text {
-            font-size: 0.9375rem;
+            font-size: 0.875rem;
             color: var(--text-secondary);
             font-weight: 500;
         }
@@ -811,24 +863,26 @@ body {
         }
         
         .recognition-card {
-            background: var(--bg-white);
-            border-radius: 1rem;
-            padding: var(--spacing-xl);
-            box-shadow: var(--shadow-md);
+            background: var(--bg-light);
+            border-radius: 0.75rem;
+            padding: var(--spacing-lg) var(--spacing-xl);
+            box-shadow: var(--shadow-sm);
             transition: all var(--transition-base);
             display: flex;
             align-items: center;
-            gap: var(--spacing-lg);
+            gap: var(--spacing-md);
+            border: 2px solid transparent;
         }
         
         .recognition-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
+            border-color: var(--accent-gold);
         }
         
         .recognition-icon {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             background: linear-gradient(135deg, var(--primary-navy), var(--primary-navy-light));
             border-radius: 50%;
             display: flex;
@@ -844,7 +898,7 @@ body {
         }
         
         .recognition-icon i {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             color: var(--text-white);
         }
         
@@ -867,7 +921,7 @@ body {
         
         .recognition-title {
             font-family: var(--font-heading);
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             color: var(--primary-navy);
             font-weight: 700;
             line-height: 1.4;
@@ -906,9 +960,14 @@ body {
             .review-card {
                 flex-direction: column;
                 text-align: center;
+                padding: var(--spacing-lg);
             }
             
             .review-number {
+                font-size: 1.75rem;
+            }
+            
+            .review-icon i {
                 font-size: 2rem;
             }
             
@@ -919,6 +978,20 @@ body {
             .recognition-card {
                 flex-direction: column;
                 text-align: center;
+                padding: var(--spacing-lg);
+            }
+            
+            .recognition-icon {
+                width: 55px;
+                height: 55px;
+            }
+            
+            .recognition-icon i {
+                font-size: 1.25rem;
+            }
+            
+            .recognition-title {
+                font-size: 1rem;
             }
         }
         
@@ -996,7 +1069,6 @@ body {
     </section>
 </body>
 </html>
-
 
         <!-- Case Results Section -->
         <section class="practice-case-results-section">
@@ -1292,38 +1364,6 @@ body {
         </section>
 
 
-
-        <!-- Final CTA Section -->
-        <section class="cta-section">
-            <div class="cta-container">
-                <h2 class="cta-heading">Get the Results You Deserve</h2>
-                <p class="cta-description">
-                    Don't settle for less. Our track record speaks for itself—over $50 million recovered for clients
-                    like you. We prepare every case for trial, which means insurance companies take us seriously
-                    and offer fair settlements.
-                </p>
-                <p class="cta-tagline">
-                    <strong>No win, no fee.</strong> You don't pay unless we win your case.
-                </p>
-                <div class="cta-buttons">
-                    <a href="#contact-form" class="btn btn-primary">
-                        <svg class="btn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 2C6 1.44772 6.44772 1 7 1H13C13.5523 1 14 1.44772 14 2V3H16C16.5523 3 17 3.44772 17 4V16C17 16.5523 16.5523 17 16 17H4C3.44772 17 3 16.5523 3 16V4C3 3.44772 3.44772 3 4 3H6V2Z" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        Schedule Free Consultation
-                    </a>
-                    <a href="tel:8186884050" class="btn btn-secondary">
-                        <svg class="btn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2 3C2 2.44772 2.44772 2 3 2H5.15287C5.64171 2 6.0589 2.35341 6.13927 2.8356L6.87858 7.27147C6.95075 7.70451 6.73206 8.13397 6.3394 8.3303L4.79126 9.10437C5.90756 11.8783 8.12168 14.0924 10.8956 15.2087L11.6697 13.6606C11.866 13.2679 12.2955 13.0492 12.7285 13.1214L17.1644 13.8607C17.6466 13.9411 18 14.3583 18 14.8471V17C18 17.5523 17.5523 18 17 18H15C7.8203 18 2 12.1797 2 5V3Z" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        Call (818) 688-4050
-                    </a>
-                </div>
-                <p class="cta-features">
-                    Free consultation • No obligation • Zero upfront costs
-                </p>
-            </div>
-        </section>
     </main>
 
     <!-- Footer -->
