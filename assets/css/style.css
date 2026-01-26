@@ -3342,7 +3342,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
     margin: var(--spacing-2xl) 0;
     flex-wrap: wrap;
 }
