@@ -18,18 +18,416 @@
 
     <!-- Main Styles -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+      /* About Section CSS */
+.about-section {
+    background: var(--bg-light);
+    padding: var(--spacing-4xl) 0;
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--spacing-xl);
+}
+
+.section-title {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-gold), var(--primary-navy));
+    border-radius: 2px;
+}
+
+.section-intro {
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto var(--spacing-3xl);
+    line-height: 1.8;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-3xl);
+}
+
+.about-card {
+    background: var(--bg-white);
+    border-radius: 1rem;
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-navy), var(--primary-navy-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-lg);
+    transition: all var(--transition-base);
+}
+
+.about-card:hover .card-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+}
+
+.card-icon i {
+    font-size: 2.5rem;
+    color: var(--text-white);
+}
+
+.about-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--primary-navy);
+    margin-bottom: var(--spacing-md);
+}
+
+.about-card p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-lg);
+    flex-grow: 1;
+}
+
+.profile-btn {
+    display: inline-block;
+    background: var(--accent-gold);
+    color: var(--text-white);
+    border: 2px solid var(--accent-gold);
+    padding: 0.875rem 1.75rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: all var(--transition-base);
+    font-size: 0.9375rem;
+}
+
+.profile-btn:hover {
+    background: var(--accent-gold-dark);
+    border-color: var(--accent-gold-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.highlight-box {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-navy-dark) 100%);
+    color: var(--text-white);
+    padding: var(--spacing-2xl);
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.highlight-box h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-white);
+}
+
+.highlight-box p {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Top Rated Section CSS */
+body {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-primary);
+    background: var(--bg-white);
+}
+
+.top-rated-section {
+    background: var(--bg-light);
+    padding: var(--spacing-4xl) 0;
+}
+
+.section-intro strong {
+    color: var(--primary-navy);
+    font-weight: 700;
+}
+
+.practice-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: var(--spacing-3xl);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pill {
+    background: var(--bg-white);
+    color: var(--primary-navy);
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    border: 2px solid var(--primary-navy);
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.pill:hover {
+    background: var(--primary-navy);
+    color: var(--text-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-3xl);
+}
+
+.review-card {
+    background: var(--bg-white);
+    border-radius: 1rem;
+    padding: var(--spacing-2xl);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.review-icon {
+    flex-shrink: 0;
+}
+
+.review-icon i {
+    font-size: 3rem;
+}
+
+.google-icon {
+    color: #4285F4;
+}
+
+.yelp-icon {
+    color: #D32323;
+}
+
+.review-content {
+    flex: 1;
+}
+
+.review-number {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent-gold);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.review-text {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.recognition-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.recognition-card {
+    background: var(--bg-white);
+    border-radius: 1rem;
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.recognition-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.recognition-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--primary-navy), var(--primary-navy-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all var(--transition-base);
+}
+
+.recognition-card:hover .recognition-icon {
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+    transform: scale(1.1) rotate(5deg);
+}
+
+.recognition-icon i {
+    font-size: 1.75rem;
+    color: var(--text-white);
+}
+
+.recognition-content {
+    flex: 1;
+}
+
+.recognition-badge {
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+    color: var(--text-white);
+    padding: 0.375rem 0.875rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-bottom: var(--spacing-sm);
+}
+
+.recognition-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    color: var(--primary-navy);
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+/* Mobile Responsive - About Section */
+@media (max-width: 767px) {
+    .about-section {
+        padding: var(--spacing-3xl) 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-intro {
+        font-size: 1rem;
+    }
+    
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .highlight-box h3 {
+        font-size: 1.5rem;
+    }
+    
+    .highlight-box p {
+        font-size: 1rem;
+    }
+}
+
+/* Mobile Responsive - Top Rated Section */
+@media (max-width: 767px) {
+    .top-rated-section {
+        padding: var(--spacing-3xl) 0;
+    }
+    
+    .practice-pills {
+        gap: 0.75rem;
+    }
+    
+    .pill {
+        font-size: 0.875rem;
+        padding: 0.625rem 1.25rem;
+    }
+    
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .review-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .review-number {
+        font-size: 2rem;
+    }
+    
+    .recognition-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .recognition-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Tablet Responsive */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .reviews-grid,
+    .recognition-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+    </style>
 </head>
 <body>
     <!-- Header Navigation -->
     <header id="main-header">
-        <!-- Include header.html content via PHP or JavaScript -->
         <script>
             fetch('includes/header.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('main-header').innerHTML = data;
-
-                    // Load navigation.js after header is inserted
                     const navScript = document.createElement('script');
                     navScript.src = 'assets/js/navigation.js';
                     document.body.appendChild(navScript);
@@ -59,8 +457,8 @@
             </div>
         </section>
 
-        <!-- Badges Section -->
-        <section class="badges-section">
+        <!-- Badges Section - Background: White -->
+        <section class="badges-section" style="background: #ffffff;">
             <div class="container">
                 <div class="badges-grid">
                     <div class="badge-item">
@@ -106,8 +504,8 @@
             </div>
         </section>
 
-        <!-- Main Content Section -->
-        <section class="practice-area-content-section">
+        <!-- Main Content Section - Background: Light Gray -->
+        <section class="practice-area-content-section" style="background: #f7fafc; padding: 6rem 0;">
             <div class="container">
                 <h2 class="section-title">Why Catastrophic Injury Victims Can't Afford to Hire the Wrong Lawyer</h2>
 
@@ -140,8 +538,8 @@
             </div>
         </section>
 
-        <!-- Case Study Section -->
-        <section class="case-study-section">
+        <!-- Case Study Section - Background: White -->
+        <section class="case-study-section" style="background: #ffffff; padding: 6rem 0;">
             <div class="container">
                 <div class="case-study-box">
                     <div class="case-study-label">CASE STUDY</div>
@@ -170,21 +568,60 @@
             </div>
         </section>
 
-        <!-- About Section -->
-        <section class="practice-area-about-section">
+        <!-- About Section - Background: Light Gray -->
+        <section class="about-section" style="background: #f7fafc; padding: 6rem 0;">
             <div class="container">
                 <h2 class="section-title">About Peerali Law</h2>
-
-                <p>Peerali Law is a boutique personal injury law firm based in Hollywood Hills, Los Angeles, with a dedicated focus on complex and catastrophic injury litigation.</p>
-
-                <p>Our practice was founded by Cofounding Partner <strong>Kristopher Peerali</strong>, who represented Fortune 500 companies before realizing his calling was in representing accident victims with the same calibre of legal power normally reserved for corporations. Our Cofounding Partner <strong>Serena Peerali</strong> comes with a wealth of trial experience in personal injury law, having been awarded a USA Top 100 Personal Injury Settlement prior to setting up Peerali Law. Injury lawyer <strong>Ali Hosseini</strong> joined us in 2024, and has already been awarded with a Super Lawyers Rising Star 2026 recognition.</p>
-
-                <p class="highlight-text">Our attorneys continue to bring Big-Law litigation standards to personal injury work across Los Angeles.</p>
+                <p class="section-intro">
+                    A boutique personal injury law firm based in Hollywood Hills, Los Angeles, with a dedicated focus on complex and catastrophic injury litigation.
+                </p>
+                
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>Kristopher Peerali</h3>
+                        <p>
+                            Cofounding Partner who represented Fortune 500 companies before dedicating his practice to representing accident victims with the same calibre of legal power normally reserved for corporations.
+                        </p>
+                        <a href="#" class="profile-btn">View Profile</a>
+                    </div>
+                    
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h3>Serena Peerali</h3>
+                        <p>
+                            Cofounding Partner with extensive trial experience in personal injury law, awarded a USA Top 100 Personal Injury Settlement prior to establishing Peerali Law.
+                        </p>
+                        <a href="#" class="profile-btn">View Profile</a>
+                    </div>
+                    
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3>Ali Hosseini</h3>
+                        <p>
+                            Injury lawyer who joined in 2024 and has already been recognized with a Super Lawyers Rising Star 2026 award.
+                        </p>
+                        <a href="#" class="profile-btn">View Profile</a>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <h3>Big-Law Standards for Personal Injury</h3>
+                    <p>
+                        Our attorneys continue to bring Big-Law litigation standards to personal injury work across Los Angeles, ensuring every client receives exceptional legal representation.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- Stats Section -->
-        <section class="stats-highlight-section">
+        <!-- Stats Section - Background: White -->
+        <section class="stats-highlight-section" style="background: #ffffff; padding: 6rem 0;">
             <div class="container">
                 <div class="stats-content">
                     <h2>$50 Million Recovered for Clients in Five Years</h2>
@@ -230,87 +667,74 @@
             </div>
         </section>
 
-        <!-- Top Rated Section -->
-        <section class="top-rated-section">
+
+    <!-- Top Rated Section - Background: Light Gray -->
+        <section class="top-rated-section" style="background: #f7fafc; padding: 6rem 0;">
             <div class="container">
                 <h2 class="section-title">Top-Rated Catastrophic Injury Law Firm in Los Angeles</h2>
-
-                <p>Peerali Law is one of the highest-rated catastrophic injury firms in Los Angeles, trusted by survivors of paralysis, severe brain trauma, spinal cord injuries, amputation injuries, organ damage, and wrongful death cases. We have received <strong>100+ five-star client reviews</strong> across Google and Yelp, reflecting our commitment to personal attention, aggressive litigation, and life-changing results.</p>
-
-                <div class="review-stats">
-                    <div class="review-stat-item">
-                        <i class="fab fa-google"></i>
-                        <div>
+                
+                <p class="section-intro">
+                    Trusted by survivors of catastrophic injuries. <strong>100+ five-star client reviews</strong> across Google and Yelp.
+                </p>
+                
+                <div class="practice-pills">
+                    <div class="pill">Car accidents</div>
+                    <div class="pill">Pedestrian accidents</div>
+                    <div class="pill">Rear-end accidents</div>
+                    <div class="pill">Motorcycle accidents</div>
+                    <div class="pill">Truck accidents</div>
+                    <div class="pill">Bus accidents</div>
+                    <div class="pill">Rideshare accidents</div>
+                </div>
+                
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-icon">
+                            <i class="fab fa-google google-icon"></i>
+                        </div>
+                        <div class="review-content">
                             <div class="review-number">80+</div>
-                            <div class="review-label">five-star reviews on Google</div>
+                            <div class="review-text">five-star reviews on Google</div>
                         </div>
                     </div>
-                    <div class="review-stat-item">
-                        <i class="fab fa-yelp"></i>
-                        <div>
+                    
+                    <div class="review-card">
+                        <div class="review-icon">
+                            <i class="fab fa-yelp yelp-icon"></i>
+                        </div>
+                        <div class="review-content">
                             <div class="review-number">20+</div>
-                            <div class="review-label">five-star reviews on Yelp</div>
+                            <div class="review-text">five-star reviews on Yelp</div>
                         </div>
                     </div>
                 </div>
-
-                <p>In addition to client testimonials, our attorneys have been recognised within the legal community through <strong>Super Lawyers Rising Stars 2026</strong> and a <strong>Top 100 Personal Injury Settlement</strong> recognition in the U.S.</p>
-            </div>
-        </section>
-
-        <!-- Fee Structure Section -->
-        <section class="fee-section">
-            <div class="fee-container">
-                <!-- Header -->
-                <div class="fee-header">
-                    <span class="fee-badge">Our Promise</span>
-                    <h2 class="fee-heading">Transparent Fee Structure</h2>
-                    <p class="fee-subheading">
-                        At Peerali Law, we operate on a no-win, no-fee model. This means you pay nothing upfront, and you owe us nothing unless we win your case.
-                    </p>
-                </div>
-
-                <!-- Fee Comparison -->
-                <div class="fee-content">
-                    <div class="fee-box">
-                        <h3 class="fee-box-title">Industry Standard</h3>
-                        <p class="fee-box-text">
-                            Across the United States, contingency fees for personal injury cases generally range from <span class="fee-box-highlight">33%–40%</span>, and may increase if a case goes to trial. Some firms also add extra fees or charge back expenses to the client — often without making this clear at the start of representation.
-                        </p>
+                
+                <div class="recognition-grid">
+                    <div class="recognition-card">
+                        <div class="recognition-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="recognition-content">
+                            <span class="recognition-badge">Award</span>
+                            <h3 class="recognition-title">Super Lawyers Rising Stars 2026</h3>
+                        </div>
                     </div>
-
-                    <div class="fee-box">
-                        <h3 class="fee-box-title">Our Commitment</h3>
-                        <p class="fee-box-text">
-                            We don't believe in hidden costs. Peerali Law provides <span class="fee-box-highlight">transparent, written fee agreements</span> so you know exactly what to expect. Many of our clients appreciate that we honor the terms of our contracts — with no surprise charges later.
-                        </p>
+                    
+                    <div class="recognition-card">
+                        <div class="recognition-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="recognition-content">
+                            <span class="recognition-badge">Recognition</span>
+                            <h3 class="recognition-title">Top 100 Personal Injury Settlement</h3>
+                        </div>
                     </div>
-                </div>
-
-                <!-- Transparency Promise -->
-                <div class="fee-transparency">
-                    <h3 class="transparency-title">No Hidden Costs. No Surprises.</h3>
-                    <p class="transparency-text">
-                        Every client receives a clear, written fee agreement before we begin. We honor our commitments and believe in building trust through transparency. Your financial peace of mind matters to us.
-                    </p>
-                </div>
-
-                <!-- Testimonial -->
-                <div class="testimonial-section">
-                    <div class="quote-icon">"</div>
-                    <div class="star-rating">★★★★★</div>
-                    <p class="testimonial-text">
-                        "I am very happy with the settlement results… Peerali Law firm also did not charge me extra money as agreed upon in the retainer contract. They honored to stay at their minimum fee which meant a lot to me."
-                    </p>
-                    <p class="testimonial-author">
-                        — L.F. <span class="testimonial-source">(Yelp Review)</span>
-                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- Case Results Section -->
-        <section class="practice-case-results-section">
+        <!-- Case Results Section - Background: White -->
+        <section class="practice-case-results-section" style="background: #ffffff; padding: 6rem 0;">
             <div class="container">
                 <h2 class="section-title">Peerali Law: Our Catastrophic Injury Case Results</h2>
 
@@ -348,8 +772,8 @@
             </div>
         </section>
 
-        <!-- What Counts Section -->
-        <section class="what-counts-section">
+        <!-- What Counts Section - Background: Light Gray -->
+        <section class="what-counts-section" style="background: #f7fafc; padding: 6rem 0;">
             <div class="container">
                 <h2 class="section-title">What Counts as a Catastrophic Injury?</h2>
 
@@ -427,62 +851,8 @@
             </div>
         </section>
 
-        <!-- Contact Form Section -->
-        <section class="practice-contact-section" id="contact-form">
-            <div class="container">
-                <div class="contact-intro">
-                    <h2 class="section-title">Get a Free Case Review</h2>
-                    <p>Have you or a loved one suffered a catastrophic injury in Los Angeles?</p>
-                    <p>If you'd like to understand the potential value of your claim, contact us for a free case review. You'll get to speak directly to a Peerali Law attorney. You can also call us now on <a href="tel:+18186884050">(818) 688-4050</a>.</p>
-                    <p class="contact-note">The consultation is zero-pressure and without obligation to proceed. It won't affect your ability to claim compensation, and is designed to advise you on the best next steps to take.</p>
-                </div>
-
-                <div class="practice-contact-form-container">
-                    <h3>Free Case Review</h3>
-
-                    <form id="practiceContactForm" class="contact-form">
-                        <div class="form-group">
-                            <label for="firstName">First Name <span class="required">*</span></label>
-                            <input type="text" id="firstName" name="firstName" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="lastName">Last Name <span class="required">*</span></label>
-                            <input type="text" id="lastName" name="lastName" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email Address <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">Phone Number <span class="required">*</span></label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-
-                        <div class="form-group full-width">
-                            <label for="message">Tell us about your case... <span class="required">*</span></label>
-                            <textarea id="message" name="message" rows="6" required></textarea>
-                        </div>
-
-                        <div class="form-group checkbox-group full-width">
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="smsConsent" name="smsConsent" required>
-                                <span class="checkbox-text">By providing your phone number, you agree to receive text messages from Peerali Law for updates, promotions, and important information. Message and data rates may apply. You can opt-out at any time by replying 'STOP' to our messages.</span>
-                            </label>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-large">
-                            <i class="fas fa-paper-plane"></i> Submit
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section class="testimonials-section">
+        <!-- Testimonials Section - Background: White -->
+        <section class="testimonials-section" style="background: #ffffff; padding: 6rem 0;">
             <div class="container">
                 <h2 class="section-title">What Our Clients Say</h2>
 
@@ -550,8 +920,109 @@
             </div>
         </section>
 
-        <!-- Final CTA Section -->
-        <section class="cta-section">
+        <!-- Fee Structure Section - Background: Light Gray -->
+        <section class="fee-section" style="background: #f7fafc; padding: 6rem 0;">
+            <div class="fee-container">
+                <div class="fee-header">
+                    <span class="fee-badge">Our Promise</span>
+                    <h2 class="fee-heading">Transparent Fee Structure</h2>
+                    <p class="fee-subheading">
+                        At Peerali Law, we operate on a no-win, no-fee model. This means you pay nothing upfront, and you owe us nothing unless we win your case.
+                    </p>
+                </div>
+
+                <div class="fee-content">
+                    <div class="fee-box">
+                        <h3 class="fee-box-title">Industry Standard</h3>
+                        <p class="fee-box-text">
+                            Across the United States, contingency fees for personal injury cases generally range from <span class="fee-box-highlight">33%–40%</span>, and may increase if a case goes to trial. Some firms also add extra fees or charge back expenses to the client — often without making this clear at the start of representation.
+                        </p>
+                    </div>
+
+                    <div class="fee-box">
+                        <h3 class="fee-box-title">Our Commitment</h3>
+                        <p class="fee-box-text">
+                            We don't believe in hidden costs. Peerali Law provides <span class="fee-box-highlight">transparent, written fee agreements</span> so you know exactly what to expect. Many of our clients appreciate that we honor the terms of our contracts — with no surprise charges later.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="fee-transparency">
+                    <h3 class="transparency-title">No Hidden Costs. No Surprises.</h3>
+                    <p class="transparency-text">
+                        Every client receives a clear, written fee agreement before we begin. We honor our commitments and believe in building trust through transparency. Your financial peace of mind matters to us.
+                    </p>
+                </div>
+
+                <div class="testimonial-section">
+                    <div class="quote-icon">"</div>
+                    <div class="star-rating">★★★★★</div>
+                    <p class="testimonial-text">
+                        "I am very happy with the settlement results… Peerali Law firm also did not charge me extra money as agreed upon in the retainer contract. They honored to stay at their minimum fee which meant a lot to me."
+                    </p>
+                    <p class="testimonial-author">
+                        — L.F. <span class="testimonial-source">(Yelp Review)</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section - Background: White -->
+        <section class="practice-contact-section" id="contact-form" style="background: #ffffff; padding: 6rem 0;">
+            <div class="container">
+                <div class="contact-intro">
+                    <h2 class="section-title">Get a Free Case Review</h2>
+                    <p>Have you or a loved one suffered a catastrophic injury in Los Angeles?</p>
+                    <p>If you'd like to understand the potential value of your claim, contact us for a free case review. You'll get to speak directly to a Peerali Law attorney. You can also call us now on <a href="tel:+18186884050">(818) 688-4050</a>.</p>
+                    <p class="contact-note">The consultation is zero-pressure and without obligation to proceed. It won't affect your ability to claim compensation, and is designed to advise you on the best next steps to take.</p>
+                </div>
+
+                <div class="practice-contact-form-container">
+                    <h3>Free Case Review</h3>
+
+                    <form id="practiceContactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="firstName">First Name <span class="required">*</span></label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName">Last Name <span class="required">*</span></label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="message">Tell us about your case... <span class="required">*</span></label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+
+                        <div class="form-group checkbox-group full-width">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="smsConsent" name="smsConsent" required>
+                                <span class="checkbox-text">By providing your phone number, you agree to receive text messages from Peerali Law for updates, promotions, and important information. Message and data rates may apply. You can opt-out at any time by replying 'STOP' to our messages.</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-paper-plane"></i> Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section - Background: Navy Gradient -->
+        <section class="cta-section" style="background: linear-gradient(135deg, #1e3a5f 0%, #152b45 100%); padding: 6rem 0;">
             <div class="cta-container">
                 <h2 class="cta-heading">Get the Results You Deserve</h2>
                 <p class="cta-description">
@@ -601,7 +1072,6 @@
         document.getElementById('practiceContactForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Get form data
             const formData = {
                 firstName: document.getElementById('firstName').value,
                 lastName: document.getElementById('lastName').value,
@@ -611,15 +1081,11 @@
                 smsConsent: document.getElementById('smsConsent').checked
             };
 
-            // Here you would typically send the data to your server
             console.log('Form submitted:', formData);
-
-            // Show success message
             alert('Thank you for contacting us! We will get back to you within 24 hours.');
-
-            // Reset form
             this.reset();
         });
     </script>
 </body>
 </html>
+
